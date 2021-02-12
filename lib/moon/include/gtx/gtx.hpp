@@ -19,6 +19,8 @@
 //Alias
 #include "../alias.hpp"
 
+#include "../concepts.hpp"
+
 //GameContxtBase
 #include "gtx_base.hpp"
 
@@ -39,7 +41,7 @@ namespace Moon::Core
      * 
      * @tparam Type 
      */
-    template <typename Type>
+    template <Moon::Concepts::Ent_t Type>
     struct GameContext_t : public GameContextBase_t
     {
         /**Vector de entities*/
@@ -90,12 +92,12 @@ namespace Moon::Core
          * @param eid 
          * @return Cmp_t& 
          */
-        template <typename Cmp_t>
-        Cmp_t &addComponentById(Moon::Alias::EntityId eid)
+        template <Moon::Concepts::Cmp_t CMP_t>
+        CMP_t &addComponentById(Moon::Alias::EntityId eid)
         {
             Type *e = this->getEntityById(eid);
-            auto &cmp = this->components.template createComponent<Cmp_t>(eid);
-            e->template addComponent<Cmp_t>(&cmp);
+            auto &cmp = this->components.template createComponent<CMP_t>(eid);
+            e->template addComponent<CMP_t>(&cmp);
             return cmp;
         }
 
@@ -105,7 +107,7 @@ namespace Moon::Core
          * @tparam CMP_t 
          * @return std::vector<CMP_t>& 
          */
-        template <typename CMP_t>
+        template <Moon::Concepts::Cmp_t CMP_t>
         std::vector<CMP_t> &getComponents()
         {
             return this->components.template getComponents<CMP_t>();
