@@ -5,14 +5,17 @@
 namespace Moon::Core
 {
 
-    template <typename CMP_t>
+    template <class CMP_t>
+    requires std::is_base_of<Moon::Core::ComponentBase_t, CMP_t>::value 
     void EntityBase_t::addComponent(CMP_t *cmp)
     {
         this->components.insert({CMP_t::getComponentType(), cmp});
     }
 
-    template <typename CMP_t>
-    CMP_t *EntityBase_t::getComponent()
+    template <class CMP_t>
+    requires std::is_base_of<Moon::Core::ComponentBase_t, CMP_t>::value
+        CMP_t *
+        EntityBase_t::getComponent()
     {
         auto i = components.find(CMP_t::getComponentType());
 

@@ -13,6 +13,8 @@
 //Alias de tipos
 #include "../alias.hpp"
 
+#include "../cmp/cmp_base.hpp"
+
 //Component_Base
 #include "../cmp/cmp_base.hpp"
 
@@ -57,8 +59,10 @@ namespace Moon::Core
          * @tparam CMP_t 
          * @param cmp 
          */
-        template <typename CMP_t>
-        void addComponent(CMP_t *cmp);
+        template <class CMP_t>
+        requires std::is_base_of<Moon::Core::ComponentBase_t, CMP_t>::value 
+        void
+        addComponent(CMP_t *cmp);
 
         /**
          * @brief Get the Component object
@@ -66,8 +70,10 @@ namespace Moon::Core
          * @tparam CMP_t 
          * @return CMP_t* 
          */
-        template <typename CMP_t>
-        CMP_t *getComponent();
+        template <class CMP_t>
+        requires std::is_base_of<Moon::Core::ComponentBase_t, CMP_t>::value
+        CMP_t *
+        getComponent();
     };
 
 } // namespace Moon::Core

@@ -13,6 +13,8 @@
 //std::vector
 #include <vector>
 
+#include "../concepts.hpp"
+
 /**
  * @brief Namespace del core del Motor
  * 
@@ -37,7 +39,7 @@ namespace Moon::Core
      * 
      * @tparam CMP_t 
      */
-    template <typename CMP_t>
+    template <Moon::Concepts::Cmp_t CMP_t>
     struct ComponentVect_t : ComponentBaseVect_t
     {
         //vector encapsulado
