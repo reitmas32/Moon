@@ -92,11 +92,11 @@ namespace Moon::Core
          * @param eid 
          * @return Cmp_t& 
          */
-        template <Moon::Concepts::Cmp_t CMP_t>
-        CMP_t &addComponentById(Moon::Alias::EntityId eid)
+        template <Moon::Concepts::Cmp_t CMP_t, typename... Ts>
+        CMP_t &addComponentById(Moon::Alias::EntityId eid, Ts &&...args)
         {
             Type *e = this->getEntityById(eid);
-            auto &cmp = this->components.template createComponent<CMP_t>(eid);
+            auto &cmp = this->components.template createComponent<CMP_t>(eid, args...);
             e->template addComponent<CMP_t>(&cmp);
             return cmp;
         }

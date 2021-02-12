@@ -10,15 +10,15 @@ namespace Moon::Core
     {
     }
 
-    template <typename CMP_t>
-    CMP_t &ComponentStorage_t::createComponent(Moon::Alias::EntityId eid)
+    template <Moon::Concepts::Cmp_t CMP_t, typename... Ts>
+    CMP_t &ComponentStorage_t::createComponent(Moon::Alias::EntityId eid, Ts &&...args)
     {
         auto &v = this->getComponents<CMP_t>();
-        auto &cmp = v.emplace_back(eid);
+        auto &cmp = v.emplace_back(eid, args...);
         return cmp;
     }
 
-    template <typename CMP_t>
+    template <Moon::Concepts::Cmp_t CMP_t>
     std::vector<CMP_t> &ComponentStorage_t::createComponentVector()
     {
         auto v = std::make_unique<Moon::Core::ComponentVect_t<CMP_t>>();
@@ -29,7 +29,7 @@ namespace Moon::Core
         return vectCmp->components;
     }
 
-    template <typename CMP_t>
+    template <Moon::Concepts::Cmp_t CMP_t>
     std::vector<CMP_t> &ComponentStorage_t::getComponents()
     {
         auto typeID = CMP_t::getComponentType();
@@ -45,7 +45,7 @@ namespace Moon::Core
         }
     }
 
-    template <typename CMP_t>
+    template <Moon::Concepts::Cmp_t CMP_t>
     const std::vector<CMP_t> &ComponentStorage_t::getComponents() const
     {
         auto typeID = CMP_t::getComponentType();

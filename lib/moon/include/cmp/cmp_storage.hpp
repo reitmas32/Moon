@@ -22,6 +22,8 @@
 //Alias
 #include "../alias.hpp"
 
+#include "../concepts.hpp"
+
 //Wrapper de un vector<Components>
 #include "cmp_vect.hpp"
 
@@ -50,17 +52,8 @@ namespace Moon::Core
          * @param eid 
          * @return CMP_t& 
          */
-        template <typename CMP_t>
-        CMP_t &createComponent(Moon::Alias::EntityId eid);
-
-        /**
-         * @brief Create a Component Vector object
-         * 
-         * @tparam CMP_t 
-         * @return std::vector<CMP_t>& 
-         */
-        template <typename CMP_t>
-        std::vector<CMP_t> &createComponentVector();
+        template <Moon::Concepts::Cmp_t CMP_t, typename... Ts>
+        CMP_t &createComponent(Moon::Alias::EntityId eid, Ts &&...args);
 
         /**
          * @brief Get the Components object
@@ -68,7 +61,7 @@ namespace Moon::Core
          * @tparam CMP_t 
          * @return std::vector<CMP_t>& 
          */
-        template <typename CMP_t>
+        template <Moon::Concepts::Cmp_t CMP_t>
         std::vector<CMP_t> &getComponents();
 
         /**
@@ -77,10 +70,18 @@ namespace Moon::Core
          * @tparam CMP_t 
          * @return const std::vector<CMP_t>& 
          */
-        template <typename CMP_t>
+        template <Moon::Concepts::Cmp_t CMP_t>
         const std::vector<CMP_t> &getComponents() const;
 
         /**Mapa de tipos y Vector<Components>*/
         std::unordered_map<Moon::Alias::ComponentType, std::unique_ptr<ComponentBaseVect_t>> storage;
+        /**
+         * @brief Create a Component Vector object
+         * 
+         * @tparam CMP_t 
+         * @return std::vector<CMP_t>& 
+         */
+        template <Moon::Concepts::Cmp_t CMP_t>
+        std::vector<CMP_t> &createComponentVector();
     };
 } // namespace Moon::Core
