@@ -2,14 +2,9 @@
 #     Config  of       #
 #       Project        #
 ########################
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 3.0.0)
 
-if (CMAKE_VERSION VERSION_LESS 3.0)
-  PROJECT(moon CXX)
-else()
-  cmake_policy(SET CMP0048 NEW)
-  PROJECT(moon VERSION "1.0.0" LANGUAGES CXX)
-endif()
+project (main VERSION 1.2.3)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 ########################
 #     Main Dirs of     #
@@ -17,6 +12,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 ########################
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(INCLUDE_DIR_MOON ${CMAKE_CURRENT_SOURCE_DIR}/lib/moon/include)
 set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
 ########################
@@ -26,6 +22,7 @@ set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 include_directories(
     .
     ${INCLUDE_DIR}
+    ${INCLUDE_DIR_MOON}
 )
 
 ########################
@@ -34,25 +31,27 @@ include_directories(
 ########################
 file( GLOB_RECURSE LIB_SOURCES ${SOURCE_DIR}/*.cpp )
 file( GLOB_RECURSE LIB_HEADERS ${INCLUDE_DIR}/*.hpp )
+file( GLOB_RECURSE LIB_HEADERS_LIB ${CMAKE_CURRENT_SOURCE_DIR}/lib/*/include/*.hpp )
 
 ########################
 #     Add Source of    #
-#       Library        #
+#       Project        #
 ########################
-add_library(
-    moon
-    SHARED
+add_executable(
+    app 
     ${LIB_SOURCES} 
     ${LIB_HEADERS}
+    ${LIB_HEADERS_LIB}
 )
-
+#target_link_libraries( app
+#pthread
+#)
 ########################
-# Add Linker Libraries #
+#     Include Libs     #
 ########################
-TARGET_LINK_LIBRARIES( moon
-    pthread
-    X11
-)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/libs.cmake)
+    include(${CMAKE_CURRENT_SOURCE_DIR}/libs.cmake)
+endif()
 
 ########################
 #       Testing        #
@@ -89,7 +88,14 @@ else()
     ########################
     #  Dir of the binary   #
     ########################
-    #set(EXECUTABLE_OUTPUT_PATH ${BUILD_DIR} CACHE PATH "Build directory" FORCE)
-    #set(CMAKE_BINARY_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/build)
+    set(EXECUTABLE_OUTPUT_PATH ${BUILD_DIR} CACHE PATH "Build directory" FORCE)
+    set(CMAKE_BINARY_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/build)
 endif()
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")  
+#cmake -DBUILD_SHARED_LIBS=ON
+#make
+#sudo cp -a googletest/include/gtest /usr/include
+#sudo cp lib/libgtest_main.so lib/libgtest.so /usr/lib/
+
+#sudo pacman -Syu gtest
+#sudo apt-get install libgtest-dev
