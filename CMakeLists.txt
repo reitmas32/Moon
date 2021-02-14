@@ -110,7 +110,7 @@ if(${EXAMPLES} STREQUAL "ON")
     string(REGEX REPLACE "[A-Za-z/]*/examples/" "" IN_EXECUTABLE ${var})
     string(REGEX REPLACE ".cpp" "" OUT_EXECUTABLE ${IN_EXECUTABLE})
     add_executable(${OUT_EXECUTABLE} ${var})
-    target_link_libraries(${OUT_EXECUTABLE} PUBLIC moon)
+    target_link_libraries(${OUT_EXECUTABLE} PUBLIC moon ncurses)
 
     add_custom_command(
       TARGET ${OUT_EXECUTABLE} POST_BUILD
