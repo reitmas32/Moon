@@ -33,7 +33,7 @@ Moon es un Game Engine desarrollado por [EGE Studios](https://github.com/EGE-Stu
 
 ### Usando Moon Core
 - Puede en contrar ejemplos de Moon en los siguientes repositorios
-    - [Moon-Hello](https://github.com/EGE-Studios/Moon/tree/master/examples)
+    - [Examples](https://github.com/EGE-Studios/Moon/tree/master/examples)
 
 ## Documentación de Moon Core
 
