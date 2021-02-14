@@ -92,4 +92,37 @@ else()
     #set(EXECUTABLE_OUTPUT_PATH ${BUILD_DIR} CACHE PATH "Build directory" FORCE)
     #set(CMAKE_BINARY_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/build)
 endif()
+
+########################
+#     Examples of      #
+#       Project        #
+########################
+option(EXAMPLES "OFF")
+
+if(${EXAMPLES} STREQUAL "ON")
+
+  message("GENERATE THE EXAMPLES")
+
+  set(EXAMPLES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/examples)
+  file( GLOB_RECURSE LIB_EXAMPLES ${EXAMPLES_DIR}/*.cpp )
+
+  foreach(var IN LISTS LIB_EXAMPLES)
+    string(REGEX REPLACE "[A-Za-z/]*/examples/" "" IN_EXECUTABLE ${var})
+    string(REGEX REPLACE ".cpp" "" OUT_EXECUTABLE ${IN_EXECUTABLE})
+    add_executable(${OUT_EXECUTABLE} ${var})
+    target_link_libraries(${OUT_EXECUTABLE} PUBLIC moon)
+
+    add_custom_command(
+      TARGET ${OUT_EXECUTABLE} POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E copy
+              ${CMAKE_CURRENT_SOURCE_DIR}/build/cmake/${OUT_EXECUTABLE}
+              ${CMAKE_CURRENT_SOURCE_DIR}/build/cmake/examples/${OUT_EXECUTABLE}
+      COMMAND ${CMAKE_COMMAND} -E remove -f
+              ${CMAKE_CURRENT_SOURCE_DIR}/build/cmake/${OUT_EXECUTABLE})
+
+
+  endforeach()
+
+endif()
+
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")  
