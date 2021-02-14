@@ -1,24 +1,24 @@
 #pragma once
 
+#include <concepts>
 #include <iostream>
 #include <unordered_map>
-#include <concepts>
 
 /**
  * @brief Namespace de los alias del motor
- * 
+ *
  */
-namespace Moon::Alias
-{
+namespace Moon::Alias {
     /**
      * @brief Tipo definido para dar un ID a cada entidad
-     * 
+     *
      */
     using EntityId = std::size_t;
 
     /**
-     * @brief Tipos definidos para identificar cada tipo distinto de Objeto en el Motor
-     * 
+     * @brief Tipos definidos para identificar cada tipo distinto de Objeto en
+     * el Motor
+     *
      */
     using EntityType = std::uint16_t;
     using SystemType = std::uint16_t;
@@ -33,7 +33,7 @@ namespace Moon::Alias
 
     /**
      * @brief Tipo para identificar los eventos en el Motor
-     * 
+     *
      */
     using EventCode = std::uint16_t;
 

@@ -4,31 +4,30 @@
  * @brief Clase de la que heredan todos los components del Motor
  * @version 0.1
  * @date 2020-08-03
- * 
+ *
  * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
- * 
+ *
  */
 #pragma once
 
-//Alias
+// Alias
 #include "../../include/alias.hpp"
 
-//Component Base
+// Component Base
 #include "../../include/cmp/cmp_base.hpp"
 
 /**
  * @brief Namespace del core del Motor
- * 
+ *
  */
-namespace Moon::Core
-{
+namespace Moon::Core {
 
     /**
      * @brief Clase de la que heredan todos los Components del Motor
-     * 
-     * @tparam Type 
+     *
+     * @tparam Type
      */
-    template <class Type>
+    template<class Type>
     struct Component_t : public ComponentBase_t
     {
         /**ID de la Entity a la que pertenece el Component*/
@@ -36,29 +35,29 @@ namespace Moon::Core
 
         /**
          * @brief Construct a new Component_t object
-         * 
+         *
          */
         Component_t();
 
         /**
          * @brief Construct a new Component_t object
-         * 
+         *
          * @param eid Id de la ENtity a la que pertenece el Component
          */
         Component_t(Moon::Alias::EntityId eid);
 
         /**
          * @brief Destroy the Component_t object
-         * 
+         *
          */
         virtual ~Component_t() = 0;
 
         /**
          * @brief Get the Component Type object
-         * 
-         * @return Moon::Alias::ComponentType 
+         *
+         * @return Moon::Alias::ComponentType
          */
-        static Moon::Alias::ComponentType getComponentType();
+        static Moon::Alias::ComponentType getComponentType() noexcept;
     };
 
 } // namespace Moon::Core

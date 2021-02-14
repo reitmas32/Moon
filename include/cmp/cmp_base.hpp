@@ -4,24 +4,23 @@
  * @brief Clase de la que heredan todos los components del Motor
  * @version 0.1
  * @date 2020-08-03
- * 
+ *
  * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
- * 
+ *
  */
 #pragma once
 
-//Alias
+// Alias
 #include "../alias.hpp"
 
 /**
  * @brief Namespace del core del Motor
- * 
+ *
  */
-namespace Moon::Core
-{
+namespace Moon::Core {
     /**
      * @brief Clase de la que heredan todos los components del Motor
-     * 
+     *
      */
     struct ComponentBase_t
     {
@@ -30,13 +29,13 @@ namespace Moon::Core
 
         /**
          * @brief Construct a new ComponentBase_t object
-         * 
+         *
          */
         ComponentBase_t();
 
         /**
          * @brief Destroy the ComponentBase_t object
-         * 
+         *
          */
         virtual ~ComponentBase_t() = 0;
     };

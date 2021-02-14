@@ -4,67 +4,66 @@
  * @brief Clase de la que heredan los Systems del Motor
  * @version 0.1
  * @date 2020-08-03
- * 
+ *
  * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
- * 
+ *
  */
 #pragma once
 
-//Alias
+// Alias
 #include "../alias.hpp"
 
-//SystemBase
+// SystemBase
 #include "sys_base.hpp"
 
 #include "../concepts.hpp"
 
 /**
  * @brief Namespace del core del Motor
- * 
+ *
  */
-namespace Moon::Core
-{
+namespace Moon::Core {
     /**
      * @brief Clase de la que heredan todos los Systems del Motor
-     * 
-     * @tparam Type 
+     *
+     * @tparam Type
      */
-    template <Moon::Concepts::Ctx_t... Type>
+    template<Moon::Concepts::Ctx_t... Type>
     struct System_t : public SystemBase_t
     {
 
-    public:
+      public:
         /**
          * @brief Contructor de System_t object
-         * 
+         *
          */
         System_t();
 
         /**
          * @brief Destructor de System_t object
-         * 
+         *
          */
         virtual ~System_t() = 0;
 
         /**
          * @brief Get the System Type object
-         * 
-         * @return Moon::Alias::SystemType 
+         *
+         * @return Moon::Alias::SystemType
          */
-        static Moon::Alias::SystemType getSystemType();
+        static Moon::Alias::SystemType getSystemType() noexcept;
 
         /**
          * @brief Metodo que actualiza al System
-         * 
-         * @param gameContext 
+         *
+         * @param gameContext
          */
-        virtual void update(Type *...gameContext) = 0;
+        virtual void update(Type*... gameContext) = 0;
 
         /**
          * @brief Metodo que indica si el system sigue alive
-         * 
-         * @return true 
-         * @return false 
+         *
+         * @return true
+         * @return false
          */
         virtual bool alive() = 0;
     };

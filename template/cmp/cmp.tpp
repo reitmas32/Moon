@@ -2,22 +2,23 @@
 
 #include "../../include/cmp/cmp.hpp"
 
-namespace Moon::Core
-{
-    template <class Type>
-    Component_t<Type>::Component_t() {}
+namespace Moon::Core {
+    template<class Type>
+    Component_t<Type>::Component_t()
+    {}
 
-    template <class Type>
-    Component_t<Type>::Component_t(Moon::Alias::EntityId eid) : eid{eid} {}
+    template<class Type>
+    Component_t<Type>::Component_t(Moon::Alias::EntityId eid)
+      : eid{ eid }
+    {}
 
-    template <class Type>
+    template<class Type>
     Component_t<Type>::~Component_t()
-    {
-        /*Nada*/
+    { /*Nada*/
     }
 
-    template <class Type>
-    Moon::Alias::ComponentType Component_t<Type>::getComponentType()
+    template<class Type>
+    Moon::Alias::ComponentType Component_t<Type>::getComponentType() noexcept
     {
         static Moon::Alias::ComponentType type = ++nextType;
         return type;
