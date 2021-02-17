@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -std=c++20 -shared -Wl,-soname,libminiwin.so -o libminiwin.so CMakeFiles/miniwin.dir/src/miniwin.cpp.o  -lpthread -lX11 

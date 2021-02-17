@@ -1,0 +1,46 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-moon",
+            "type": "shell",
+            "command": "cd lib/moon/build/cmake && cmake ../..",
+            "args": [],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "build-app",
+            "type": "shell",
+            "command": "cd build/cmake && cmake ../.. && make",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "run-app",
+            "type": "shell",
+            "command": "cd build && ./app",
+            "args": [],
+            "dependsOn": [
+                "build-app"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

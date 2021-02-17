@@ -1,0 +1,9 @@
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/CMakeFiles/rebuild_cache.dir
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/CMakeFiles/edit_cache.dir
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/CMakeFiles/Tetris.dir
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/lib/miniwin/CMakeFiles/rebuild_cache.dir
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/lib/miniwin/CMakeFiles/edit_cache.dir
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/lib/miniwin/CMakeFiles/miniwin.dir
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/lib/Moon/CMakeFiles/rebuild_cache.dir
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/lib/Moon/CMakeFiles/edit_cache.dir
+/home/rafa/proyects/Moon/examples/tetris/build/cmake/lib/Moon/CMakeFiles/moon.dir

@@ -1,0 +1,1 @@
+/usr/bin/clang++  -std=c++20 -rdynamic CMakeFiles/Tetris.dir/src/main.cpp.o -o Tetris  -Wl,-rpath,/home/rafa/proyects/Moon/examples/tetris/build/cmake/lib/miniwin:/home/rafa/proyects/Moon/examples/tetris/build/cmake/lib/Moon lib/miniwin/libminiwin.so lib/Moon/libmoon.so -lncurses -lpthread -lX11 
