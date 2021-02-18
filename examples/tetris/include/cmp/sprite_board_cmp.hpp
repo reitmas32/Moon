@@ -19,7 +19,7 @@ struct SpriteBoardCmp_t : Moon::Core::Component_t<SpriteBoardCmp_t>
       : Moon::Core::Component_t<SpriteBoardCmp_t>(eid)
     {
 
-        boxes.resize((COLUMNS * ROWS) + ROWS);
+        boxes.resize((COLUMNS * ROWS) + (ROWS * 2));
     }
 
     bool fullColumn(int column)
