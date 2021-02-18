@@ -1,6 +1,8 @@
 # Moon Core
 
-Moon es un Game Engine desarrollado por [EGE Studios](https://github.com/EGE-Studios) escrito en C/C++,  fue diseñado basado en la Arquitectura [ECS](http://entity-systems.wikidot.com/) y usando algunas funcionalidades del nuevo estandar de [C++20](https://en.cppreference.com/w/cpp/20)
+Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-Studios) escrito en C/C++,  fue diseñado basado en la Arquitectura [ECS](http://entity-systems.wikidot.com/) y usando algunas funcionalidades del nuevo estandar de [C++20](https://en.cppreference.com/w/cpp/20)
+
+![KEGE Studios](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/KegeStudios.png)
 
 ### Plataformas 
 - Windows
