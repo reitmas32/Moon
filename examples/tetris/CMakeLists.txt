@@ -92,5 +92,3 @@ else()
     set(EXECUTABLE_OUTPUT_PATH ${BUILD_DIR} CACHE PATH "Build directory" FORCE)
     set(CMAKE_BINARY_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/build/cmake)
 endif()
-
-set(CMAKE_CXX_COMPILER "/usr/bin/clang++") 
