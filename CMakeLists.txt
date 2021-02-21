@@ -41,7 +41,6 @@ file( GLOB_RECURSE LIB_HEADERS ${INCLUDE_DIR}/*.hpp )
 ########################
 add_library(
     moon
-    SHARED
     ${LIB_SOURCES} 
     ${LIB_HEADERS}
 )
