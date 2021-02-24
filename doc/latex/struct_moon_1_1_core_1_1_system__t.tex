@@ -1,0 +1,134 @@
+\hypertarget{struct_moon_1_1_core_1_1_system__t}{}\doxysubsection{Referencia de la plantilla de la Estructura Moon\+::Core\+::System\+\_\+t$<$ Type $>$}
+\label{struct_moon_1_1_core_1_1_system__t}\index{Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}}
+
+
+Clase de la que heredan todos los Systems del Motor.  
+
+
+
+
+{\ttfamily \#include $<$sys.\+hpp$>$}
+
+Diagrama de herencias de Moon\+::Core\+::System\+\_\+t$<$ Type $>$\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_moon_1_1_core_1_1_system__t}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_afc4ba1b03285d5fdc28c077b94809003}{System\+\_\+t}} ()
+\begin{DoxyCompactList}\small\item\em Contructor de \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{System\+\_\+t}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_ac5c5b646024a6049466247ecced1def4}{$\sim$\+System\+\_\+t}} ()=0
+\begin{DoxyCompactList}\small\item\em Destructor de \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{System\+\_\+t}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_acbff52921291ab62e5d6ffab76e33ddc}{update}} (Type $\ast$... game\+Context)=0
+\begin{DoxyCompactList}\small\item\em Metodo que actualiza al System. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_a6b6ec5384dc650b206bca0488e445931}{alive}} ()=0
+\begin{DoxyCompactList}\small\item\em Metodo que indica si el system sigue alive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static Moon\+::\+Alias\+::\+System\+Type \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_a956def44279ada5e812b6869a18c927d}{get\+System\+Type}} () noexcept
+\begin{DoxyCompactList}\small\item\em Get the System Type object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Otros miembros heredados}
+
+
+\doxysubsubsection{Descripción detallada}
+\subsubsection*{template$<$Moon\+::\+Concepts\+::\+Ctx\+\_\+t... Type$>$\newline
+struct Moon\+::\+Core\+::\+System\+\_\+t$<$ Type $>$}
+
+Clase de la que heredan todos los Systems del Motor. 
+
+
+\begin{DoxyTemplParams}{Parámetros del template}
+{\em Type} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definición en la línea \mbox{\hyperlink{sys_8hpp_source_l00032}{32}} del archivo \mbox{\hyperlink{sys_8hpp_source}{sys.\+hpp}}.
+
+
+
+\doxysubsubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_system__t_afc4ba1b03285d5fdc28c077b94809003}\label{struct_moon_1_1_core_1_1_system__t_afc4ba1b03285d5fdc28c077b94809003}} 
+\index{Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}!System\_t@{System\_t}}
+\index{System\_t@{System\_t}!Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}}
+\doxyparagraph{\texorpdfstring{System\_t()}{System\_t()}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Ctx\+\_\+t... Type$>$ \\
+\mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{Moon\+::\+Core\+::\+System\+\_\+t}}$<$ Type $>$\+::\mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{System\+\_\+t}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Contructor de \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{System\+\_\+t}} object. 
+
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_system__t_ac5c5b646024a6049466247ecced1def4}\label{struct_moon_1_1_core_1_1_system__t_ac5c5b646024a6049466247ecced1def4}} 
+\index{Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}!````~System\_t@{$\sim$System\_t}}
+\index{````~System\_t@{$\sim$System\_t}!Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}}
+\doxyparagraph{\texorpdfstring{$\sim$System\_t()}{~System\_t()}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Ctx\+\_\+t... Type$>$ \\
+virtual \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{Moon\+::\+Core\+::\+System\+\_\+t}}$<$ Type $>$\+::$\sim$\mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{System\+\_\+t}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Destructor de \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{System\+\_\+t}} object. 
+
+
+
+\doxysubsubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_system__t_a6b6ec5384dc650b206bca0488e445931}\label{struct_moon_1_1_core_1_1_system__t_a6b6ec5384dc650b206bca0488e445931}} 
+\index{Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}!alive@{alive}}
+\index{alive@{alive}!Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}}
+\doxyparagraph{\texorpdfstring{alive()}{alive()}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Ctx\+\_\+t... Type$>$ \\
+virtual bool \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{Moon\+::\+Core\+::\+System\+\_\+t}}$<$ Type $>$\+::alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Metodo que indica si el system sigue alive. 
+
+\begin{DoxyReturn}{Devuelve}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{struct_moon_1_1_core_1_1_system_base__t_ae6f7ba1cf1116c8d2acf1ec9577e3f96}{Moon\+::\+Core\+::\+System\+Base\+\_\+t}}.
+
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_system__t_a956def44279ada5e812b6869a18c927d}\label{struct_moon_1_1_core_1_1_system__t_a956def44279ada5e812b6869a18c927d}} 
+\index{Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}!getSystemType@{getSystemType}}
+\index{getSystemType@{getSystemType}!Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}}
+\doxyparagraph{\texorpdfstring{getSystemType()}{getSystemType()}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Ctx\+\_\+t... Type$>$ \\
+static Moon\+::\+Alias\+::\+System\+Type \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{Moon\+::\+Core\+::\+System\+\_\+t}}$<$ Type $>$\+::get\+System\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Get the System Type object. 
+
+\begin{DoxyReturn}{Devuelve}
+Moon\+::\+Alias\+::\+System\+Type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_system__t_acbff52921291ab62e5d6ffab76e33ddc}\label{struct_moon_1_1_core_1_1_system__t_acbff52921291ab62e5d6ffab76e33ddc}} 
+\index{Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}!update@{update}}
+\index{update@{update}!Moon::Core::System\_t$<$ Type $>$@{Moon::Core::System\_t$<$ Type $>$}}
+\doxyparagraph{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Ctx\+\_\+t... Type$>$ \\
+virtual void \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{Moon\+::\+Core\+::\+System\+\_\+t}}$<$ Type $>$\+::update (\begin{DoxyParamCaption}\item[{Type $\ast$...}]{game\+Context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Metodo que actualiza al System. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em game\+Context} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+/home/rafa/git/\+Moon/include/sys/sys.\+hpp\end{DoxyCompactItemize}
