@@ -2,7 +2,6 @@
 /build
 /lib/*/build
 /lib/glfw-3.3.2
-/doc
 # Prerequisites
 *.d
 

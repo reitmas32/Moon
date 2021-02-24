@@ -1,0 +1,29 @@
+\hypertarget{ent_8hpp_source}{}\doxysubsection{ent.\+hpp}
+\label{ent_8hpp_source}\index{/home/rafa/git/Moon/include/ent/ent.hpp@{/home/rafa/git/Moon/include/ent/ent.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#include "../alias.hpp"}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#include "../concepts.hpp"}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\#include "ent\_base.hpp"}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00021 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_moon_1_1_core}{Moon::Core}} \{}
+\DoxyCodeLine{00027     \textcolor{keyword}{template}<\textcolor{keyword}{class} Type>}
+\DoxyCodeLine{\Hypertarget{ent_8hpp_source_l00028}\mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t}{00028}}     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t}{Entity\_t}} : \textcolor{keyword}{public} \mbox{\hyperlink{struct_moon_1_1_core_1_1_entity_base__t}{EntityBase\_t}}}
+\DoxyCodeLine{00029     \{}
+\DoxyCodeLine{\Hypertarget{ent_8hpp_source_l00031}\mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t_a3b50555358cd4aadf2577d0a0d82034b}{00031}}         \mbox{\hyperlink{namespace_moon_1_1_alias_ae0d30ec96a0be41f324d622beb2b625e}{Moon::Alias::EntityId}} \mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t_a3b50555358cd4aadf2577d0a0d82034b}{eid}} = 0;}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00037         \mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t_a80a2eb94057ca6ba5ae736b6ed3d7005}{Entity\_t}}();}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00044         \mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t_a80a2eb94057ca6ba5ae736b6ed3d7005}{Entity\_t}}(\mbox{\hyperlink{namespace_moon_1_1_alias_ae0d30ec96a0be41f324d622beb2b625e}{Moon::Alias::EntityId}} \mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t_a3b50555358cd4aadf2577d0a0d82034b}{eid}});}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00050         \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t_a3c819da92573f9f532935edb63993a87}{\string~Entity\_t}}() = 0;}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00057         \textcolor{keyword}{static} \mbox{\hyperlink{namespace_moon_1_1_alias_a87a2dca838f202879e9e357e9acd24a8}{Moon::Alias::EntityType}} \mbox{\hyperlink{struct_moon_1_1_core_1_1_entity__t_aa0575f0315b1d5778c77b0a98f96e8bc}{getEntityType}}() noexcept;}
+\DoxyCodeLine{00058     \};}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00060 \} \textcolor{comment}{// namespace Moon::Core}}
+
+\end{DoxyCode}

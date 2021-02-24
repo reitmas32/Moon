@@ -1,0 +1,65 @@
+\hypertarget{gtx_8hpp_source}{}\doxysubsection{gtx.\+hpp}
+\label{gtx_8hpp_source}\index{/home/rafa/git/Moon/include/gtx/gtx.hpp@{/home/rafa/git/Moon/include/gtx/gtx.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 \textcolor{comment}{// std::vector}}
+\DoxyCodeLine{00015 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017 \textcolor{comment}{// std::find}}
+\DoxyCodeLine{00018 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 \textcolor{comment}{// Alias}}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\#include "../alias.hpp"}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 \textcolor{preprocessor}{\#include "../concepts.hpp"}}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025 \textcolor{comment}{// GameContxtBase}}
+\DoxyCodeLine{00026 \textcolor{preprocessor}{\#include "gtx\_base.hpp"}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028 \textcolor{comment}{// ComponentStorage}}
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\#include "../cmp/cmp\_storage.hpp"}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 \textcolor{comment}{// Numero de Entity que tendra cada GameContext}}
+\DoxyCodeLine{00032 \textcolor{preprocessor}{\#define NUM\_ENTITIES 100}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00038 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_moon_1_1_core}{Moon::Core}} \{}
+\DoxyCodeLine{00045     \textcolor{keyword}{template}<Moon::Concepts::Ent\_t Type>}
+\DoxyCodeLine{\Hypertarget{gtx_8hpp_source_l00046}\mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t}{00046}}     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t}{GameContext\_t}} : \textcolor{keyword}{public} \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context_base__t}{GameContextBase\_t}}}
+\DoxyCodeLine{00047     \{}
+\DoxyCodeLine{\Hypertarget{gtx_8hpp_source_l00049}\mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_a819f754ae8bb9801b45b440a6e42e51f}{00049}}         std::vector<Type> \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_a819f754ae8bb9801b45b440a6e42e51f}{entities}};}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{\Hypertarget{gtx_8hpp_source_l00052}\mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_aed31f0974eaceae69661267651cf2ebe}{00052}}         \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t}{ComponentStorage\_t}} \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_aed31f0974eaceae69661267651cf2ebe}{components}};}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00058         \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_ad8eea0dd10461041a1d688a90c37de7c}{GameContext\_t}}();}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00064         \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_aee9a82081c1e79811639b8d73d110699}{\string~GameContext\_t}}() = 0;}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00071         \textcolor{keyword}{static} Moon::Alias::GameContextType \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_a866392111498c866d7320ca966524d41}{getGameContextType}}() noexcept;}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00078         Type\& \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_a98190f548874a447b9cd8d982c95c19a}{addEntity}}();}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00086         Type* \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_ae9bde5dc66cc9edebf0eecabf4867300}{getEntityById}}(Moon::Alias::EntityId eid);}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00095         template<Moon::Concepts::Cmp\_t CMP\_t, typename... Ts>}
+\DoxyCodeLine{\Hypertarget{gtx_8hpp_source_l00096}\mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_a7877fb445e976d02921378e21143ae7f}{00096}}         CMP\_t\& \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_a7877fb445e976d02921378e21143ae7f}{addComponentById}}(Moon::Alias::EntityId eid, Ts\&\&... args)}
+\DoxyCodeLine{00097         \{}
+\DoxyCodeLine{00098             Type* e = this-\/>\mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_ae9bde5dc66cc9edebf0eecabf4867300}{getEntityById}}(eid);}
+\DoxyCodeLine{00099             \textcolor{keyword}{auto}\& cmp =}
+\DoxyCodeLine{00100               this-\/>components.template createComponent<CMP\_t>(eid, args...);}
+\DoxyCodeLine{00101             e-\/>template addComponent<CMP\_t>(\&cmp);}
+\DoxyCodeLine{00102             \textcolor{keywordflow}{return} cmp;}
+\DoxyCodeLine{00103         \}}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00111         \textcolor{keyword}{template}<Moon::Concepts::Cmp\_t CMP\_t>}
+\DoxyCodeLine{\Hypertarget{gtx_8hpp_source_l00112}\mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_aecd8e553bf201427618b47b3a8791e78}{00112}}         std::vector<CMP\_t>\& \mbox{\hyperlink{struct_moon_1_1_core_1_1_game_context__t_aecd8e553bf201427618b47b3a8791e78}{getComponents}}()}
+\DoxyCodeLine{00113         \{}
+\DoxyCodeLine{00114             \textcolor{keywordflow}{return} this-\/>components.template getComponents<CMP\_t>();}
+\DoxyCodeLine{00115         \}}
+\DoxyCodeLine{00116     \};}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118 \} \textcolor{comment}{// namespace Moon::Core}}
+
+\end{DoxyCode}

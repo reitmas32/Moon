@@ -1,0 +1,153 @@
+\hypertarget{struct_moon_1_1_core_1_1_component_storage__t}{}\doxysubsection{Referencia de la Estructura Moon\+::Core\+::Component\+Storage\+\_\+t}
+\label{struct_moon_1_1_core_1_1_component_storage__t}\index{Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}}
+
+
+Es un almacen de Vectores de Components.  
+
+
+
+
+{\ttfamily \#include $<$cmp\+\_\+storage.\+hpp$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t_a5004882b74face1f3f6973608c00571a}{Component\+Storage\+\_\+t}} ()
+\begin{DoxyCompactList}\small\item\em Contructor de \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t}{Component\+Storage\+\_\+t}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$Moon\+::\+Concepts\+::\+Cmp\+\_\+t C\+M\+P\+\_\+t, typename... Ts$>$ }\\C\+M\+P\+\_\+t \& \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t_a0021c85b355c32d1eaa4c0a49cd4862a}{create\+Component}} (\mbox{\hyperlink{namespace_moon_1_1_alias_ae0d30ec96a0be41f324d622beb2b625e}{Moon\+::\+Alias\+::\+Entity\+Id}} eid, Ts \&\&... args)
+\begin{DoxyCompactList}\small\item\em Create a Component object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$Moon\+::\+Concepts\+::\+Cmp\+\_\+t C\+M\+P\+\_\+t$>$ }\\std\+::vector$<$ C\+M\+P\+\_\+t $>$ \& \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t_a4867d2f4f2004815724c9dae5596a45a}{get\+Components}} ()
+\begin{DoxyCompactList}\small\item\em Get the Components object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$Moon\+::\+Concepts\+::\+Cmp\+\_\+t C\+M\+P\+\_\+t$>$ }\\const std\+::vector$<$ C\+M\+P\+\_\+t $>$ \& \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t_acc289fd0b6f5ea7802ffccf708955833}{get\+Components}} () const
+\begin{DoxyCompactList}\small\item\em Get the Components object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$Moon\+::\+Concepts\+::\+Cmp\+\_\+t C\+M\+P\+\_\+t$>$ }\\std\+::vector$<$ C\+M\+P\+\_\+t $>$ \& \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t_a655d5f65c064e014579aefa3d2afe4f7}{create\+Component\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Create a Component Vector object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ Moon\+::\+Alias\+::\+Component\+Type, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_base_vect__t}{Component\+Base\+Vect\+\_\+t}} $>$ $>$ \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t_a4fc8dacc8bc991e4d59573bf2c701ae3}{storage}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Descripción detallada}
+Es un almacen de Vectores de Components. 
+
+
+
+Definición en la línea \mbox{\hyperlink{cmp__storage_8hpp_source_l00039}{39}} del archivo \mbox{\hyperlink{cmp__storage_8hpp_source}{cmp\+\_\+storage.\+hpp}}.
+
+
+
+\doxysubsubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_component_storage__t_a5004882b74face1f3f6973608c00571a}\label{struct_moon_1_1_core_1_1_component_storage__t_a5004882b74face1f3f6973608c00571a}} 
+\index{Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}!ComponentStorage\_t@{ComponentStorage\_t}}
+\index{ComponentStorage\_t@{ComponentStorage\_t}!Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}}
+\doxyparagraph{\texorpdfstring{ComponentStorage\_t()}{ComponentStorage\_t()}}
+{\footnotesize\ttfamily Moon\+::\+Core\+::\+Component\+Storage\+\_\+t\+::\+Component\+Storage\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Contructor de \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_storage__t}{Component\+Storage\+\_\+t}} object. 
+
+
+
+\doxysubsubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_component_storage__t_a0021c85b355c32d1eaa4c0a49cd4862a}\label{struct_moon_1_1_core_1_1_component_storage__t_a0021c85b355c32d1eaa4c0a49cd4862a}} 
+\index{Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}!createComponent@{createComponent}}
+\index{createComponent@{createComponent}!Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}}
+\doxyparagraph{\texorpdfstring{createComponent()}{createComponent()}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Cmp\+\_\+t C\+M\+P\+\_\+t, typename... Ts$>$ \\
+C\+M\+P\+\_\+t\& Moon\+::\+Core\+::\+Component\+Storage\+\_\+t\+::create\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_moon_1_1_alias_ae0d30ec96a0be41f324d622beb2b625e}{Moon\+::\+Alias\+::\+Entity\+Id}}}]{eid,  }\item[{Ts \&\&...}]{args }\end{DoxyParamCaption})}
+
+
+
+Create a Component object. 
+
+
+\begin{DoxyTemplParams}{Parámetros del template}
+{\em C\+M\+P\+\_\+t} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em eid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+C\+M\+P\+\_\+t\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_component_storage__t_a655d5f65c064e014579aefa3d2afe4f7}\label{struct_moon_1_1_core_1_1_component_storage__t_a655d5f65c064e014579aefa3d2afe4f7}} 
+\index{Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}!createComponentVector@{createComponentVector}}
+\index{createComponentVector@{createComponentVector}!Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}}
+\doxyparagraph{\texorpdfstring{createComponentVector()}{createComponentVector()}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Cmp\+\_\+t C\+M\+P\+\_\+t$>$ \\
+std\+::vector$<$C\+M\+P\+\_\+t$>$\& Moon\+::\+Core\+::\+Component\+Storage\+\_\+t\+::create\+Component\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a Component Vector object. 
+
+
+\begin{DoxyTemplParams}{Parámetros del template}
+{\em C\+M\+P\+\_\+t} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Devuelve}
+std\+::vector$<$\+C\+M\+P\+\_\+t$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_component_storage__t_a4867d2f4f2004815724c9dae5596a45a}\label{struct_moon_1_1_core_1_1_component_storage__t_a4867d2f4f2004815724c9dae5596a45a}} 
+\index{Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}!getComponents@{getComponents}}
+\index{getComponents@{getComponents}!Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}}
+\doxyparagraph{\texorpdfstring{getComponents()}{getComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Cmp\+\_\+t C\+M\+P\+\_\+t$>$ \\
+std\+::vector$<$C\+M\+P\+\_\+t$>$\& Moon\+::\+Core\+::\+Component\+Storage\+\_\+t\+::get\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Components object. 
+
+
+\begin{DoxyTemplParams}{Parámetros del template}
+{\em C\+M\+P\+\_\+t} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Devuelve}
+std\+::vector$<$\+C\+M\+P\+\_\+t$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_component_storage__t_acc289fd0b6f5ea7802ffccf708955833}\label{struct_moon_1_1_core_1_1_component_storage__t_acc289fd0b6f5ea7802ffccf708955833}} 
+\index{Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}!getComponents@{getComponents}}
+\index{getComponents@{getComponents}!Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}}
+\doxyparagraph{\texorpdfstring{getComponents()}{getComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$Moon\+::\+Concepts\+::\+Cmp\+\_\+t C\+M\+P\+\_\+t$>$ \\
+const std\+::vector$<$C\+M\+P\+\_\+t$>$\& Moon\+::\+Core\+::\+Component\+Storage\+\_\+t\+::get\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Components object. 
+
+
+\begin{DoxyTemplParams}{Parámetros del template}
+{\em C\+M\+P\+\_\+t} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Devuelve}
+const std\+::vector$<$\+C\+M\+P\+\_\+t$>$\& 
+\end{DoxyReturn}
+
+
+\doxysubsubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_component_storage__t_a4fc8dacc8bc991e4d59573bf2c701ae3}\label{struct_moon_1_1_core_1_1_component_storage__t_a4fc8dacc8bc991e4d59573bf2c701ae3}} 
+\index{Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}!storage@{storage}}
+\index{storage@{storage}!Moon::Core::ComponentStorage\_t@{Moon::Core::ComponentStorage\_t}}
+\doxyparagraph{\texorpdfstring{storage}{storage}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$Moon\+::\+Alias\+::\+Component\+Type, std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{struct_moon_1_1_core_1_1_component_base_vect__t}{Component\+Base\+Vect\+\_\+t}}$>$ $>$ Moon\+::\+Core\+::\+Component\+Storage\+\_\+t\+::storage}
+
+Mapa de tipos y Vector$<$\+Components$>$ 
+
+Definición en la línea \mbox{\hyperlink{cmp__storage_8hpp_source_l00078}{78}} del archivo \mbox{\hyperlink{cmp__storage_8hpp_source}{cmp\+\_\+storage.\+hpp}}.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+/home/rafa/git/\+Moon/include/cmp/cmp\+\_\+storage.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Moon: Fichero Fuente /home/rafa/git/Moon/include/gtx/gtx.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo-moon.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Moon
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">Moon es un Game Engine desarrollado en C++ utilizando una adaptacion propia de la arquitectura ECS</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('gtx_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">gtx.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// std::vector</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// std::find</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// Alias</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../alias.hpp&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../concepts.hpp&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// GameContxtBase</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;gtx_base.hpp&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// ComponentStorage</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;../cmp/cmp_storage.hpp&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Numero de Entity que tendra cada GameContext</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define NUM_ENTITIES 100</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_moon_1_1_core.html">Moon::Core</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">template</span>&lt;Moon::Concepts::Ent_t Type&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="struct_moon_1_1_core_1_1_game_context__t.html">   46</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html">GameContext_t</a> : <span class="keyword">public</span> <a class="code" href="struct_moon_1_1_core_1_1_game_context_base__t.html">GameContextBase_t</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="struct_moon_1_1_core_1_1_game_context__t.html#a819f754ae8bb9801b45b440a6e42e51f">   49</a></span>&#160;        std::vector&lt;Type&gt; <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#a819f754ae8bb9801b45b440a6e42e51f">entities</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="struct_moon_1_1_core_1_1_game_context__t.html#aed31f0974eaceae69661267651cf2ebe">   52</a></span>&#160;        <a class="code" href="struct_moon_1_1_core_1_1_component_storage__t.html">ComponentStorage_t</a> <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#aed31f0974eaceae69661267651cf2ebe">components</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#ad8eea0dd10461041a1d688a90c37de7c">GameContext_t</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#aee9a82081c1e79811639b8d73d110699">~GameContext_t</a>() = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">static</span> Moon::Alias::GameContextType <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#a866392111498c866d7320ca966524d41">getGameContextType</a>() noexcept;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        Type&amp; <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#a98190f548874a447b9cd8d982c95c19a">addEntity</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        Type* <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#ae9bde5dc66cc9edebf0eecabf4867300">getEntityById</a>(Moon::Alias::EntityId eid);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        template&lt;Moon::Concepts::Cmp_t CMP_t, typename... Ts&gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="struct_moon_1_1_core_1_1_game_context__t.html#a7877fb445e976d02921378e21143ae7f">   96</a></span>&#160;        CMP_t&amp; <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#a7877fb445e976d02921378e21143ae7f">addComponentById</a>(Moon::Alias::EntityId eid, Ts&amp;&amp;... args)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            Type* e = this-&gt;<a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#ae9bde5dc66cc9edebf0eecabf4867300">getEntityById</a>(eid);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keyword">auto</span>&amp; cmp =</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;              this-&gt;components.template createComponent&lt;CMP_t&gt;(eid, args...);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            e-&gt;template addComponent&lt;CMP_t&gt;(&amp;cmp);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">return</span> cmp;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">template</span>&lt;Moon::Concepts::Cmp_t CMP_t&gt;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="struct_moon_1_1_core_1_1_game_context__t.html#aecd8e553bf201427618b47b3a8791e78">  112</a></span>&#160;        std::vector&lt;CMP_t&gt;&amp; <a class="code" href="struct_moon_1_1_core_1_1_game_context__t.html#aecd8e553bf201427618b47b3a8791e78">getComponents</a>()</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">return</span> this-&gt;components.template getComponents&lt;CMP_t&gt;();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    };</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">// namespace Moon::Core</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html">Moon::Core::GameContext_t</a></div><div class="ttdoc">Clase GameContext !!! Es laencargada de alamacenar Los datos de las ENtity y los Components.</div><div class="ttdef"><b>Definition:</b> <a href="gtx_8hpp_source.html#l00046">gtx.hpp:46</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context_base__t_html"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context_base__t.html">Moon::Core::GameContextBase_t</a></div><div class="ttdoc">Clase GameContext !!! Es laencargada de alamacenar Los datos de una App.</div><div class="ttdef"><b>Definition:</b> <a href="gtx__base_8hpp_source.html#l00027">gtx_base.hpp:27</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_a98190f548874a447b9cd8d982c95c19a"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#a98190f548874a447b9cd8d982c95c19a">Moon::Core::GameContext_t::addEntity</a></div><div class="ttdeci">Type &amp; addEntity()</div><div class="ttdoc">Añade una nueva entity.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_ae9bde5dc66cc9edebf0eecabf4867300"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#ae9bde5dc66cc9edebf0eecabf4867300">Moon::Core::GameContext_t::getEntityById</a></div><div class="ttdeci">Type * getEntityById(Moon::Alias::EntityId eid)</div><div class="ttdoc">Get the Entity By Id object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_a7877fb445e976d02921378e21143ae7f"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#a7877fb445e976d02921378e21143ae7f">Moon::Core::GameContext_t::addComponentById</a></div><div class="ttdeci">CMP_t &amp; addComponentById(Moon::Alias::EntityId eid, Ts &amp;&amp;... args)</div><div class="ttdoc">Añade un nuevo component a la entity señalada.</div><div class="ttdef"><b>Definition:</b> <a href="gtx_8hpp_source.html#l00096">gtx.hpp:96</a></div></div>
+<div class="ttc" id="anamespace_moon_1_1_core_html"><div class="ttname"><a href="namespace_moon_1_1_core.html">Moon::Core</a></div><div class="ttdoc">Namespace del core del Motor.</div><div class="ttdef"><b>Definition:</b> <a href="cmp_8hpp_source.html#l00023">cmp.hpp:23</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_aed31f0974eaceae69661267651cf2ebe"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#aed31f0974eaceae69661267651cf2ebe">Moon::Core::GameContext_t::components</a></div><div class="ttdeci">ComponentStorage_t components</div><div class="ttdef"><b>Definition:</b> <a href="gtx_8hpp_source.html#l00052">gtx.hpp:52</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_a819f754ae8bb9801b45b440a6e42e51f"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#a819f754ae8bb9801b45b440a6e42e51f">Moon::Core::GameContext_t::entities</a></div><div class="ttdeci">std::vector&lt; Type &gt; entities</div><div class="ttdef"><b>Definition:</b> <a href="gtx_8hpp_source.html#l00049">gtx.hpp:49</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_a866392111498c866d7320ca966524d41"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#a866392111498c866d7320ca966524d41">Moon::Core::GameContext_t::getGameContextType</a></div><div class="ttdeci">static Moon::Alias::GameContextType getGameContextType() noexcept</div><div class="ttdoc">Get the Game Context Type object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_component_storage__t_html"><div class="ttname"><a href="struct_moon_1_1_core_1_1_component_storage__t.html">Moon::Core::ComponentStorage_t</a></div><div class="ttdoc">Es un almacen de Vectores de Components.</div><div class="ttdef"><b>Definition:</b> <a href="cmp__storage_8hpp_source.html#l00039">cmp_storage.hpp:39</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_aee9a82081c1e79811639b8d73d110699"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#aee9a82081c1e79811639b8d73d110699">Moon::Core::GameContext_t::~GameContext_t</a></div><div class="ttdeci">virtual ~GameContext_t()=0</div><div class="ttdoc">Destructor de GameContext_t object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_aecd8e553bf201427618b47b3a8791e78"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#aecd8e553bf201427618b47b3a8791e78">Moon::Core::GameContext_t::getComponents</a></div><div class="ttdeci">std::vector&lt; CMP_t &gt; &amp; getComponents()</div><div class="ttdoc">Get the Components object.</div><div class="ttdef"><b>Definition:</b> <a href="gtx_8hpp_source.html#l00112">gtx.hpp:112</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_game_context__t_html_ad8eea0dd10461041a1d688a90c37de7c"><div class="ttname"><a href="struct_moon_1_1_core_1_1_game_context__t.html#ad8eea0dd10461041a1d688a90c37de7c">Moon::Core::GameContext_t::GameContext_t</a></div><div class="ttdeci">GameContext_t()</div><div class="ttdoc">Contructor de GameContext_t object.</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e65bbab7fdcf3e40c69c3c17a2428105.html">gtx</a></li><li class="navelem"><b>gtx.hpp</b></li>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

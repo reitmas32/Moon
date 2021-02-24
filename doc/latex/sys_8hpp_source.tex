@@ -1,0 +1,35 @@
+\hypertarget{sys_8hpp_source}{}\doxysubsection{sys.\+hpp}
+\label{sys_8hpp_source}\index{/home/rafa/git/Moon/include/sys/sys.hpp@{/home/rafa/git/Moon/include/sys/sys.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 \textcolor{comment}{// Alias}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#include "../alias.hpp"}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016 \textcolor{comment}{// SystemBase}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#include "sys\_base.hpp"}}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 \textcolor{preprocessor}{\#include "../concepts.hpp"}}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00025 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_moon_1_1_core}{Moon::Core}} \{}
+\DoxyCodeLine{00031     \textcolor{keyword}{template}<Moon::Concepts::Ctx\_t... Type>}
+\DoxyCodeLine{\Hypertarget{sys_8hpp_source_l00032}\mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{00032}}     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t}{System\_t}} : \textcolor{keyword}{public} \mbox{\hyperlink{struct_moon_1_1_core_1_1_system_base__t}{SystemBase\_t}}}
+\DoxyCodeLine{00033     \{}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035       \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040         \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_afc4ba1b03285d5fdc28c077b94809003}{System\_t}}();}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00046         \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_ac5c5b646024a6049466247ecced1def4}{\string~System\_t}}() = 0;}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00053         \textcolor{keyword}{static} Moon::Alias::SystemType \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_a956def44279ada5e812b6869a18c927d}{getSystemType}}() noexcept;}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00060         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_acbff52921291ab62e5d6ffab76e33ddc}{update}}(Type*... gameContext) = 0;}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{00068         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_moon_1_1_core_1_1_system__t_a6b6ec5384dc650b206bca0488e445931}{alive}}() = 0;}
+\DoxyCodeLine{00069     \};}
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071 \} \textcolor{comment}{// namespace Moon::Core}}
+
+\end{DoxyCode}

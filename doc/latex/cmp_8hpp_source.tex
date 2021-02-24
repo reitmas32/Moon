@@ -1,0 +1,32 @@
+\hypertarget{cmp_8hpp_source}{}\doxysubsection{cmp.\+hpp}
+\label{cmp_8hpp_source}\index{/home/rafa/git/Moon/include/cmp/cmp.hpp@{/home/rafa/git/Moon/include/cmp/cmp.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 \textcolor{comment}{// Alias}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#include "../../include/alias.hpp"}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016 \textcolor{comment}{// Component Base}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#include "../../include/cmp/cmp\_base.hpp"}}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{\Hypertarget{cmp_8hpp_source_l00023}\mbox{\hyperlink{namespace_moon_1_1_core}{00023}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_moon_1_1_core}{Moon::Core}} \{}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00030     \textcolor{keyword}{template}<\textcolor{keyword}{class} Type>}
+\DoxyCodeLine{\Hypertarget{cmp_8hpp_source_l00031}\mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t}{00031}}     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t}{Component\_t}} : \textcolor{keyword}{public} \mbox{\hyperlink{struct_moon_1_1_core_1_1_component_base__t}{ComponentBase\_t}}}
+\DoxyCodeLine{00032     \{}
+\DoxyCodeLine{\Hypertarget{cmp_8hpp_source_l00034}\mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t_a059c19039425fc3e3999dd71b29324c8}{00034}}         \mbox{\hyperlink{namespace_moon_1_1_alias_ae0d30ec96a0be41f324d622beb2b625e}{Moon::Alias::EntityId}} \mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t_a059c19039425fc3e3999dd71b29324c8}{eid}} = 0;}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00040         \mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t_a9a87650656c0b5a2116f538862314968}{Component\_t}}();}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00047         \mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t_a9a87650656c0b5a2116f538862314968}{Component\_t}}(\mbox{\hyperlink{namespace_moon_1_1_alias_ae0d30ec96a0be41f324d622beb2b625e}{Moon::Alias::EntityId}} \mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t_a059c19039425fc3e3999dd71b29324c8}{eid}});}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00053         \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t_ad22b02df94c1223af6acfe9c40b67292}{\string~Component\_t}}() = 0;}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00060         \textcolor{keyword}{static} Moon::Alias::ComponentType \mbox{\hyperlink{struct_moon_1_1_core_1_1_component__t_aaa3428e0eab5640fee79be01400f02be}{getComponentType}}() noexcept;}
+\DoxyCodeLine{00061     \};}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063 \} \textcolor{comment}{// namespace Moon::Core}}
+
+\end{DoxyCode}
