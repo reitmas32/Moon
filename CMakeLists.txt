@@ -123,3 +123,4 @@ if(${EXAMPLES} STREQUAL "ON")
   endforeach()
 
 endif()
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
