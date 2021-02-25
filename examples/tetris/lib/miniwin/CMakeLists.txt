@@ -41,7 +41,6 @@ file( GLOB_RECURSE LIB_HEADERS ${INCLUDE_DIR}/*.hpp )
 ########################
 add_library(
     miniwin
-    SHARED
     ${LIB_SOURCES} 
     ${LIB_HEADERS}
 )
@@ -59,3 +58,4 @@ TARGET_LINK_LIBRARIES( miniwin
 ########################
 set(EXECUTABLE_OUTPUT_PATH ${BUILD_DIR} CACHE PATH "Build directory" FORCE)
 set(CMAKE_BINARY_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/build)
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
