@@ -41,7 +41,6 @@ file( GLOB_RECURSE LIB_HEADERS ${INCLUDE_DIR}/*.hpp )
 ########################
 add_library(
     moon
-    SHARED
     ${LIB_SOURCES} 
     ${LIB_HEADERS}
 )
@@ -124,3 +123,4 @@ if(${EXAMPLES} STREQUAL "ON")
   endforeach()
 
 endif()
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")

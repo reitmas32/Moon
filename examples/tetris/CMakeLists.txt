@@ -12,7 +12,7 @@ else()
 endif()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 
-set(APP Tetris )
+set(APP tetris )
 
 ########################
 #     Main Dirs of     #
@@ -20,7 +20,7 @@ set(APP Tetris )
 ########################
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build/cmake)
+set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
 ########################
 #    Include Dirs of   #
@@ -89,6 +89,8 @@ else()
     ########################
     #  Dir of the binary   #
     ########################
-    set(EXECUTABLE_OUTPUT_PATH ${BUILD_DIR} CACHE PATH "Build directory" FORCE)
-    set(CMAKE_BINARY_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/build/cmake)
+    #set(EXECUTABLE_OUTPUT_PATH ${BUILD_DIR} CACHE PATH "Build directory" FORCE)
+    #set(CMAKE_BINARY_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/build)
 endif()
+
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
