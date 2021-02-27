@@ -31,13 +31,13 @@ namespace Moon::Core {
          * @brief Construct a new ComponentBase_t object
          *
          */
-        ComponentBase_t();
+        ComponentBase_t() = default;
 
         /**
          * @brief Destroy the ComponentBase_t object
          *
          */
-        virtual ~ComponentBase_t() = 0;
+        virtual ~ComponentBase_t(){}
     };
 
 } // namespace Moon::Core
