@@ -4,7 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/examples/tetris"
+                "${workspaceFolder}/examples/tetris",
+                "${workspaceFolder}/template",
+                "/usr/include/c++/10"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
