@@ -33,13 +33,23 @@ namespace Moon::Core {
     template<Moon::Concepts::Ent_t Type>
     Type* GameContext_t<Type>::getEntityById(Moon::Alias::EntityId eid)
     {
-        auto it = std::find_if(this->entities.begin(),
+#ifdef __linux__
+    auto it = std::find_if(this->entities.begin(),
                                this->entities.end(),
                                [&](Type& e) { return eid == e.eid; });
         if (it == this->entities.end()) {
             return nullptr;
         }
         return it.base();
+#elif _WIN32
+        for(Type& var : this->entities){
+            if(var.eid == eid){
+                return &var;
+            }
+           
+        }
+    return nullptr;   
+#endif
     }
 
 } // namespace Moon::Core
