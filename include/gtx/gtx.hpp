@@ -18,15 +18,15 @@
 #include <algorithm>
 
 // Alias
-#include "../alias.hpp"
+#include <alias.hpp>
 
-#include "../concepts.hpp"
+#include <concepts.hpp>
 
 // GameContxtBase
-#include "gtx_base.hpp"
+#include <gtx/gtx_base.hpp>
 
 // ComponentStorage
-#include "../cmp/cmp_storage.hpp"
+#include <cmp/cmp_storage.hpp>
 
 // Numero de Entity que tendra cada GameContext
 #define NUM_ENTITIES 100

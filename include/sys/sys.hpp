@@ -11,12 +11,12 @@
 #pragma once
 
 // Alias
-#include "../alias.hpp"
+#include <alias.hpp>
 
 // SystemBase
-#include "sys_base.hpp"
+#include <sys/sys_base.hpp>
 
-#include "../concepts.hpp"
+#include <concepts.hpp>
 
 /**
  * @brief Namespace del core del Motor

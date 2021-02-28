@@ -12,7 +12,7 @@
 #pragma once
 
 // Alias
-#include "../alias.hpp"
+#include <alias.hpp>
 
 /**
  * @brief Namespace del core del Motor

@@ -10,9 +10,9 @@
  */
 #pragma once
 
-#include "../alias.hpp"
-#include "../concepts.hpp"
-#include "ent_base.hpp"
+#include <alias.hpp>
+#include <concepts.hpp>
+#include <ent/ent_base.hpp>
 
 /**
  * @brief Namespace del core del Motor
