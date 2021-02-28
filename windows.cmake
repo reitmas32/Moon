@@ -9,7 +9,10 @@ option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 ########################
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(TEMPLATE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/template)
 set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
+
+set(TEST_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/googletest/include)
 
 ########################
 # Google Test Include  #
@@ -23,6 +26,8 @@ set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 include_directories(
     .
     ${INCLUDE_DIR}
+    ${TEMPLATE_DIR}
+    ${TEST_INCLUDE_DIR}
 )
 
 ########################
@@ -45,7 +50,7 @@ add_library(
 ########################
 #     Link Libs        #
 ########################
-#target_link_libraries(${APP} ${LIBS_PROYECT})
+target_link_libraries(${APP} ${LIBS_PROYECT})
 
 ########################
 #     Include Libs     #
@@ -79,3 +84,35 @@ endif()
 ########################
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 target_compile_features(moon PUBLIC cxx_std_20)
+#
+#################################
+## GTest
+#################################
+if( test AND test STREQUAL "on" )
+
+    set(TEST_EXE runUnitTests)
+
+    ########################
+    #     Test_SOURCE      #
+    ########################
+    file(GLOB TEST_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
+    set(TESTING_SOURCE ${LIB_SOURCES} )
+    list(REMOVE_ITEM TESTING_SOURCE ${SOURCE_DIR}/main.cpp)
+
+    ########################
+    #     Init_Testing     #
+    ########################
+    enable_testing()
+    add_executable(${TEST_EXE} ${TEST_SRC_FILES} ${TESTING_SOURCE} )
+
+    ########################
+    #  Library of Testing  #
+    ########################
+    target_link_libraries(${TEST_EXE} ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/build/Release/lib/gtestd.lib ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/build/Release/lib/gtest_maind.lib)
+    
+    ########################
+    #   Build of Testing   #
+    ######################## 
+    add_test( ${TEST_EXE} ${TEST_EXE} )
+    target_compile_features(${TEST_EXE} PUBLIC cxx_std_20)
+endif()
