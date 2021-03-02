@@ -11,12 +11,12 @@
 #pragma once
 
 // Alias de tipos
-#include "../alias.hpp"
+#include <alias.hpp>
 
-#include "../cmp/cmp_base.hpp"
+#include <cmp/cmp_base.hpp>
 
 // Component_Base
-#include "../cmp/cmp_base.hpp"
+#include <cmp/cmp_base.hpp>
 
 /**
  * @brief Namespace del core del Motor

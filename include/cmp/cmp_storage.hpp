@@ -20,12 +20,12 @@
 #include <memory>
 
 // Alias
-#include "../alias.hpp"
+#include <alias.hpp>
 
-#include "../concepts.hpp"
+#include <concepts.hpp>
 
 // Wrapper de un vector<Components>
-#include "cmp_vect.hpp"
+#include <cmp/cmp_vect.hpp>
 
 /**
  * @brief Namespace del core del Motor

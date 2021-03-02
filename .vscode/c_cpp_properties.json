@@ -1,16 +1,19 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "Windows",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/examples/tetris"
+                "${workspaceFolder}/examples/tetris",
+                "${workspaceFolder}/template",
+                "${workspaceFolder}/include",
+                "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/include"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/bin/clang",
             "cStandard": "gnu17",
             "cppStandard": "gnu++20",
-            "intelliSenseMode": "linux-gcc-x64"
+            "intelliSenseMode": "windows-clang-x64"
         }
     ],
     "version": 4

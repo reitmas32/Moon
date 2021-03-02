@@ -6,6 +6,10 @@ set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
+set(TEMPLATE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/template)
+
+set(TEST_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/googletest/include)
+
 ########################
 #    Include Dirs of   #
 #       Project        #
@@ -13,6 +17,8 @@ set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 include_directories(
     .
     ${INCLUDE_DIR}
+    ${TEMPLATE_DIR}
+    ${TEST_INCLUDE_DIR}
 )
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 ########################
@@ -62,7 +68,7 @@ if( test AND test STREQUAL "on" )
     ########################
     #  Library of Testing  #
     ########################
-    target_link_libraries(runUnitTests gtest gtest_main)
+    target_link_libraries(runUnitTests ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/build/lib/libgtest.a ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/build/lib/libgtest_main.a pthread)
 
     ########################
     #   Build of Testing   #

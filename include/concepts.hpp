@@ -2,10 +2,10 @@
 
 #include <concepts>
 
-#include "cmp/cmp_base.hpp"
-#include "ent/ent_base.hpp"
-#include "gtx/gtx_base.hpp"
-#include "sys/sys_base.hpp"
+#include <cmp/cmp_base.hpp>
+#include <ent/ent_base.hpp>
+#include <gtx/gtx_base.hpp>
+#include <sys/sys_base.hpp>
 
 namespace Moon::Concepts {
     template<typename Gtx_t>
