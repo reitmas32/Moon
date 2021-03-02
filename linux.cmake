@@ -14,7 +14,7 @@ include_directories(
     .
     ${INCLUDE_DIR}
 )
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 ########################
 #    Find Source of    #
 #       Project        #
