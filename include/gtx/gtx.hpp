@@ -39,7 +39,7 @@ namespace Moon::Core {
     /**
      * @brief Clase GameContext !!! Es laencargada de alamacenar Los datos de
      * las ENtity y los Components
-     *
+     * \image html assets/stability/stability_2.png
      * @tparam Type
      */
     template<Moon::Concepts::Ent_t Type>

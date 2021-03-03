@@ -29,7 +29,7 @@ namespace Moon::Core {
 
     /**
      * @brief Clase de la que hereda cualquier entity del Motor
-     *
+     * \image html assets/stability/stability_2.png
      */
     struct EntityBase_t
     {

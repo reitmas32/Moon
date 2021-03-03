@@ -25,7 +25,7 @@
 namespace Moon::Core {
     /**
      * @brief Clase de la que heredan todos los Systems del Motor
-     *
+     * \image html assets/stability/stability_2.png
      * @tparam Type
      */
     template<Moon::Concepts::Ctx_t... Type>

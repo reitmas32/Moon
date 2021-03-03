@@ -4,27 +4,31 @@
  * @brief Clase de la que heredan todos los components del Motor
  * @version 0.1
  * @date 2020-08-03
- *
+ *  
  * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
 
-// Alias
+/**
+ * \headerfile alias.hpp
+ */
 #include <alias.hpp>
 
-// Component Base
+/**
+ * \headerfile cmp/cmp_base.hpp
+ */
 #include <cmp/cmp_base.hpp>
 
 /**
  * @brief Namespace del core del Motor
- *
+ * \namespace Moon::Core
  */
 namespace Moon::Core {
 
     /**
      * @brief Clase de la que heredan todos los Components del Motor
-     *
+     * \image html assets/stability/stability_2.png
      * @tparam Type
      */
     template<class Type>

@@ -40,7 +40,7 @@ namespace Moon::Core {
     {
         /**
          * @brief Contructor de ComponentStorage_t object
-         *
+         * \image html assets/stability/stability_2.png
          */
         ComponentStorage_t();
 

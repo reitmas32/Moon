@@ -22,7 +22,7 @@
 namespace Moon::Core {
     /**
      * @brief Wrapper de un Vector de Components
-     *
+     * \image html assets/stability/stability_2.png
      */
     struct ComponentBaseVect_t
     {

@@ -20,7 +20,7 @@
 namespace Moon::Core {
     /**
      * @brief Clase de la que heredan todos los components del Motor
-     *
+     * \image html assets/stability/stability_2.png
      */
     struct ComponentBase_t
     {

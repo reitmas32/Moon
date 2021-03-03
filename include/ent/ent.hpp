@@ -21,7 +21,7 @@
 namespace Moon::Core {
     /**
      * @brief Clase de la que hereda cada entity del Motor
-     *
+     * \image html assets/stability/stability_2.png
      * @tparam Type
      */
     template<class Type>

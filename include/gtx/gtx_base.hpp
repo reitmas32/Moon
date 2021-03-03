@@ -20,9 +20,9 @@
  */
 namespace Moon::Core {
     /**
-     * @brief Clase GameContext !!! Es laencargada de alamacenar Los datos de
+     * @brief Clase GameContext !!! Es la en cargada de alamacenar Los datos de
      * una App
-     *
+     * \image html assets/stability/stability_2.png
      */
     struct GameContextBase_t
     {
