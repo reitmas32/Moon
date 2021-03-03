@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include <cmp/cmp.tpp>
+#include <core/cmp/cmp.tpp>
 
 TEST(Test, example)
 {
