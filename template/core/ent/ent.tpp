@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../include/core/ent/ent.hpp"
+#include <core/ent/ent.hpp>
 
 namespace Moon::Core {
     template<class Type>

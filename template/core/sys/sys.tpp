@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../include/core/sys/sys.hpp"
+#include <core/sys/sys.hpp>
 
 namespace Moon::Core {
     template<Moon::Concepts::Ctx_t... Type>

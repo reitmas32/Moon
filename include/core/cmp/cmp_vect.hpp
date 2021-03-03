@@ -15,6 +15,11 @@
 
 #include <core/concepts.hpp>
 
+#include <optional>
+
+#include <functional>
+
+
 /**
  * @brief Namespace del core del Motor
  *
@@ -31,6 +36,7 @@ namespace Moon::Core {
          *
          */
         virtual ~ComponentBaseVect_t() = default;
+        virtual ComponentBase_t* deleteComponentByEntityId(Moon::Alias::EntityId eid) = 0;
     };
 
     /**
@@ -43,5 +49,29 @@ namespace Moon::Core {
     {
         // vector encapsulado
         std::vector<CMP_t> components;
+
+        constexpr auto findComponentIteratorById(Moon::Alias::EntityId eid) noexcept{
+            std::optional itopt =
+                std::find_if(components.begin(), components.end(), 
+                    [&eid](CMP_t& cmp){return cmp.eid == eid; }
+                );
+            if (*itopt == components.end()) itopt.reset();
+
+            return itopt;
+        }
+
+        ComponentBase_t* deleteComponentByEntityId(Moon::Alias::EntityId eid) override final{
+            auto itopt = this->findComponentIteratorById(eid);
+
+            if(!itopt) return nullptr;
+
+            auto it = *itopt;
+
+            if( it + 1 != components.end())
+                *it = components.back();
+            components.pop_back();
+
+            return it.base();
+        }
     };
 } // namespace Moon::Core

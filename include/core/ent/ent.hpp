@@ -55,6 +55,17 @@ namespace Moon::Core {
          * @return Moon::Alias::EntityType
          */
         static Moon::Alias::EntityType getEntityType() noexcept;
+
+
+        void updateComponent(Moon::Alias::ComponentType cid, ComponentBase_t* cmp_ptr){
+            auto it = this->components.find(cid);
+            if(it != this->components.end()){
+                it->second = cmp_ptr;
+            }
+        }
+
+        auto begin() {return this->components.begin();}
+        auto end() {return this->components.end();}
     };
 
 } // namespace Moon::Core

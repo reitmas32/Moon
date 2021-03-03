@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../include/core/cmp/cmp.hpp"
+#include <core/cmp/cmp.hpp>
 
 namespace Moon::Core {
     template<class Type>
@@ -9,8 +9,10 @@ namespace Moon::Core {
 
     template<class Type>
     Component_t<Type>::Component_t(Moon::Alias::EntityId eid)
-      : eid{ eid }
-    {}
+      :
+    {
+      this->eid = eid;
+    }
 
     template<class Type>
     Component_t<Type>::~Component_t()

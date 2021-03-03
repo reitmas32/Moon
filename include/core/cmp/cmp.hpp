@@ -34,9 +34,6 @@ namespace Moon::Core {
     template<class Type>
     struct Component_t : public ComponentBase_t
     {
-        /**ID de la Entity a la que pertenece el Component*/
-        Moon::Alias::EntityId eid = 0;
-
         /**
          * @brief Construct a new Component_t object
          *

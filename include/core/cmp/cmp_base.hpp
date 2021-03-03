@@ -26,7 +26,9 @@ namespace Moon::Core {
     {
         /**Identificador del siguiente tipo de Componet*/
         inline static Moon::Alias::ComponentType nextType = 0;
-
+        
+        /**ID de la Entity a la que pertenece el Component*/
+        Moon::Alias::EntityId eid = 0;
         /**
          * @brief Construct a new ComponentBase_t object
          *

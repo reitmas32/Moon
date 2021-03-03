@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../include/core/gtx/gtx.hpp"
+#include <core/gtx/gtx.hpp>
 
 namespace Moon::Core {
     template<Moon::Concepts::Ent_t Type>

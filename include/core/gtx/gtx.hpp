@@ -113,6 +113,25 @@ namespace Moon::Core {
         {
             return this->components.template getComponents<CMP_t>();
         }
+
+        void destroyEntityById(Moon::Alias::EntityId eid){
+            auto* entity { this->getEntityById(eid) };
+            if( !entity ) return;
+
+            for(auto& [typeID, _] : *entity){
+                auto* cmp_ptr = this->components.deleteComponentByTypeIdAndEntityId(typeID, eid);
+                if( !cmp_ptr ) continue;
+                auto* moveEntity { this->getEntityById(cmp_ptr->eid)};
+
+                moveEntity->updateComponent(typeID, cmp_ptr);
+            }
+
+            auto it = std::find_if(this->entities.begin(), this->entities.end(),
+                [&](const auto& e){ return e.eid == eid;}
+            );
+            this->entities.erase(it);
+            std::cout<<"Muerte" << eid<<'\n';
+        }
     };
 
 } // namespace Moon::Core

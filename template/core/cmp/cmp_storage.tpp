@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../include/core/cmp/cmp_storage.hpp"
+#include <core/cmp/cmp_storage.hpp>
 
 #define NUM_CMPS 100
 

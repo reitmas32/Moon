@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../include/core/ent/ent_base.hpp"
+#include <core/ent/ent_base.hpp>
 
 namespace Moon::Core {
 

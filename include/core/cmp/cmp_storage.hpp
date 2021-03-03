@@ -84,5 +84,12 @@ namespace Moon::Core {
          */
         template<Moon::Concepts::Cmp_t CMP_t>
         std::vector<CMP_t>& createComponentVector();
+
+        ComponentBase_t* 
+        deleteComponentByTypeIdAndEntityId(Moon::Alias::ComponentType cid, Moon::Alias::EntityId eid){
+            auto it = this->storage.find(cid);
+            if( it == this->storage.end() ) return nullptr;
+            return it->second->deleteComponentByEntityId(eid);
+        }
     };
 } // namespace Moon::Core
