@@ -9,7 +9,6 @@ namespace Moon::Core {
 
     template<class Type>
     Component_t<Type>::Component_t(Moon::Alias::EntityId eid)
-      :
     {
       this->eid = eid;
     }
