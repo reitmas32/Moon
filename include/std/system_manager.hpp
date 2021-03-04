@@ -6,7 +6,7 @@
 #include <core/man/manager.tpp>
 #include <core/sys/sys_base.hpp>
 
-namespace Moon::std
+namespace Moon::Tools
 {
     struct SystemManager_t : public Moon::Core::Manager_t<SystemManager_t>
     {
