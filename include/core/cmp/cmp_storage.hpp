@@ -1,95 +1,114 @@
 /**
- * @file component_storage.hpp
+ * @file cmp_storage.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
- * @brief Es un almacen de Vectores de Components
- * @version 0.1
+ * @version 0.0.1
  * @date 2020-08-03
- *
  * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
 
-// std::vector
+/**
+ * \include vector
+ */
 #include <vector>
 
-// std::unordered_map
+/**
+ * \include unordered_map
+ */
 #include <unordered_map>
 
-// std::unique_ptr
+/**
+ * \include memory
+ */
 #include <memory>
 
-// Alias
+/**
+ * \include alias.hpp
+ */
 #include <core/alias.hpp>
 
+/**
+ * \include concepts.hpp
+ */
 #include <core/concepts.hpp>
 
-// Wrapper de un vector<Components>
+/**
+ * \include cmp_vector.hpp
+ */
 #include <core/cmp/cmp_vect.hpp>
 
 /**
- * @brief Namespace del core del Motor
- *
+ * @brief Namespace of the Core the Moon
+ * \namespace Moon::Core
  */
-namespace Moon::Core {
-    /**
-     * @brief Es un almacen de Vectores de Components
-     *
-     */
+namespace Moon::Core
+{
+    /** It is a vector warehouse of Components 
+     * @subsubsection Stability
+     * \image html assets/stability/stability_2.png
+    */
     struct ComponentStorage_t
     {
         /**
-         * @brief Contructor de ComponentStorage_t object
-         * \image html assets/stability/stability_2.png
+         * @brief Contructor Default
          */
         ComponentStorage_t();
 
         /**
          * @brief Create a Component object
          *
-         * @tparam CMP_t
-         * @param eid
-         * @return CMP_t&
+         * @tparam CMP_t Type of new Component_t
+         * @param eid Id of the Entity to which the Component belongs
+         * @param Ts... Params of Contructor of Component_t
+         * @pre The Component_t to create must have a constructor with the specified parameters
+         * @return CMP_t& This is a reference to new Component_t
          */
-        template<Moon::Concepts::Cmp_t CMP_t, typename... Ts>
-        CMP_t& createComponent(Moon::Alias::EntityId eid, Ts&&... args);
+        template <Moon::Concepts::Cmp_t CMP_t, typename... Ts>
+        CMP_t &createComponent(Moon::Alias::EntityId eid, Ts &&...args);
 
         /**
-         * @brief Get the Components object
+         * @brief Get the Components
          *
-         * @tparam CMP_t
-         * @return std::vector<CMP_t>&
+         * @tparam CMP_t Type of the Component_t
+         * @return std::vector<CMP_t>& Reference to vector of Component_t's
          */
-        template<Moon::Concepts::Cmp_t CMP_t>
-        std::vector<CMP_t>& getComponents();
+        template <Moon::Concepts::Cmp_t CMP_t>
+        std::vector<CMP_t> &getComponents();
 
         /**
-         * @brief Get the Components object
+         * @brief Get the Const Components
          *
-         * @tparam CMP_t
-         * @return const std::vector<CMP_t>&
+         * @tparam CMP_t Type of the Component_t
+         * @return const std::vector<CMP_t>& Const Reference to vector of Component_t's
          */
-        template<Moon::Concepts::Cmp_t CMP_t>
-        const std::vector<CMP_t>& getComponents() const;
+        template <Moon::Concepts::Cmp_t CMP_t>
+        const std::vector<CMP_t> &getComponents() const;
 
-        /**Mapa de tipos y Vector<Components>*/
-        std::unordered_map<Moon::Alias::ComponentType,
-                           std::unique_ptr<ComponentBaseVect_t>>
-          storage;
+
+        /**
+         * @brief Delete the a Component_t
+         *
+         * @param cid Id of the Component
+         * @param eid Id of the Entity to which the Component belongs
+         * @return ComponentBase_t* pointer of Component_t Delete
+         */
+        ComponentBase_t *
+        deleteComponentByTypeIdAndEntityId(Moon::Alias::ComponentType cid, Moon::Alias::EntityId eid);
+
+    private:
         /**
          * @brief Create a Component Vector object
          *
-         * @tparam CMP_t
-         * @return std::vector<CMP_t>&
+         * @tparam CMP_t Type of the Component_t
+         * @return std::vector<CMP_t>& 
          */
-        template<Moon::Concepts::Cmp_t CMP_t>
-        std::vector<CMP_t>& createComponentVector();
+        template <Moon::Concepts::Cmp_t CMP_t>
+        std::vector<CMP_t> &createComponentVector();
 
-        ComponentBase_t* 
-        deleteComponentByTypeIdAndEntityId(Moon::Alias::ComponentType cid, Moon::Alias::EntityId eid){
-            auto it = this->storage.find(cid);
-            if( it == this->storage.end() ) return nullptr;
-            return it->second->deleteComponentByEntityId(eid);
-        }
+        /**Map of the types and Vector<Component_t's>*/
+        std::unordered_map<Moon::Alias::ComponentType,
+                           std::unique_ptr<ComponentBaseVect_t>>
+            storage;
     };
 } // namespace Moon::Core
