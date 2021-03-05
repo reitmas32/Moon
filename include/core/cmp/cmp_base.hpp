@@ -1,44 +1,38 @@
 /**
- * @file component_base.hpp
+ * @file cmp_base.hpp
  * @author Oswaldo Rafael Zamora Ramirez (rafa.zamo.rals@comunidad.unam.mx)
- * @brief Clase de la que heredan todos los components del Motor
- * @version 0.1
+ * @version 0.0.1
  * @date 2020-08-03
- *
  * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
 
-// Alias
+/**
+ * \include alias.hpp
+ */
 #include <core/alias.hpp>
 
 /**
- * @brief Namespace del core del Motor
- *
+ * @brief Namespace of the Core the Moon
+ * \namespace Moon::Core
  */
 namespace Moon::Core {
     /**
-     * @brief Clase de la que heredan todos los components del Motor
+     * @brief Class from which all Engine Components inherit
      * \image html assets/stability/stability_2.png
      */
     struct ComponentBase_t
     {
-        /**Identificador del siguiente tipo de Componet*/
+        /**Identifier of the following type of Component_t*/
         inline static Moon::Alias::ComponentType nextType = 0;
         
-        /**ID de la Entity a la que pertenece el Component*/
+        /**Id of the Entity to which the Component belongs*/
         Moon::Alias::EntityId eid = 0;
-        /**
-         * @brief Construct a new ComponentBase_t object
-         *
-         */
+        /** Contructor Default */
         ComponentBase_t() = default;
 
-        /**
-         * @brief Destroy the ComponentBase_t object
-         *
-         */
+        /** Destroy the ComponentBase_t object is virtual*/
         virtual ~ComponentBase_t(){}
     };
 
