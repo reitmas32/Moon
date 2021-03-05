@@ -1,77 +1,93 @@
 /**
- * @file component_vect.hpp
+ * @file cmp_vect.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
- * @brief Wrapper de un Vector de Components
- * @version 0.1
+ * @version 0.0.1
  * @date 2020-08-03
- *
  * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
 
-// std::vector
+/**
+ * \include vector
+ */
 #include <vector>
 
+/**
+ * \include concepts.hpp
+ */
 #include <core/concepts.hpp>
 
+/**
+ * \include optional
+ */
 #include <optional>
 
+/**
+ * \include functional
+ */
 #include <functional>
 
-
 /**
- * @brief Namespace del core del Motor
- *
+ * @brief Namespace of the Core the Moon
+ * \namespace Moon::Core
  */
-namespace Moon::Core {
+namespace Moon::Core
+{
     /**
-     * @brief Wrapper de un Vector de Components
+     * @brief Wrapper of std::vector of Component_t's
      * \image html assets/stability/stability_2.png
      */
     struct ComponentBaseVect_t
     {
         /**
-         * @brief Destructor de ComponentBaseVect_t object
+         * @brief Destructor of ComponentBaseVect_t
          *
          */
         virtual ~ComponentBaseVect_t() = default;
-        virtual ComponentBase_t* deleteComponentByEntityId(Moon::Alias::EntityId eid) = 0;
+
+        /**
+         * @brief Contructor Default
+         */
+        ComponentBaseVect_t() = default;
+
+        /**
+         * @brief Delete the a Component_t
+         *
+         * @param eid Id of the Entity to which the Component belongs
+         * @return ComponentBase_t* pointer of Component_t Delete
+         */
+        virtual ComponentBase_t *deleteComponentByEntityId(Moon::Alias::EntityId eid) = 0;
     };
 
     /**
-     * @brief Wrapper de un Vector de Components especificos
-     *
-     * @tparam CMP_t
+     * @brief Wrapper of a Vector of specific Components
+     * \image html assets/stability/stability_2.png
+     * @tparam CMP_t Type of the Component_t
      */
-    template<Moon::Concepts::Cmp_t CMP_t>
+    template <Moon::Concepts::Cmp_t CMP_t>
     struct ComponentVect_t : ComponentBaseVect_t
     {
-        // vector encapsulado
+
+        /**
+         * @brief Find Component_t with Id equal eid
+         * 
+         * @param eid Id of the Entity to which the Component belongs
+         * 
+         * @return Component_t* with Id equal eid
+         */
+        constexpr auto findComponentIteratorById(Moon::Alias::EntityId eid) noexcept;
+
+        /**
+         * @brief Delete the a Component_t
+         *
+         * @param eid Id of the Entity to which the Component belongs
+         * @return ComponentBase_t* pointer of Component_t Delete
+         */
+        ComponentBase_t *deleteComponentByEntityId(Moon::Alias::EntityId eid) override final;
+
+    //private:
+        /** Wrapped vector*/
         std::vector<CMP_t> components;
-
-        constexpr auto findComponentIteratorById(Moon::Alias::EntityId eid) noexcept{
-            std::optional itopt =
-                std::find_if(components.begin(), components.end(), 
-                    [&eid](CMP_t& cmp){return cmp.eid == eid; }
-                );
-            if (*itopt == components.end()) itopt.reset();
-
-            return itopt;
-        }
-
-        ComponentBase_t* deleteComponentByEntityId(Moon::Alias::EntityId eid) override final{
-            auto itopt = this->findComponentIteratorById(eid);
-
-            if(!itopt) return nullptr;
-
-            auto it = *itopt;
-
-            if( it + 1 != components.end())
-                *it = components.back();
-            components.pop_back();
-
-            return it.base();
-        }
     };
 } // namespace Moon::Core
