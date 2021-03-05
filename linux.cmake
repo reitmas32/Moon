@@ -20,7 +20,7 @@ include_directories(
     ${TEMPLATE_DIR}
     ${TEST_INCLUDE_DIR}
 )
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2a")
 ########################
 #    Find Source of    #
 #       Project        #
