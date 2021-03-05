@@ -1,8 +1,6 @@
 /**
  * @file game_context_base.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
- * @brief Clase GameContext !!! Es laencargada de alamacenar Los datos de una
- * App
  * @version 0.1
  * @date 2020-08-03
  *
