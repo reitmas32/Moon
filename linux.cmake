@@ -17,6 +17,8 @@ set(TEST_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/googletest/incl
 include_directories(
     .
     ${INCLUDE_DIR}
+    ##TODO: Eliminar de aqui o incluir las cabeceras de spdlog de otro forma
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include
     ${TEMPLATE_DIR}
     ${TEST_INCLUDE_DIR}
 )
@@ -114,3 +116,5 @@ if(${EXAMPLES} STREQUAL "ON")
   endforeach()
 
 endif()
+#includes de las bibliotecas de las que depende moon
+include(cmake/vendor.cmake)
