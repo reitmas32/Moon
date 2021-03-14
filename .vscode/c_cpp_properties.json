@@ -21,7 +21,8 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/examples/tetris",
                 "${workspaceFolder}/template",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/vendor/spdlog/include"
             ],
             "defines": [],
             "compilerPath": "clang",
