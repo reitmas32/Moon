@@ -2,6 +2,8 @@
 
 #include <core/cmp/cmp.hpp>
 
+#include <tools/moon_log.hpp>
+
 namespace Moon::Core {
     template<class Type>
     Component_t<Type>::Component_t()
@@ -16,6 +18,8 @@ namespace Moon::Core {
     template<class Type>
     Component_t<Type>::~Component_t()
     { /*Nada*/
+      //TODO:Hacer los logs en el core del motor
+      Moon::Tools::Moon_Log([&]() { spdlog::info("Delete Component_t wiht ComponentType {} and eid {}", this->getComponentType(), this->eid);});
     }
 
     template<class Type>
