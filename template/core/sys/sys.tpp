@@ -27,18 +27,18 @@ namespace Moon::Core
     //-----------------------------------------------------
 
     template <typename Type>
-    SystemVoid_t<Type...>::SystemVoid_t()
+    SystemVoid_t<Type>::SystemVoid_t()
     {
     }
 
     template <typename Type>
-    SystemVoid_t<Type...>::~SystemVoid_t()
+    SystemVoid_t<Type>::~SystemVoid_t()
     {
         /*Nada*/
     }
 
     template <typename Type>
-    Moon::Alias::SystemType SystemVoid_t<Type...>::getSystemType() noexcept
+    Moon::Alias::SystemType SystemVoid_t<Type>::getSystemType() noexcept
     {
         static Moon::Alias::SystemType type = ++nextType;
         return type;
