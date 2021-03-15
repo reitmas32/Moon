@@ -69,7 +69,7 @@ namespace Moon::Core
     virtual bool alive() = 0;
   };
 
-  template <Moon::Concepts::Ctx_t... Type>
+  template <typename Type>
   struct SystemVoid_t : public SystemBase_t
   {
 
