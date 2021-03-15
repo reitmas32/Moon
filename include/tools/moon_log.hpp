@@ -5,7 +5,7 @@
 
 namespace Moon::Tools
 {
-    void Moon_Log(std::function<void()> log)
+    inline void Moon_Log(std::function<void()> log)
     {
 #if not defined(RELEASE)
         log();
