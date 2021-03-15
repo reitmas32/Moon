@@ -75,7 +75,7 @@ namespace Moon::Core {
          */
         static Moon::Alias::ComponentType getComponentType() noexcept;
     };
-
+    template<class Type>
     struct ComponentSingleton_t : protected ComponentBase_t
     {
         ComponentSingleton_t();
