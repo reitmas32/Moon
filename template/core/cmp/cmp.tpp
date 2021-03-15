@@ -9,12 +9,14 @@ namespace Moon::Core
   template <class Type>
   Component_t<Type>::Component_t()
   {
+    Moon::Tools::Moon_Log([&]() { spdlog::info("Create Component_t wiht ComponentType {} and eid {}", this->getComponentType(), this->eid); });
   }
 
   template <class Type>
   Component_t<Type>::Component_t(Moon::Alias::EntityId eid)
   {
     this->eid = eid;
+    Moon::Tools::Moon_Log([&]() { spdlog::info("Create Component_t wiht ComponentType {} and eid {}", this->getComponentType(), this->eid); });
   }
 
   template <class Type>
@@ -34,12 +36,18 @@ namespace Moon::Core
   //---------------------------------------------------
   //---------------------------------------------------
   //---------------------------------------------------
-  
-  template <class Type>
-  ComponentSingleton_t<Type>::ComponentSingleton_t() {}
 
   template <class Type>
-  ComponentSingleton_t<Type>::~ComponentSingleton_t() {}
+  ComponentSingleton_t<Type>::ComponentSingleton_t()
+  {
+    Moon::Tools::Moon_Log([&]() { spdlog::info("Create ComponentSingleton_t wiht ComponentType {}", this->getComponentType()); });
+  }
+
+  template <class Type>
+  ComponentSingleton_t<Type>::~ComponentSingleton_t()
+  {
+    Moon::Tools::Moon_Log([&]() { spdlog::info("Delete ComponentSingleton_t wiht ComponentType {}", this->getComponentType()); });
+  }
 
   template <class Type>
   Moon::Alias::ComponentType ComponentSingleton_t<Type>::getComponentType() noexcept

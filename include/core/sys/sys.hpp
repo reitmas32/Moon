@@ -18,6 +18,8 @@
 
 #include <core/concepts.hpp>
 
+#include <tools/moon_log.hpp>
+
 /**
  * @brief Namespace del core del Motor
  *

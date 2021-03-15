@@ -24,6 +24,8 @@
  */
 #include <core/ent/ent_base.hpp>
 
+#include <tools/moon_log.hpp>
+
 /**
  * @brief Namespace of the Core the Moon
  * \namespace Moon::Core

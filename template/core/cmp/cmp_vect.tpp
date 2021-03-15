@@ -29,7 +29,7 @@ namespace Moon::Core
         if (it + 1 != components.end())
             *it = components.back();
         components.pop_back();
-
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Pre-Delete Component_t"); });
         return it.base();
     }
 } // namespace Moon::Core

@@ -16,6 +16,7 @@ namespace Moon::Core
     {
         auto &v = this->getComponents<CMP_t>();
         auto &cmp = v.emplace_back(eid, args...);
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Component wiht ComponentType {} and eid {}", CMP_t::getComponentType(), eid); });
         return cmp;
     }
 
@@ -27,6 +28,7 @@ namespace Moon::Core
         auto typeID = CMP_t::getComponentType();
         auto *vectCmp = v.get();
         this->storage[typeID] = std::move(v);
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Create ComponentVector wiht ComponentType {}", typeID); });
         return vectCmp->components;
     }
 
@@ -70,6 +72,7 @@ namespace Moon::Core
         auto it = this->storage.find(cid);
         if (it == this->storage.end())
             return nullptr;
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Pre-Delete Component_t wiht ComponentType {} and eid {}", cid, eid); });
         return it->second->deleteComponentByEntityId(eid);
     }
 } // namespace Moon::Core

@@ -28,6 +28,8 @@
 // ComponentStorage
 #include <core/cmp/cmp_storage.hpp>
 
+#include <tools/moon_log.hpp>
+
 // Numero de Entity que tendra cada GameContext
 #define NUM_ENTITIES 100
 

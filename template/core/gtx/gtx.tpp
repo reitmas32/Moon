@@ -7,12 +7,13 @@ namespace Moon::Core {
     GameContext_t<Type>::GameContext_t()
     {
         this->entities.reserve(NUM_ENTITIES);
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Create GameContext_t wiht GameContextType {}", this->getGameContextType()); });
     }
 
     template<Moon::Concepts::Ent_t Type>
     GameContext_t<Type>::~GameContext_t()
     {
-        /*Nada*/
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete GameContext_t wiht GameContextType {}", this->getGameContextType()); });
     }
 
     template<Moon::Concepts::Ent_t Type>
@@ -27,6 +28,7 @@ namespace Moon::Core {
     Type& GameContext_t<Type>::addEntity()
     {
         auto& ent = this->entities.emplace_back(this->nextId++);
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Add Entity_t wiht EntityType {} and eid {}", ent.getEntityType(), this->nextId); });
         return ent;
     }
 

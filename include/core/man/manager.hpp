@@ -13,6 +13,8 @@
 //ManagerBase
 #include <core/man/manager_base.hpp>
 
+#include <tools/moon_log.hpp>
+
 /**
  * @brief Namespace del core del Motor
  * 

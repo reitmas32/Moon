@@ -9,6 +9,7 @@ namespace Moon::Core {
     EntityBase_t::addComponent(CMP_t* cmp)
     {
         this->components.insert({ CMP_t::getComponentType(), cmp });
+        Moon::Tools::Moon_Log([&]() { spdlog::info("addComponent wiht ComponentType {} and eid {}", cmp->getComponentType(), cmp->eid); });
     }
 
     template<class CMP_t>

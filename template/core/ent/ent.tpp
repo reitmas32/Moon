@@ -7,18 +7,20 @@ namespace Moon::Core
     template <class Type>
     Entity_t<Type>::Entity_t()
     {
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Entity_t wiht EntityType {}", this->eid); });
     }
 
     template <class Type>
     Entity_t<Type>::Entity_t(Moon::Alias::EntityId eid)
         : eid{eid}
     {
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Entity_t wiht EntityType {}", this->eid); });
     }
 
     template <class Type>
     Entity_t<Type>::~Entity_t()
     {
-        /*Nada*/
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete Entity_t wiht EntityType {}", this->eid); });
     }
 
     template <class Type>
@@ -37,5 +39,6 @@ namespace Moon::Core
         {
             it->second = cmp_ptr;
         }
+        Moon::Tools::Moon_Log([&]() { spdlog::info("updateComponent wiht ComponentType {} and eid {}", cid, this->eid); });
     }
 } // namespace Moon::Core
