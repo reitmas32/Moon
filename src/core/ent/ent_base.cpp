@@ -1,1 +1,0 @@
-#include "../../../template/core/ent/ent_base.tpp"
