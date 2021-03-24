@@ -8,8 +8,6 @@ set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
 set(TEMPLATE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/template)
 
-set(TEST_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/googletest/include)
-
 ########################
 #    Include Dirs of   #
 #       Project        #
@@ -20,7 +18,6 @@ include_directories(
     ##TODO: Eliminar de aqui o incluir las cabeceras de spdlog de otro forma
     ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include
     ${TEMPLATE_DIR}
-    ${TEST_INCLUDE_DIR}
 )
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2a")
 ########################
@@ -60,7 +57,8 @@ if( test AND test STREQUAL "on" )
     file(GLOB TEST_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
     set(TESTING_SOURCE ${LIB_SOURCES} )
     list(REMOVE_ITEM TESTING_SOURCE ${SOURCE_DIR}/main.cpp)
-
+    set(TEST_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/googletest/include)
+    include_directories(${TEST_INCLUDE_DIR})
     ########################
     #     Init_Testing     #
     ########################
