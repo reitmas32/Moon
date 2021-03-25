@@ -14,13 +14,13 @@ namespace Moon::Core
     Entity_t<Type>::Entity_t(Moon::Alias::EntityId eid)
         : eid{eid}
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Entity_t wiht EntityType {}", this->eid); });
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Entity_t wiht EntityType {} and {:p}", this->eid, (void*)this); });
     }
 
     template <class Type>
     Entity_t<Type>::~Entity_t()
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete Entity_t wiht EntityType {}", this->eid); });
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete Entity_t wiht EntityType {} and {:p}", this->eid, (void*)this); });
     }
 
     template <class Type>
