@@ -3,36 +3,37 @@
 #include <core/gtx/gtx.hpp>
 
 namespace Moon::Core {
-    template<Moon::Concepts::Ent_t Type>
+    template<typename Type>
     GameContext_t<Type>::GameContext_t()
     {
-        this->entities.reserve(NUM_ENTITIES);
+        //this->entities.reserve(NUM_ENTITIES);
         Moon::Tools::Moon_Log([&]() { spdlog::info("Create GameContext_t wiht GameContextType {}", this->getGameContextType()); });
     }
 
-    template<Moon::Concepts::Ent_t Type>
+    template<typename Type>
     GameContext_t<Type>::~GameContext_t()
     {
         Moon::Tools::Moon_Log([&]() { spdlog::info("Delete GameContext_t wiht GameContextType {}", this->getGameContextType()); });
     }
 
-    template<Moon::Concepts::Ent_t Type>
+    template<typename Type>
     Moon::Alias::GameContextType
     GameContext_t<Type>::getGameContextType() noexcept
     {
         static Moon::Alias::GameContextType type = ++nextType;
         return type;
     }
-
-    template<Moon::Concepts::Ent_t Type>
+#if false
+    template<typename Type>
     Type& GameContext_t<Type>::addEntity()
     {
-        auto& ent = this->entities.emplace_back(this->nextId++);
+        auto& ent = this->entities.createEntity(this->nextId++);
         Moon::Tools::Moon_Log([&]() { spdlog::info("Add Entity_t wiht EntityType {} and eid {}", ent.getEntityType(), this->nextId); });
         return ent;
     }
-
-    template<Moon::Concepts::Ent_t Type>
+#endif
+#if false
+    template<typename Type>
     Type* GameContext_t<Type>::getEntityById(Moon::Alias::EntityId eid)
     {
 #ifdef __linux__
@@ -53,5 +54,5 @@ namespace Moon::Core {
     return nullptr;   
 #endif
     }
-
+#endif
 } // namespace Moon::Core
