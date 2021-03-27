@@ -4,6 +4,14 @@
 
 namespace Moon::Core
 {
+    ManagerBase_t::ManagerBase_t()
+    {
+    }
+
+    ManagerBase_t::~ManagerBase_t()
+    {
+    }
+
     template <typename Type>
     Manager_t<Type>::Manager_t()
     {
