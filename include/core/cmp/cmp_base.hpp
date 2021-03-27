@@ -33,7 +33,7 @@ namespace Moon::Core {
         ComponentBase_t() = default;
 
         /** Destroy the ComponentBase_t object is virtual*/
-        virtual ~ComponentBase_t(){}
+        virtual ~ComponentBase_t() = default;
     };
 
 } // namespace Moon::Core
