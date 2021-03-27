@@ -98,6 +98,9 @@ namespace Moon::Core
         ComponentBase_t *
         deleteComponentByTypeIdAndEntityId(Moon::Alias::ComponentType cid, Moon::Alias::EntityId eid);
 
+    
+        virtual ~ComponentStorage_t();
+
     private:
         /**
          * @brief Create a Component Vector object
