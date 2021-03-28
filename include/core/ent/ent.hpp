@@ -71,7 +71,7 @@ namespace Moon::Core {
         Entity_t(Moon::Alias::EntityId eid);
 
         /** Destroy the Entity_t object is virtual*/
-        virtual ~Entity_t() = 0;
+        virtual ~Entity_t();
 
         /**
          * @brief Get the Entity Type object

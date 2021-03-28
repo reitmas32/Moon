@@ -24,16 +24,19 @@ TEST(Test, example)
     {
         int data;
         CMP_TEST_t(Moon::Alias::EntityId eid, int data) : Moon::Core::Component_t<CMP_TEST_t>(eid), data{data} {}
+        ~CMP_TEST_t() override {}
     };
 
     struct ENT_TEST_1_t : Moon::Core::Entity_t<ENT_TEST_1_t>
     {
         ENT_TEST_1_t(Moon::Alias::EntityId eid) : Moon::Core::Entity_t<ENT_TEST_1_t>(eid) {}
+        ~ENT_TEST_1_t(){}
     };
 
     struct ENT_TEST_2_t : Moon::Core::Entity_t<ENT_TEST_2_t>
     {
         ENT_TEST_2_t(Moon::Alias::EntityId eid) : Moon::Core::Entity_t<ENT_TEST_2_t>(eid) {}
+        ~ENT_TEST_2_t(){}
     };
 
     struct GTX_TEST_1_t : Moon::Core::GameContext_t<ENT_TEST_1_t>
@@ -52,8 +55,8 @@ TEST(Test, example)
 
     gtx.destroyEntityById<ENT_TEST_1_t>(e1.eid);
 
-    EXPECT_EQ(1, gtx.getComponents<CMP_TEST_t>().size());
-    EXPECT_EQ(1, gtx.getEntities<ENT_TEST_1_t>().size());
+    EXPECT_EQ(0, gtx.getComponents<CMP_TEST_t>().size());
+    EXPECT_EQ(0, gtx.getEntities<ENT_TEST_1_t>().size());
     EXPECT_EQ(1, gtx.getEntities<ENT_TEST_2_t>().size());
 
     EXPECT_EQ(1, CMP_TEST_t::getComponentType());
@@ -68,11 +71,13 @@ TEST(Test, example_1)
     struct ENT_TEST_2_t : Moon::Core::Entity_t<ENT_TEST_2_t>
     {
         ENT_TEST_2_t(Moon::Alias::EntityId eid) : Moon::Core::Entity_t<ENT_TEST_2_t>(eid) {}
+        ~ENT_TEST_2_t(){}
     };
 
     struct ENT_TEST_1_t : Moon::Core::Entity_t<ENT_TEST_1_t>
     {
         ENT_TEST_1_t(Moon::Alias::EntityId eid) : Moon::Core::Entity_t<ENT_TEST_1_t>(eid) {}
+        ~ENT_TEST_1_t(){}
     };
 
     auto storage = Moon::Core::EntityStorage_t();
@@ -80,4 +85,14 @@ TEST(Test, example_1)
     auto e1 = storage.createEntity<ENT_TEST_1_t>(1);
     auto& vect_1 = storage.getEntities<ENT_TEST_1_t>();
     EXPECT_EQ(1, vect_1.size());
+    struct NewEntity : Moon::Core::Entity_t<NewEntity>
+    {
+        NewEntity(Moon::Alias::EntityId eid)
+        : Moon::Core::Entity_t<NewEntity>(eid)
+        {
+            //TODO
+        }
+    
+        ~NewEntity(){}
+    };
 }

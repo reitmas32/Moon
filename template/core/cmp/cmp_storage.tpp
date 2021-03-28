@@ -19,7 +19,7 @@ namespace Moon::Core
     {
         auto &v = this->getComponents<CMP_t>();
         auto &cmp = v.emplace_back(eid, args...);
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Component wiht ComponentType {} and eid {} in location {:p}", CMP_t::getComponentType(), eid, (void*)&cmp); });
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Pos-Create Component wiht ComponentType {} and eid {} in location {:p}", CMP_t::getComponentType(), eid, (void*)&cmp); });
         return cmp;
     }
 
@@ -30,8 +30,8 @@ namespace Moon::Core
         v->components.reserve(NUM_CMPS);
         auto typeID = CMP_t::getComponentType();
         auto *vectCmp = v.get();
+        Moon::Tools::Moon_Log([&]() { spdlog::info("Pos-Create ComponentVector wiht ComponentType {} in location {:p}", typeID, (void*)vectCmp); });
         this->storage[typeID] = std::move(v);
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create ComponentVector wiht ComponentType {} in location {:p}", typeID, (void*)vectCmp); });
         return vectCmp->components;
     }
 

@@ -4,32 +4,55 @@
 
 namespace Moon::Core
 {
-    template <Moon::Concepts::Cmp_t CMP_t>
-    constexpr auto ComponentVect_t<CMP_t>::findComponentIteratorById(Moon::Alias::EntityId eid) noexcept
-    {
-        std::optional itopt =
-            std::find_if(components.begin(), components.end(),
-                         [&eid](CMP_t &cmp) { return cmp.eid == eid; });
-        if (*itopt == components.end())
-            itopt.reset();
+  template <Moon::Concepts::Cmp_t CMP_t>
+  ComponentVect_t<CMP_t>::ComponentVect_t()
+  {
+    Moon::Tools::Moon_Log([&]() {
+      spdlog::info("Create ComponentVect_t in location {:p}",
+                   (void *)this);
+    });
+  }
 
-        return itopt;
-    }
+  template <Moon::Concepts::Cmp_t CMP_t>
+  ComponentVect_t<CMP_t>::~ComponentVect_t()
+  {
+    Moon::Tools::Moon_Log([&]() {
+      spdlog::info("Delete ComponentVect_t in location {:p}",
+                   (void *)this);
+    });
+  }
 
-    template <Moon::Concepts::Cmp_t CMP_t>
-    ComponentBase_t *ComponentVect_t<CMP_t>::deleteComponentByEntityId(Moon::Alias::EntityId eid)
-    {
-        auto itopt = this->findComponentIteratorById(eid);
+  template <Moon::Concepts::Cmp_t CMP_t>
+  constexpr auto
+  ComponentVect_t<CMP_t>::findComponentIteratorById(Moon::Alias::EntityId eid) noexcept
+  {
+    std::optional itopt =
+        std::find_if(components.begin(), components.end(),
+                     [&eid](CMP_t &cmp) { return cmp.eid == eid; });
+    if (*itopt == components.end())
+      itopt.reset();
 
-        if (!itopt)
-            return nullptr;
+    return itopt;
+  }
 
-        auto it = *itopt;
+  template <Moon::Concepts::Cmp_t CMP_t>
+  ComponentBase_t *
+  ComponentVect_t<CMP_t>::deleteComponentByEntityId(Moon::Alias::EntityId eid)
+  {
+    auto itopt = this->findComponentIteratorById(eid);
 
-        if (it + 1 != components.end())
-            *it = components.back();
-        components.pop_back();
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Pre-Delete Component_t"); });
-        return it.base();
-    }
+    if (!itopt)
+      return nullptr;
+
+    auto it = *itopt;
+
+    if (it + 1 != components.end())
+      *it = components.back();
+    components.pop_back();
+    Moon::Tools::Moon_Log([&]() {
+      spdlog::info("Pre-Delete Component_t in location {:p}",
+                   (void *)it.base());
+    });
+    return it.base();
+  }
 } // namespace Moon::Core

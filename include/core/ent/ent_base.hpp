@@ -45,10 +45,10 @@ namespace Moon::Core {
 
       public:
         /** Construct Default*/
-        EntityBase_t() = default;
+        EntityBase_t();
 
         /** Destroy the EntityBase_t object is virtual*/
-        virtual ~EntityBase_t() {}
+        virtual ~EntityBase_t();
 
         /**
          * @brief Add a Component_t

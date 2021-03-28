@@ -20,6 +20,8 @@ namespace Moon::Core
     {
         EntityStorage_t();
 
+        ~EntityStorage_t();
+
         template <typename ENT_t, typename... Ts>
         ENT_t &createEntity(Moon::Alias::EntityId eid, Ts &&...args);
 
