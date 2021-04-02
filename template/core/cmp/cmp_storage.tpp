@@ -10,7 +10,6 @@ namespace Moon::Core
 {
     ComponentStorage_t::ComponentStorage_t()
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create ComponentStorage_t in location {:p}", (void *)this); });
     }
 
     template <Moon::Concepts::Cmp_t CMP_t, typename... Ts>
@@ -19,7 +18,6 @@ namespace Moon::Core
     {
         auto &v = this->getComponents<CMP_t>();
         auto &cmp = v.emplace_back(eid, args...);
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Pos-Create Component wiht ComponentType {} and eid {} in location {:p}", CMP_t::getComponentType(), eid, (void*)&cmp); });
         return cmp;
     }
 
@@ -30,7 +28,6 @@ namespace Moon::Core
         v->components.reserve(NUM_CMPS);
         auto typeID = CMP_t::getComponentType();
         auto *vectCmp = v.get();
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Pos-Create ComponentVector wiht ComponentType {} in location {:p}", typeID, (void*)vectCmp); });
         this->storage[typeID] = std::move(v);
         return vectCmp->components;
     }
@@ -75,9 +72,9 @@ namespace Moon::Core
         auto it = this->storage.find(cid);
         if (it == this->storage.end())
             return nullptr;
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Pre-Delete Component_t wiht ComponentType {} and eid {} in location {:p}", cid, eid, (void*)it->second.get()); });
         return it->second->deleteComponentByEntityId(eid);
     }
 
-    ComponentStorage_t::~ComponentStorage_t() {Moon::Tools::Moon_Log([&]() { spdlog::info("Delete ComponentStorage_t in location {:p}", (void *)this); });}
+    ComponentStorage_t::~ComponentStorage_t() {
+    }
 } // namespace Moon::Core
