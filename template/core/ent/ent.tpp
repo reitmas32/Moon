@@ -9,19 +9,11 @@ namespace Moon::Core
   Entity_t<Type>::Entity_t(Moon::Alias::EntityId eid)
       : eid{eid}
   {
-    Moon::Tools::Moon_Log([&]() {
-      spdlog::info("Create Default Entity_t wiht EntityType {} in location {:p}",
-                   this->eid, (void *)this);
-    });
   }
 
   template <class Type>
   Entity_t<Type>::~Entity_t()
   {
-    Moon::Tools::Moon_Log([&]() {
-      spdlog::info("Delete Default Entity_t wiht EntityType {} and {:p}",
-                   this->eid, (void *)this);
-    });
   }
 
   template <class Type>
@@ -40,6 +32,5 @@ namespace Moon::Core
     {
       it->second = cmp_ptr;
     }
-    Moon::Tools::Moon_Log([&]() { spdlog::info("updateComponent wiht ComponentType {} and eid {}", cid, this->eid); });
   }
 } // namespace Moon::Core
