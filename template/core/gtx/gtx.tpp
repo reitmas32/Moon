@@ -7,13 +7,11 @@ namespace Moon::Core {
     GameContext_t<Type>::GameContext_t()
     {
         //this->entities.reserve(NUM_ENTITIES);
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create GameContext_t wiht GameContextType {}", this->getGameContextType()); });
     }
 
     template<typename Type>
     GameContext_t<Type>::~GameContext_t()
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete GameContext_t wiht GameContextType {}", this->getGameContextType()); });
     }
 
     template<typename Type>

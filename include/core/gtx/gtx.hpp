@@ -84,7 +84,6 @@ namespace Moon::Core
         ENT_t &addEntity(Ts &&...args)
         {
             auto &ent = this->entities.template createEntity<ENT_t>(this->nextId++, args...);
-            Moon::Tools::Moon_Log([&]() { spdlog::info("Add Entity_t wiht EntityType {} and eid {}", ent.getEntityType(), this->nextId); });
             return ent;
         }
 
@@ -130,7 +129,7 @@ namespace Moon::Core
         template <typename ENT_t, Moon::Concepts::Cmp_t CMP_t, typename... Ts>
         CMP_t &addComponentById(Moon::Alias::EntityId eid, Ts &&...args)
         {
-            Type *e = this->getEntityById<ENT_t>(eid);
+            ENT_t *e = this->getEntityById<ENT_t>(eid);
             auto &cmp =
                 this->components.template createComponent<CMP_t>(eid, args...);
             e->template addComponent<CMP_t>(&cmp);
