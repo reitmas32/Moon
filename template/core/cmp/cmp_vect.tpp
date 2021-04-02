@@ -7,19 +7,11 @@ namespace Moon::Core
   template <Moon::Concepts::Cmp_t CMP_t>
   ComponentVect_t<CMP_t>::ComponentVect_t()
   {
-    Moon::Tools::Moon_Log([&]() {
-      spdlog::info("Create ComponentVect_t in location {:p}",
-                   (void *)this);
-    });
   }
 
   template <Moon::Concepts::Cmp_t CMP_t>
   ComponentVect_t<CMP_t>::~ComponentVect_t()
   {
-    Moon::Tools::Moon_Log([&]() {
-      spdlog::info("Delete ComponentVect_t in location {:p}",
-                   (void *)this);
-    });
   }
 
   template <Moon::Concepts::Cmp_t CMP_t>
@@ -49,10 +41,6 @@ namespace Moon::Core
     if (it + 1 != components.end())
       *it = components.back();
     components.pop_back();
-    Moon::Tools::Moon_Log([&]() {
-      spdlog::info("Pre-Delete Component_t in location {:p}",
-                   (void *)it.base());
-    });
     return it.base();
   }
 } // namespace Moon::Core
