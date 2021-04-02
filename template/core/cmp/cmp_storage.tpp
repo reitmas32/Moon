@@ -8,9 +8,6 @@
 
 namespace Moon::Core
 {
-    ComponentStorage_t::ComponentStorage_t()
-    {
-    }
 
     template <Moon::Concepts::Cmp_t CMP_t, typename... Ts>
     CMP_t &ComponentStorage_t::createComponent(Moon::Alias::EntityId eid,
@@ -66,15 +63,12 @@ namespace Moon::Core
         }
     }
 
-    Moon::Core::ComponentBase_t *
+    inline Moon::Core::ComponentBase_t *
     ComponentStorage_t::deleteComponentByTypeIdAndEntityId(Moon::Alias::ComponentType cid, Moon::Alias::EntityId eid)
     {
         auto it = this->storage.find(cid);
         if (it == this->storage.end())
             return nullptr;
         return it->second->deleteComponentByEntityId(eid);
-    }
-
-    ComponentStorage_t::~ComponentStorage_t() {
     }
 } // namespace Moon::Core

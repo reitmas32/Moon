@@ -22,7 +22,8 @@
  * @brief Namespace of the Core the Moon
  * \namespace Moon::Core
  */
-namespace Moon::Core {
+namespace Moon::Core
+{
     /**
      * @subsubsection Example
      * @code{.cpp}
@@ -48,21 +49,27 @@ namespace Moon::Core {
      * \image html assets/stability/stability_2.png
      * @tparam Type Is a new Component Following the CRTP
      */
-    template<class Type>
+    template <class Type>
     struct Component_t : public ComponentBase_t
     {
         /**Overloaded constructor Default*/
-        Component_t();
+        //TODO:LOGS
+        Component_t() = default;
 
         /**
          * Overloaded constructor with Moon::Alias::EntityId
          *
          * @param eid Id of the Entity to which the Component belongs
          */
-        Component_t(Moon::Alias::EntityId eid);
+        //TODO:LOGS
+        Component_t(Moon::Alias::EntityId eid)
+        {
+            this->eid = eid;
+        }
 
         /** Destroy the Component_t object is virtual*/
-        virtual ~Component_t() = 0;
+        //TODO:LOGS
+        virtual ~Component_t() = default;
 
         /**
          * @brief Get the Component Type object
@@ -75,16 +82,14 @@ namespace Moon::Core {
          */
         static Moon::Alias::ComponentType getComponentType() noexcept;
     };
-    template<class Type>
+    template <class Type>
     struct ComponentSingleton_t : protected ComponentBase_t
     {
-        ComponentSingleton_t();
+        ComponentSingleton_t() = default;
 
-        virtual ~ComponentSingleton_t() = 0;
+        virtual ~ComponentSingleton_t() = default;
 
         static Moon::Alias::ComponentType getComponentType() noexcept;
     };
-    
 
 } // namespace Moon::Core
-

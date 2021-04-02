@@ -4,18 +4,6 @@
 
 namespace Moon::Core
 {
-
-  template <class Type>
-  Entity_t<Type>::Entity_t(Moon::Alias::EntityId eid)
-      : eid{eid}
-  {
-  }
-
-  template <class Type>
-  Entity_t<Type>::~Entity_t()
-  {
-  }
-
   template <class Type>
   Moon::Alias::EntityType Entity_t<Type>::getEntityType() noexcept
   {

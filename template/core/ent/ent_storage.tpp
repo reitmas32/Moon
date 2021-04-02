@@ -62,7 +62,7 @@ namespace Moon::Core
             throw "Asi no por favor !!!";
         }
     }
-
+    /*
     Moon::Core::EntityBase_t *
     EntityStorage_t::deleteEntityByTypeIdAndEntityId(Moon::Alias::EntityType type, Moon::Alias::EntityId eid)
     {
@@ -71,4 +71,5 @@ namespace Moon::Core
             return nullptr;
         return it->second->deleteByEntityId(eid);
     }
+    */
 } // namespace Moon::Core

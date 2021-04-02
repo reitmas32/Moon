@@ -30,7 +30,8 @@
  * @brief Namespace of the Core the Moon
  * \namespace Moon::Core
  */
-namespace Moon::Core {
+namespace Moon::Core
+{
     /**
      * @subsubsection Example
      * @code{.cpp}
@@ -54,24 +55,29 @@ namespace Moon::Core {
      * \image html assets/stability/stability_2.png
      * @tparam Type Is a new Component Following the CRTP
      */
-    template<class Type>
+    template <class Type>
     struct Entity_t : public EntityBase_t
     {
         /**ID of the Entity*/
         Moon::Alias::EntityId eid = 0;
 
         /**Overloaded constructor Default*/
-        Entity_t();
+        //TODO:LOGS
+        Entity_t() = default;
 
         /**
          * Overloaded constructor with Moon::Alias::EntityId
          *
          * @param eid Id of the Entity
          */
-        Entity_t(Moon::Alias::EntityId eid);
+        //TODO:LOGS
+        Entity_t(Moon::Alias::EntityId eid) : eid{eid}
+        {
+        }
 
         /** Destroy the Entity_t object is virtual*/
-        virtual ~Entity_t();
+        //TODO:LOGS
+        virtual ~Entity_t() = default;
 
         /**
          * @brief Get the Entity Type object
@@ -93,7 +99,7 @@ namespace Moon::Core {
          * 
          * @return Moon::Alias::EntityType
          */
-        void updateComponent(Moon::Alias::ComponentType cid, ComponentBase_t* cmp_ptr);
+        void updateComponent(Moon::Alias::ComponentType cid, ComponentBase_t *cmp_ptr);
 
         /**
          * @brief override begin() the Component_t
@@ -102,7 +108,7 @@ namespace Moon::Core {
          * 
          * @return MapCmps_t
          */
-        auto begin() {return this->components.begin();}
+        auto begin() { return this->components.begin(); }
 
         /**
          * @brief override end() the Component_t
@@ -111,7 +117,7 @@ namespace Moon::Core {
          * 
          * @return MapCmps_t
          */
-        auto end() {return this->components.end();}
+        auto end() { return this->components.end(); }
     };
 
 } // namespace Moon::Core

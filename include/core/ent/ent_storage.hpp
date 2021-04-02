@@ -36,7 +36,13 @@ namespace Moon::Core
         const std::vector<ENT_t> &getEntities() const;
 
         EntityBase_t *
-        deleteEntityByTypeIdAndEntityId(Moon::Alias::EntityType type, Moon::Alias::EntityId eid);
+        deleteEntityByTypeIdAndEntityId(Moon::Alias::EntityType type, Moon::Alias::EntityId eid)
+        {
+            auto it = this->storage.find(type);
+            if (it == this->storage.end())
+                return nullptr;
+            return it->second->deleteByEntityId(eid);
+        }
 
     private:
         template <typename ENT_t>

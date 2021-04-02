@@ -26,65 +26,69 @@
  */
 namespace Moon::Core
 {
-  /**
+     /**
      * @brief Clase de la que heredan todos los Systems del Motor
      * \image html assets/stability/stability_2.png
      * @tparam Type
      */
-  template <Moon::Concepts::Ctx_t... Type>
-  struct System_t : public SystemBase_t
-  {
+     template <Moon::Concepts::Ctx_t... Type>
+     struct System_t : public SystemBase_t
+     {
 
-  public:
-    /**
+     public:
+          /**
          * @brief Contructor de System_t object
          *
          */
-    System_t();
+          //TODO:LOGS
+          System_t() = default;
 
-    /**
+          /**
          * @brief Destructor de System_t object
          *
          */
-    virtual ~System_t() = 0;
+          //TODO:LOGS
+          virtual ~System_t() = default;
 
-    /**
+          /**
          * @brief Get the System Type object
          *
          * @return Moon::Alias::SystemType
          */
-    static Moon::Alias::SystemType getSystemType() noexcept;
+          static Moon::Alias::SystemType getSystemType() noexcept;
 
-    /**
+          /**
          * @brief Metodo que actualiza al System
          *
          * @param gameContext
          */
-    virtual void update(Type *...gameContext) = 0;
+          virtual void update(Type *...gameContext) = 0;
 
-    /**
+          /**
          * @brief Metodo que indica si el system sigue alive
          *
          * @return true
          * @return false
          */
-    virtual bool alive() = 0;
-  };
+          virtual bool alive() = 0;
+     };
 
-  template <typename Type>
-  struct SystemVoid_t : public SystemBase_t
-  {
+     template <typename Type>
+     struct SystemVoid_t : public SystemBase_t
+     {
 
-  public:
-    SystemVoid_t();
+     public:
+          //TODO:LOGS
+          SystemVoid_t() = default;
 
-    virtual ~SystemVoid_t() = 0;
+          //TODO:LOGS
+          virtual ~SystemVoid_t() = default;
 
-    static Moon::Alias::SystemType getSystemType() noexcept;
+          static Moon::Alias::SystemType getSystemType() noexcept;
 
-    virtual void update() = 0;
+          virtual void update() = 0;
 
-    virtual bool alive() = 0;
-  };
+          virtual bool alive() = 0;
+     };
 
 } // namespace Moon::Core

@@ -60,13 +60,15 @@ namespace Moon::Core
          * @brief Contructor de GameContext_t object
          *
          */
-        GameContext_t();
+        //TODO:LOGS
+        GameContext_t() = default;
 
         /**
          * @brief Destructor de GameContext_t object
          *
          */
-        virtual ~GameContext_t() = 0;
+        //TODO:LOGS
+        virtual ~GameContext_t() = default;
 
         /**
          * @brief Get the Game Context Type object

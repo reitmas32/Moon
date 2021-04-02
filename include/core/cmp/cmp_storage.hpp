@@ -55,7 +55,11 @@ namespace Moon::Core
         /**
          * @brief Contructor Default
          */
-        ComponentStorage_t();
+        //TODO:LOGS
+        ComponentStorage_t() = default;
+
+        //TODO:LOGS
+        virtual ~ComponentStorage_t() = default;
 
         /**
          * @brief Create a Component object
@@ -97,9 +101,6 @@ namespace Moon::Core
          */
         ComponentBase_t *
         deleteComponentByTypeIdAndEntityId(Moon::Alias::ComponentType cid, Moon::Alias::EntityId eid);
-
-    
-        virtual ~ComponentStorage_t();
 
     private:
         /**

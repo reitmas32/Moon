@@ -32,13 +32,15 @@ namespace Moon::Core
          * @brief Contructor de ManagerBase_t object
          * 
          */
-        ManagerBase_t();
+        //TODO:LOGS
+        ManagerBase_t() = default;
 
         /**
          * @brief Destructor de ManagerBase_t object
          * 
          */
-        virtual ~ManagerBase_t() = 0;
+        //TODO:LOGS
+        virtual ~ManagerBase_t() = default;
     };
 
 } // namespace Moon::Core

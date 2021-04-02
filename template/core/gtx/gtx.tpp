@@ -4,17 +4,6 @@
 
 namespace Moon::Core {
     template<typename Type>
-    GameContext_t<Type>::GameContext_t()
-    {
-        //this->entities.reserve(NUM_ENTITIES);
-    }
-
-    template<typename Type>
-    GameContext_t<Type>::~GameContext_t()
-    {
-    }
-
-    template<typename Type>
     Moon::Alias::GameContextType
     GameContext_t<Type>::getGameContextType() noexcept
     {

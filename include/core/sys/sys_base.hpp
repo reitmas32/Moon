@@ -38,7 +38,7 @@ namespace Moon::Core {
          * @brief Destructor de SystemBase_t object
          *
          */
-        virtual ~SystemBase_t(){}
+        virtual ~SystemBase_t() = default;
 
         /**
          * @brief Metodo que indica si el sistema sigue alive

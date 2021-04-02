@@ -30,9 +30,11 @@ namespace Moon::Core {
         /**Id of the Entity to which the Component belongs*/
         Moon::Alias::EntityId eid = 0;
         /** Contructor Default */
+        //TODO:LOGS
         ComponentBase_t() = default;
 
         /** Destroy the ComponentBase_t object is virtual*/
+        //TODO:LOGS
         virtual ~ComponentBase_t() = default;
     };
 
