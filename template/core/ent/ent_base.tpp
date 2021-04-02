@@ -4,32 +4,11 @@
 
 namespace Moon::Core
 {
-
-  EntityBase_t::EntityBase_t()
-  {
-    Moon::Tools::Moon_Log([&]() {
-      spdlog::info("Create Default EntityBase_t in location {:p}",
-                   (void *)this);
-    });
-  }
-
-  EntityBase_t::~EntityBase_t()
-  {
-    Moon::Tools::Moon_Log([&]() {
-      spdlog::info("Delete Default EntityBase_t in location {:p}",
-                   (void *)this);
-    });
-  }
-
   template <class CMP_t>
   requires std::is_base_of<Moon::Core::ComponentBase_t, CMP_t>::value void
   EntityBase_t::addComponent(CMP_t *cmp)
   {
     this->components.insert({CMP_t::getComponentType(), cmp});
-    Moon::Tools::Moon_Log([&]() {
-      spdlog::info("addComponent wiht ComponentType {} and eid {}",
-                   cmp->getComponentType(), cmp->eid);
-    });
   }
 
   template <class CMP_t>
