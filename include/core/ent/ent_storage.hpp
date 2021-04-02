@@ -18,9 +18,13 @@ namespace Moon::Core
 {
     struct EntityStorage_t
     {
-        EntityStorage_t();
+        EntityStorage_t()
+        {
+        }
 
-        ~EntityStorage_t();
+        ~EntityStorage_t()
+        {
+        }
 
         template <typename ENT_t, typename... Ts>
         ENT_t &createEntity(Moon::Alias::EntityId eid, Ts &&...args);
@@ -35,7 +39,6 @@ namespace Moon::Core
         deleteEntityByTypeIdAndEntityId(Moon::Alias::EntityType type, Moon::Alias::EntityId eid);
 
     private:
-
         template <typename ENT_t>
         std::vector<ENT_t> &createEntityVector();
 
