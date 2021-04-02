@@ -7,13 +7,11 @@ namespace Moon::Core
     template <Moon::Concepts::Ctx_t... Type>
     System_t<Type...>::System_t()
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create System_t wiht SystemType {}", this->getSystemType()); });
     }
 
     template <Moon::Concepts::Ctx_t... Type>
     System_t<Type...>::~System_t()
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete System_t wiht SystemType {}", this->getSystemType()); });
     }
 
     template <Moon::Concepts::Ctx_t... Type>
@@ -30,13 +28,11 @@ namespace Moon::Core
     template <typename Type>
     SystemVoid_t<Type>::SystemVoid_t()
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create SystemVoid_t wiht SystemType {}", this->getSystemType()); });
     }
 
     template <typename Type>
     SystemVoid_t<Type>::~SystemVoid_t()
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete SystemVoid_t wiht SystemType {}", this->getSystemType()); });
     }
 
     template <typename Type>
