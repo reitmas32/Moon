@@ -8,6 +8,10 @@
 #include <chrono>
 #include <ctime>
 
+/**
+* \image html assets/stability/stability_1.png
+*/
+
 namespace Moon::Tools::Logs
 {
 //TODO: México
@@ -20,6 +24,7 @@ namespace Moon::Tools::Logs
 
     inline void printTime()
     {
+#ifndef RELEASE
         std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
         auto duration = now.time_since_epoch();
         typedef std::chrono::duration<int, std::ratio_multiply<std::chrono::hours::period, std::ratio<locale>>::type> Days; /* UTC: +8:00 */
@@ -45,6 +50,7 @@ namespace Moon::Tools::Logs
                   << milliseconds.count() << ":"
                   << microseconds.count() << ":"
                   << nanoseconds.count() << " ] ";
+#endif
     }
 
     template <typename... Args>

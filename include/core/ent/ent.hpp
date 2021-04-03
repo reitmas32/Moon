@@ -2,9 +2,9 @@
  * @file entity.hpp
  * @author Oswaldo Rafael Zamora Ramirez (rafa.zamo.rals@comunidad.unam.mx)
  * @version 0.0.1
- * @date 2020-08-03
+ * @date 2021-03-03
  *
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -24,6 +24,9 @@
  */
 #include <core/ent/ent_base.hpp>
 
+/**
+ * \include moon_log.hpp
+ */
 #include <tools/moon_log.hpp>
 
 /**

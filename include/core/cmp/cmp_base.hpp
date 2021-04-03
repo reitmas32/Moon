@@ -1,9 +1,9 @@
 /**
  * @file cmp_base.hpp
  * @author Oswaldo Rafael Zamora Ramirez (rafa.zamo.rals@comunidad.unam.mx)
- * @version 0.0.1
- * @date 2020-08-03
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @version 1.2.0
+ * @date 2021-03-03
+ * @copyright Copyright (c) Moon 2020-2021-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -13,6 +13,9 @@
  */
 #include <core/alias.hpp>
 
+/**
+ * \include moon_log.hpp
+ */
 #include <tools/moon_log.hpp>
 
 /**

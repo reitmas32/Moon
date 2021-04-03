@@ -2,8 +2,8 @@
  * @file cmp_vect.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @version 0.0.1
- * @date 2020-08-03
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @date 2021-03-03
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -28,6 +28,9 @@
  */
 #include <functional>
 
+/**
+ * \include moon_log.hpp
+ */
 #include <tools/moon_log.hpp>
 
 /**
@@ -46,14 +49,16 @@ namespace Moon::Core
          * @brief Destructor of ComponentBaseVect_t
          *
          */
-        virtual ~ComponentBaseVect_t(){
+        virtual ~ComponentBaseVect_t()
+        {
             Moon::Tools::Logs::destructor("ComponentBaseVect_t", this);
         }
 
         /**
          * @brief Contructor Default
          */
-        ComponentBaseVect_t(){
+        ComponentBaseVect_t()
+        {
             Moon::Tools::Logs::contructor("ComponentBaseVect_t", this);
         }
 
@@ -74,13 +79,21 @@ namespace Moon::Core
     template <Moon::Concepts::Cmp_t CMP_t>
     struct ComponentVect_t : ComponentBaseVect_t
     {
-        //TODO: Documentation
-        ComponentVect_t(){
+        /**
+         * @brief Constuctor of ComponentVect_t
+         *
+         */
+        ComponentVect_t()
+        {
             Moon::Tools::Logs::contructor("ComponentVect_t", this);
         }
 
-        //TODO: Documentation
-        ~ComponentVect_t(){
+        /**
+         * @brief Destructor of ComponentVect_t
+         *
+         */
+        ~ComponentVect_t()
+        {
             Moon::Tools::Logs::destructor("ComponentVect_t", this);
         }
 

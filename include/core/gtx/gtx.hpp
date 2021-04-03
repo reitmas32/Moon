@@ -2,11 +2,11 @@
  * @file game_context.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @brief Clase GameContext !!! Es laencargada de alamacenar Los datos de las
- * ENtity y los Components
+ * Entity y los Components
  * @version 0.1
- * @date 2020-08-03
+ * @date 2021-03-03
  *
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -30,10 +30,13 @@
 
 #include <core/ent/ent_storage.tpp>
 
+/**
+ * \include moon_log.hpp
+ */
 #include <tools/moon_log.hpp>
 
 // Numero de Entity que tendra cada GameContext
-#define NUM_ENTITIES 100
+//#define NUM_ENTITIES 100
 
 /**
  * @brief Namespace del core del Motor
@@ -61,7 +64,8 @@ namespace Moon::Core
          *
          */
         //TODO:LOGS
-        GameContext_t(){
+        GameContext_t()
+        {
             Moon::Tools::Logs::contructor("GameContext_t", this);
         }
 
@@ -70,7 +74,8 @@ namespace Moon::Core
          *
          */
         //TODO:LOGS
-        virtual ~GameContext_t(){
+        virtual ~GameContext_t()
+        {
             Moon::Tools::Logs::destructor("GameContext_t", this);
         }
 
@@ -93,13 +98,13 @@ namespace Moon::Core
             return ent;
         }
 
-/**
+        /**
          * @brief Get the Entity By Id object
          *
          * @param eid
          * @return Type*
          */
-#if true
+
         template <typename ENT_t>
         ENT_t *getEntityById(Moon::Alias::EntityId eid)
         {
@@ -123,15 +128,14 @@ namespace Moon::Core
             return nullptr;
 #endif
         }
-#endif
-/**
+        /**
          * @brief Añade un nuevo component a la entity señalada
          *
          * @tparam Cmp_t
          * @param eid
          * @return Cmp_t&
          */
-#if true
+
         template <typename ENT_t, Moon::Concepts::Cmp_t CMP_t, typename... Ts>
         CMP_t &addComponentById(Moon::Alias::EntityId eid, Ts &&...args)
         {
@@ -141,14 +145,13 @@ namespace Moon::Core
             e->template addComponent<CMP_t>(&cmp);
             return cmp;
         }
-#endif
-/**
+        /**
          * @brief Get the Components object
          *
          * @tparam CMP_t
          * @return std::vector<CMP_t>&
          */
-#if true
+
         template <Moon::Concepts::Cmp_t CMP_t>
         std::vector<CMP_t> &getComponents()
         {
@@ -160,8 +163,7 @@ namespace Moon::Core
         {
             return this->entities.template getEntities<ENT_t>();
         }
-#endif
-#if true
+
         template <typename ENT_t>
         void destroyEntityById(Moon::Alias::EntityId eid)
         {
@@ -184,7 +186,6 @@ namespace Moon::Core
             this->entities.template getEntities<ENT_t>().erase(it);
             std::cout << "Muerte " << eid << '\n';
         }
-#endif
     };
 
 } // namespace Moon::Core
