@@ -22,7 +22,8 @@
                 "${workspaceFolder}/examples/tetris",
                 "${workspaceFolder}/template",
                 "${workspaceFolder}/include",
-                "${workspaceFolder}/vendor/spdlog/include"
+                "${workspaceFolder}/vendor/spdlog/include",
+                "${workspaceFolder}/vendor/termcolor/include"
             ],
             "defines": [],
             "compilerPath": "clang",
