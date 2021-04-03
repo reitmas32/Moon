@@ -35,14 +35,18 @@ namespace Moon::Core {
          *
          */
         //TODO:LOGS
-        GameContextBase_t() = default;
+        GameContextBase_t(){
+            Moon::Tools::Logs::contructor("GameContextBase_t", this);
+        }
 
         /**
          * @brief Destructor de GameContextBase_t object
          *
          */
         //TODO:LOGS
-        virtual ~GameContextBase_t() = default;
+        virtual ~GameContextBase_t(){
+            Moon::Tools::Logs::destructor("GameContextBase_t", this);
+        }
     };
 
 } // namespace Moon::Core

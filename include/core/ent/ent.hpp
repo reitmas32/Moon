@@ -63,7 +63,9 @@ namespace Moon::Core
 
         /**Overloaded constructor Default*/
         //TODO:LOGS
-        Entity_t() = default;
+        Entity_t(){
+            Moon::Tools::Logs::contructor("Entity_t", this);
+        }
 
         /**
          * Overloaded constructor with Moon::Alias::EntityId
@@ -73,11 +75,14 @@ namespace Moon::Core
         //TODO:LOGS
         Entity_t(Moon::Alias::EntityId eid) : eid{eid}
         {
+            Moon::Tools::Logs::contructor("Entity_t", this, " and eid : ", this->eid);
         }
 
         /** Destroy the Entity_t object is virtual*/
         //TODO:LOGS
-        virtual ~Entity_t() = default;
+        virtual ~Entity_t(){
+            Moon::Tools::Logs::destructor("Entity_t", this, " and eid : ", this->eid);
+        }
 
         /**
          * @brief Get the Entity Type object

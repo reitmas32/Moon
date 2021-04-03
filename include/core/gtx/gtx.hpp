@@ -61,14 +61,18 @@ namespace Moon::Core
          *
          */
         //TODO:LOGS
-        GameContext_t() = default;
+        GameContext_t(){
+            Moon::Tools::Logs::contructor("GameContext_t", this);
+        }
 
         /**
          * @brief Destructor de GameContext_t object
          *
          */
         //TODO:LOGS
-        virtual ~GameContext_t() = default;
+        virtual ~GameContext_t(){
+            Moon::Tools::Logs::destructor("GameContext_t", this);
+        }
 
         /**
          * @brief Get the Game Context Type object

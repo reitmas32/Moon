@@ -41,14 +41,18 @@ namespace Moon::Core
          *
          */
           //TODO:LOGS
-          System_t() = default;
+          System_t(){
+               Moon::Tools::Logs::contructor("System_t", this);
+          }
 
           /**
          * @brief Destructor de System_t object
          *
          */
           //TODO:LOGS
-          virtual ~System_t() = default;
+          virtual ~System_t(){
+               Moon::Tools::Logs::destructor("System_t", this);
+          }
 
           /**
          * @brief Get the System Type object
@@ -79,10 +83,14 @@ namespace Moon::Core
 
      public:
           //TODO:LOGS
-          SystemVoid_t() = default;
+          SystemVoid_t(){
+               Moon::Tools::Logs::contructor("SystemVoid_t", this);
+          }
 
           //TODO:LOGS
-          virtual ~SystemVoid_t() = default;
+          virtual ~SystemVoid_t(){
+               Moon::Tools::Logs::destructor("SystemVoid_t", this);
+          }
 
           static Moon::Alias::SystemType getSystemType() noexcept;
 

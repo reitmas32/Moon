@@ -53,23 +53,25 @@ namespace Moon::Core
     struct Component_t : public ComponentBase_t
     {
         /**Overloaded constructor Default*/
-        //TODO:LOGS
-        Component_t() = default;
+        Component_t(){
+            Moon::Tools::Logs::contructor("Component_t", this);
+        }
 
         /**
          * Overloaded constructor with Moon::Alias::EntityId
          *
          * @param eid Id of the Entity to which the Component belongs
          */
-        //TODO:LOGS
         Component_t(Moon::Alias::EntityId eid)
         {
             this->eid = eid;
+            Moon::Tools::Logs::contructor("Component_t", this, " and eid :", this->eid);
         }
 
         /** Destroy the Component_t object is virtual*/
-        //TODO:LOGS
-        virtual ~Component_t() = default;
+        virtual ~Component_t(){
+            Moon::Tools::Logs::destructor("Component_t", this, " and eid :", this->eid);
+        }
 
         /**
          * @brief Get the Component Type object
@@ -85,9 +87,13 @@ namespace Moon::Core
     template <class Type>
     struct ComponentSingleton_t : protected ComponentBase_t
     {
-        ComponentSingleton_t() = default;
+        ComponentSingleton_t(){
+            Moon::Tools::Logs::contructor("ComponentSingleton_t", this);
+        }
 
-        virtual ~ComponentSingleton_t() = default;
+        virtual ~ComponentSingleton_t(){
+            Moon::Tools::Logs::destructor("ComponentSingleton_t", this);
+        }
 
         static Moon::Alias::ComponentType getComponentType() noexcept;
     };

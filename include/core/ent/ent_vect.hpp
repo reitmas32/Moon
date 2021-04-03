@@ -16,10 +16,12 @@ namespace Moon::Core
     {
         EntityBaseVect_t()
         {
+            Moon::Tools::Logs::contructor("EntityBaseVect_t", this);
         }
 
         virtual ~EntityBaseVect_t()
         {
+            Moon::Tools::Logs::destructor("EntityBaseVect_t", this);
         }
 
         virtual EntityBase_t *deleteByEntityId(Moon::Alias::EntityId eid) = 0;
@@ -31,10 +33,12 @@ namespace Moon::Core
 
         EntityVect_t()
         {
+            Moon::Tools::Logs::contructor("EntityVect_t", this);
         }
 
         ~EntityVect_t()
         {
+            Moon::Tools::Logs::destructor("EntityVect_t", this);
         }
 
         constexpr auto findEntityIteratorById(Moon::Alias::EntityId eid) noexcept;

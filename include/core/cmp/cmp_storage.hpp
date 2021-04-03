@@ -55,11 +55,13 @@ namespace Moon::Core
         /**
          * @brief Contructor Default
          */
-        //TODO:LOGS
-        ComponentStorage_t() = default;
+        ComponentStorage_t(){
+            Moon::Tools::Logs::contructor("ComponentStorage_t", this);
+        }
 
-        //TODO:LOGS
-        virtual ~ComponentStorage_t() = default;
+        virtual ~ComponentStorage_t(){
+            Moon::Tools::Logs::destructor("ComponentStorage_t", this);
+        }
 
         /**
          * @brief Create a Component object

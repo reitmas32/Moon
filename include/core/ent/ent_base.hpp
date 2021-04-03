@@ -48,11 +48,13 @@ namespace Moon::Core
     /** Construct Default*/
     EntityBase_t()
     {
+      Moon::Tools::Logs::contructor("EntityBase_t", this);
     }
 
     /** Destroy the EntityBase_t object is virtual*/
     virtual ~EntityBase_t()
     {
+      Moon::Tools::Logs::destructor("EntityBase_t", this);
     }
 
     /**

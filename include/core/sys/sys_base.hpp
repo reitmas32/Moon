@@ -13,6 +13,8 @@
 // Alias
 #include <core/alias.hpp>
 
+#include <tools/moon_log.hpp>
+
 /**
  * @brief Namespace del core del Motor
  *
@@ -32,13 +34,17 @@ namespace Moon::Core {
          * @brief Contructor de SystemBase_t object
          *
          */
-        SystemBase_t() = default;
+        SystemBase_t(){
+          Moon::Tools::Logs::contructor("SystemBase_t", this);
+        }
 
         /**
          * @brief Destructor de SystemBase_t object
          *
          */
-        virtual ~SystemBase_t() = default;
+        virtual ~SystemBase_t(){
+          Moon::Tools::Logs::destructor("SystemBase_t", this);
+        }
 
         /**
          * @brief Metodo que indica si el sistema sigue alive

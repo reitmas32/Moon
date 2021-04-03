@@ -13,6 +13,8 @@
  */
 #include <core/alias.hpp>
 
+#include <tools/moon_log.hpp>
+
 /**
  * @brief Namespace of the Core the Moon
  * \namespace Moon::Core
@@ -30,12 +32,14 @@ namespace Moon::Core {
         /**Id of the Entity to which the Component belongs*/
         Moon::Alias::EntityId eid = 0;
         /** Contructor Default */
-        //TODO:LOGS
-        ComponentBase_t() = default;
+        ComponentBase_t(){
+            Moon::Tools::Logs::contructor("ComponentBase_t", this);
+        }
 
         /** Destroy the ComponentBase_t object is virtual*/
-        //TODO:LOGS
-        virtual ~ComponentBase_t() = default;
+        virtual ~ComponentBase_t(){
+            Moon::Tools::Logs::destructor("ComponentBase_t", this);
+        }
     };
 
 } // namespace Moon::Core

@@ -20,10 +20,12 @@ namespace Moon::Core
     {
         EntityStorage_t()
         {
+            Moon::Tools::Logs::contructor("EntityStorage_t", this);
         }
 
         ~EntityStorage_t()
         {
+            Moon::Tools::Logs::destructor("EntityStorage_t", this);
         }
 
         template <typename ENT_t, typename... Ts>

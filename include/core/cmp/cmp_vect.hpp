@@ -46,14 +46,16 @@ namespace Moon::Core
          * @brief Destructor of ComponentBaseVect_t
          *
          */
-        //TODO:LOGS
-        virtual ~ComponentBaseVect_t() = default;
+        virtual ~ComponentBaseVect_t(){
+            Moon::Tools::Logs::destructor("ComponentBaseVect_t", this);
+        }
 
         /**
          * @brief Contructor Default
          */
-        //TODO:LOGS
-        ComponentBaseVect_t() = default;
+        ComponentBaseVect_t(){
+            Moon::Tools::Logs::contructor("ComponentBaseVect_t", this);
+        }
 
         /**
          * @brief Delete the a Component_t
@@ -73,12 +75,14 @@ namespace Moon::Core
     struct ComponentVect_t : ComponentBaseVect_t
     {
         //TODO: Documentation
-        //TODO:LOGS
-        ComponentVect_t() = default;
+        ComponentVect_t(){
+            Moon::Tools::Logs::contructor("ComponentVect_t", this);
+        }
 
         //TODO: Documentation
-        //TODO:LOGS
-        ~ComponentVect_t() = default;
+        ~ComponentVect_t(){
+            Moon::Tools::Logs::destructor("ComponentVect_t", this);
+        }
 
         /**
          * @brief Find Component_t with Id equal eid

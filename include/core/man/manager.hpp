@@ -33,15 +33,18 @@ namespace Moon::Core
          * @brief Contructor de Manager_t object
          * 
          */
-        //TODO:LOGS
-        Manager_t() = default;
+        Manager_t(){
+            Moon::Tools::Logs::contructor("Manager_t", this);
+        }
 
         /**
          * @brief Destructor de Manager_t object
          * 
          */
         //TODO:LOGS
-        virtual ~Manager_t() = default;
+        virtual ~Manager_t(){
+            Moon::Tools::Logs::destructor("Manager_t", this);
+        }
 
         /**
          * @brief Get the Manager Type object
