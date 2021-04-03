@@ -1,10 +1,13 @@
 #pragma once
 
+#include <iostream>
 #include <thread>
 #include <string>
 #include <string_view>
 #include <vector>
-
+/**
+* \image html assets/stability/stability_1.png
+*/
 namespace Moon::Tools
 {
     struct TimeStep_t

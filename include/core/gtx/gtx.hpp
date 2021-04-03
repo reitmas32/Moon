@@ -2,11 +2,11 @@
  * @file game_context.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @brief Clase GameContext !!! Es laencargada de alamacenar Los datos de las
- * ENtity y los Components
+ * Entity y los Components
  * @version 0.1
- * @date 2020-08-03
+ * @date 2021-03-03
  *
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -28,27 +28,33 @@
 // ComponentStorage
 #include <core/cmp/cmp_storage.hpp>
 
+#include <core/ent/ent_storage.tpp>
+
+/**
+ * \include moon_log.hpp
+ */
 #include <tools/moon_log.hpp>
 
 // Numero de Entity que tendra cada GameContext
-#define NUM_ENTITIES 100
+//#define NUM_ENTITIES 100
 
 /**
  * @brief Namespace del core del Motor
  *
  */
-namespace Moon::Core {
+namespace Moon::Core
+{
     /**
      * @brief Clase GameContext !!! Es laencargada de alamacenar Los datos de
      * las ENtity y los Components
      * \image html assets/stability/stability_2.png
      * @tparam Type
      */
-    template<Moon::Concepts::Ent_t Type>
+    template <typename Type>
     struct GameContext_t : public GameContextBase_t
     {
         /**Vector de entities*/
-        std::vector<Type> entities;
+        EntityStorage_t entities;
 
         /**Almacenamiento de los Compnnets*/
         ComponentStorage_t components;
@@ -57,13 +63,21 @@ namespace Moon::Core {
          * @brief Contructor de GameContext_t object
          *
          */
-        GameContext_t();
+        //TODO:LOGS
+        GameContext_t()
+        {
+            Moon::Tools::Logs::contructor("GameContext_t", this);
+        }
 
         /**
          * @brief Destructor de GameContext_t object
          *
          */
-        virtual ~GameContext_t() = 0;
+        //TODO:LOGS
+        virtual ~GameContext_t()
+        {
+            Moon::Tools::Logs::destructor("GameContext_t", this);
+        }
 
         /**
          * @brief Get the Game Context Type object
@@ -77,7 +91,12 @@ namespace Moon::Core {
          *
          * @return Type&
          */
-        Type& addEntity();
+        template <typename ENT_t, typename... Ts>
+        ENT_t &addEntity(Ts &&...args)
+        {
+            auto &ent = this->entities.template createEntity<ENT_t>(this->nextId++, args...);
+            return ent;
+        }
 
         /**
          * @brief Get the Entity By Id object
@@ -85,8 +104,30 @@ namespace Moon::Core {
          * @param eid
          * @return Type*
          */
-        Type* getEntityById(Moon::Alias::EntityId eid);
 
+        template <typename ENT_t>
+        ENT_t *getEntityById(Moon::Alias::EntityId eid)
+        {
+#ifdef __linux__
+            auto it = std::find_if(this->entities.template getEntities<ENT_t>().begin(),
+                                   this->entities.template getEntities<ENT_t>().end(),
+                                   [&](ENT_t &e) { return eid == e.eid; });
+            if (it == this->entities.template getEntities<ENT_t>().end())
+            {
+                return nullptr;
+            }
+            return it.base();
+#elif _WIN32
+            for (ENT_t &var : this->entities.template getEntities<ENT_t>())
+            {
+                if (var.eid == eid)
+                {
+                    return &var;
+                }
+            }
+            return nullptr;
+#endif
+        }
         /**
          * @brief Añade un nuevo component a la entity señalada
          *
@@ -94,45 +135,56 @@ namespace Moon::Core {
          * @param eid
          * @return Cmp_t&
          */
-        template<Moon::Concepts::Cmp_t CMP_t, typename... Ts>
-        CMP_t& addComponentById(Moon::Alias::EntityId eid, Ts&&... args)
+
+        template <typename ENT_t, Moon::Concepts::Cmp_t CMP_t, typename... Ts>
+        CMP_t &addComponentById(Moon::Alias::EntityId eid, Ts &&...args)
         {
-            Type* e = this->getEntityById(eid);
-            auto& cmp =
-              this->components.template createComponent<CMP_t>(eid, args...);
+            ENT_t *e = this->getEntityById<ENT_t>(eid);
+            auto &cmp =
+                this->components.template createComponent<CMP_t>(eid, args...);
             e->template addComponent<CMP_t>(&cmp);
             return cmp;
         }
-
         /**
          * @brief Get the Components object
          *
          * @tparam CMP_t
          * @return std::vector<CMP_t>&
          */
-        template<Moon::Concepts::Cmp_t CMP_t>
-        std::vector<CMP_t>& getComponents()
+
+        template <Moon::Concepts::Cmp_t CMP_t>
+        std::vector<CMP_t> &getComponents()
         {
             return this->components.template getComponents<CMP_t>();
         }
 
-        void destroyEntityById(Moon::Alias::EntityId eid){
-            auto* entity { this->getEntityById(eid) };
-            if( !entity ) return;
+        template <typename ENT_t>
+        std::vector<ENT_t> &getEntities()
+        {
+            return this->entities.template getEntities<ENT_t>();
+        }
 
-            for(auto& [typeID, _] : *entity){
-                auto* cmp_ptr = this->components.deleteComponentByTypeIdAndEntityId(typeID, eid);
-                if( !cmp_ptr ) continue;
-                auto* moveEntity { this->getEntityById(cmp_ptr->eid)};
+        template <typename ENT_t>
+        void destroyEntityById(Moon::Alias::EntityId eid)
+        {
+            auto *entity{this->getEntityById<ENT_t>(eid)};
+            if (!entity)
+                return;
+
+            for (auto &[typeID, _] : *entity)
+            {
+                auto *cmp_ptr = this->components.deleteComponentByTypeIdAndEntityId(typeID, eid);
+                if (!cmp_ptr)
+                    continue;
+                auto *moveEntity{this->getEntityById<ENT_t>(cmp_ptr->eid)};
 
                 moveEntity->updateComponent(typeID, cmp_ptr);
             }
 
-            auto it = std::find_if(this->entities.begin(), this->entities.end(),
-                [&](const auto& e){ return e.eid == eid;}
-            );
-            this->entities.erase(it);
-            std::cout<<"Muerte" << eid<<'\n';
+            auto it = std::find_if(this->entities.template getEntities<ENT_t>().begin(), this->entities.template getEntities<ENT_t>().end(),
+                                   [&](const auto &e) { return e.eid == eid; });
+            this->entities.template getEntities<ENT_t>().erase(it);
+            std::cout << "Muerte " << eid << '\n';
         }
     };
 

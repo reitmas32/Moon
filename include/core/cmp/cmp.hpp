@@ -2,8 +2,8 @@
  * @file cmp.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @version 0.0.1
- * @date 2020-08-03
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @date 2021-03-03
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -22,7 +22,8 @@
  * @brief Namespace of the Core the Moon
  * \namespace Moon::Core
  */
-namespace Moon::Core {
+namespace Moon::Core
+{
     /**
      * @subsubsection Example
      * @code{.cpp}
@@ -48,21 +49,29 @@ namespace Moon::Core {
      * \image html assets/stability/stability_2.png
      * @tparam Type Is a new Component Following the CRTP
      */
-    template<class Type>
+    template <class Type>
     struct Component_t : public ComponentBase_t
     {
         /**Overloaded constructor Default*/
-        Component_t();
+        Component_t(){
+            Moon::Tools::Logs::contructor("Component_t", this);
+        }
 
         /**
          * Overloaded constructor with Moon::Alias::EntityId
          *
          * @param eid Id of the Entity to which the Component belongs
          */
-        Component_t(Moon::Alias::EntityId eid);
+        Component_t(Moon::Alias::EntityId eid)
+        {
+            this->eid = eid;
+            Moon::Tools::Logs::contructor("Component_t", this, " and eid :", this->eid);
+        }
 
         /** Destroy the Component_t object is virtual*/
-        virtual ~Component_t() = 0;
+        virtual ~Component_t(){
+            Moon::Tools::Logs::destructor("Component_t", this, " and eid :", this->eid);
+        }
 
         /**
          * @brief Get the Component Type object
@@ -75,16 +84,18 @@ namespace Moon::Core {
          */
         static Moon::Alias::ComponentType getComponentType() noexcept;
     };
-    template<class Type>
+    template <class Type>
     struct ComponentSingleton_t : protected ComponentBase_t
     {
-        ComponentSingleton_t();
+        ComponentSingleton_t(){
+            Moon::Tools::Logs::contructor("ComponentSingleton_t", this);
+        }
 
-        virtual ~ComponentSingleton_t() = 0;
+        virtual ~ComponentSingleton_t(){
+            Moon::Tools::Logs::destructor("ComponentSingleton_t", this);
+        }
 
         static Moon::Alias::ComponentType getComponentType() noexcept;
     };
-    
 
 } // namespace Moon::Core
-

@@ -2,8 +2,8 @@
  * @file cmp_storage.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @version 0.0.1
- * @date 2020-08-03
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @date 2021-03-03
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -38,6 +38,9 @@
  */
 #include <core/cmp/cmp_vect.hpp>
 
+/**
+ * \include moon_log.hpp
+ */
 #include <tools/moon_log.hpp>
 
 /**
@@ -55,7 +58,17 @@ namespace Moon::Core
         /**
          * @brief Contructor Default
          */
-        ComponentStorage_t();
+        ComponentStorage_t()
+        {
+            Moon::Tools::Logs::contructor("ComponentStorage_t", this);
+        }
+        /**
+         * @brief Destructor Default
+         */
+        virtual ~ComponentStorage_t()
+        {
+            Moon::Tools::Logs::destructor("ComponentStorage_t", this);
+        }
 
         /**
          * @brief Create a Component object
@@ -86,7 +99,6 @@ namespace Moon::Core
          */
         template <Moon::Concepts::Cmp_t CMP_t>
         const std::vector<CMP_t> &getComponents() const;
-
 
         /**
          * @brief Delete the a Component_t

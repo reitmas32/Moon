@@ -1,1 +1,1 @@
-include(cmake/spdlog.cmake)
+include(cmake/termcolor.cmake)

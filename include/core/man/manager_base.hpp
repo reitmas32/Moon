@@ -5,7 +5,7 @@
  * @version 0.1
  * @date 2020-08-06
  * 
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  * 
  */
 #pragma once
@@ -32,13 +32,17 @@ namespace Moon::Core
          * @brief Contructor de ManagerBase_t object
          * 
          */
-        ManagerBase_t();
+        ManagerBase_t(){
+            Moon::Tools::Logs::contructor("ManagerBase_t", this);
+        }
 
         /**
          * @brief Destructor de ManagerBase_t object
          * 
          */
-        virtual ~ManagerBase_t() = 0;
+        virtual ~ManagerBase_t(){
+            Moon::Tools::Logs::destructor("ManagerBase_t", this);
+        }
     };
 
 } // namespace Moon::Core

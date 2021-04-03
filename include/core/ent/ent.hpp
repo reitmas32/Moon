@@ -2,9 +2,9 @@
  * @file entity.hpp
  * @author Oswaldo Rafael Zamora Ramirez (rafa.zamo.rals@comunidad.unam.mx)
  * @version 0.0.1
- * @date 2020-08-03
+ * @date 2021-03-03
  *
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -24,13 +24,17 @@
  */
 #include <core/ent/ent_base.hpp>
 
+/**
+ * \include moon_log.hpp
+ */
 #include <tools/moon_log.hpp>
 
 /**
  * @brief Namespace of the Core the Moon
  * \namespace Moon::Core
  */
-namespace Moon::Core {
+namespace Moon::Core
+{
     /**
      * @subsubsection Example
      * @code{.cpp}
@@ -54,24 +58,34 @@ namespace Moon::Core {
      * \image html assets/stability/stability_2.png
      * @tparam Type Is a new Component Following the CRTP
      */
-    template<class Type>
+    template <class Type>
     struct Entity_t : public EntityBase_t
     {
         /**ID of the Entity*/
         Moon::Alias::EntityId eid = 0;
 
         /**Overloaded constructor Default*/
-        Entity_t();
+        //TODO:LOGS
+        Entity_t(){
+            Moon::Tools::Logs::contructor("Entity_t", this);
+        }
 
         /**
          * Overloaded constructor with Moon::Alias::EntityId
          *
          * @param eid Id of the Entity
          */
-        Entity_t(Moon::Alias::EntityId eid);
+        //TODO:LOGS
+        Entity_t(Moon::Alias::EntityId eid) : eid{eid}
+        {
+            Moon::Tools::Logs::contructor("Entity_t", this, " and eid : ", this->eid);
+        }
 
         /** Destroy the Entity_t object is virtual*/
-        virtual ~Entity_t() = 0;
+        //TODO:LOGS
+        virtual ~Entity_t(){
+            Moon::Tools::Logs::destructor("Entity_t", this, " and eid : ", this->eid);
+        }
 
         /**
          * @brief Get the Entity Type object
@@ -93,7 +107,7 @@ namespace Moon::Core {
          * 
          * @return Moon::Alias::EntityType
          */
-        void updateComponent(Moon::Alias::ComponentType cid, ComponentBase_t* cmp_ptr);
+        void updateComponent(Moon::Alias::ComponentType cid, ComponentBase_t *cmp_ptr);
 
         /**
          * @brief override begin() the Component_t
@@ -102,7 +116,7 @@ namespace Moon::Core {
          * 
          * @return MapCmps_t
          */
-        auto begin() {return this->components.begin();}
+        auto begin() { return this->components.begin(); }
 
         /**
          * @brief override end() the Component_t
@@ -111,7 +125,7 @@ namespace Moon::Core {
          * 
          * @return MapCmps_t
          */
-        auto end() {return this->components.end();}
+        auto end() { return this->components.end(); }
     };
 
 } // namespace Moon::Core

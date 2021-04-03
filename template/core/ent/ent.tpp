@@ -4,41 +4,21 @@
 
 namespace Moon::Core
 {
-    template <class Type>
-    Entity_t<Type>::Entity_t()
-    {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Entity_t wiht EntityType {}", this->eid); });
-    }
+  template <class Type>
+  Moon::Alias::EntityType Entity_t<Type>::getEntityType() noexcept
+  {
+    static Moon::Alias::EntityType type = ++nextType;
+    return type;
+  }
 
-    template <class Type>
-    Entity_t<Type>::Entity_t(Moon::Alias::EntityId eid)
-        : eid{eid}
+  template <class Type>
+  void Entity_t<Type>::updateComponent(Moon::Alias::ComponentType cid, ComponentBase_t *cmp_ptr)
+  {
+    //assert(cmp_ptr != nullptr, "Error Null Component_t in the func [[updateComponent]]");
+    auto it = this->components.find(cid);
+    if (it != this->components.end())
     {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Entity_t wiht EntityType {}", this->eid); });
+      it->second = cmp_ptr;
     }
-
-    template <class Type>
-    Entity_t<Type>::~Entity_t()
-    {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete Entity_t wiht EntityType {}", this->eid); });
-    }
-
-    template <class Type>
-    Moon::Alias::EntityType Entity_t<Type>::getEntityType() noexcept
-    {
-        static Moon::Alias::EntityType type = ++nextType;
-        return type;
-    }
-
-    template <class Type>
-    void Entity_t<Type>::updateComponent(Moon::Alias::ComponentType cid, ComponentBase_t *cmp_ptr)
-    {
-        //assert(cmp_ptr != nullptr, "Error Null Component_t in the func [[updateComponent]]");
-        auto it = this->components.find(cid);
-        if (it != this->components.end())
-        {
-            it->second = cmp_ptr;
-        }
-        Moon::Tools::Moon_Log([&]() { spdlog::info("updateComponent wiht ComponentType {} and eid {}", cid, this->eid); });
-    }
+  }
 } // namespace Moon::Core

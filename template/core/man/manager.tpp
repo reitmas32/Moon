@@ -4,18 +4,6 @@
 
 namespace Moon::Core
 {
-    template <typename Type>
-    Manager_t<Type>::Manager_t()
-    {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Create Manager_t wiht ManagerType {}", this->getManagerType()); });
-    }
-
-    template <typename Type>
-    Manager_t<Type>::~Manager_t()
-    {
-        Moon::Tools::Moon_Log([&]() { spdlog::info("Delete Manager_t wiht ManagerType {}", this->getManagerType()); });
-    }
-
     template <class Type>
     Moon::Alias::ManagerType Manager_t<Type>::getManagerType()
     {

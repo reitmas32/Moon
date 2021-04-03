@@ -2,9 +2,9 @@
  * @file game_context_base.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @version 0.1
- * @date 2020-08-03
+ * @date 2021-03-03
  *
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
@@ -34,13 +34,19 @@ namespace Moon::Core {
          * @brief Contructor de GameContextBase_t object
          *
          */
-        GameContextBase_t() = default;
+        //TODO:LOGS
+        GameContextBase_t(){
+            Moon::Tools::Logs::contructor("GameContextBase_t", this);
+        }
 
         /**
          * @brief Destructor de GameContextBase_t object
          *
          */
-        virtual ~GameContextBase_t(){}
+        //TODO:LOGS
+        virtual ~GameContextBase_t(){
+            Moon::Tools::Logs::destructor("GameContextBase_t", this);
+        }
     };
 
 } // namespace Moon::Core

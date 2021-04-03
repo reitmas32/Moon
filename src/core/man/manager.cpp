@@ -1,1 +1,0 @@
-#include <core/man/manager.tpp>

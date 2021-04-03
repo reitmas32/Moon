@@ -3,15 +3,20 @@
  * @author Oswaldo Rafael Zamora Ramirez (rafa.zamo.rals@comunidad.unam.mx)
  * @brief Clase de la que heredan todos los systemas del Motor
  * @version 0.1
- * @date 2020-08-03
+ * @date 2021-03-03
  *
- * @copyright Copyright (c) Moon 2020 Oswaldo Rafael Zamora Ramírez
+ * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
  *
  */
 #pragma once
 
 // Alias
 #include <core/alias.hpp>
+
+/**
+ * \include moon_log.hpp
+ */
+#include <tools/moon_log.hpp>
 
 /**
  * @brief Namespace del core del Motor
@@ -32,13 +37,17 @@ namespace Moon::Core {
          * @brief Contructor de SystemBase_t object
          *
          */
-        SystemBase_t() = default;
+        SystemBase_t(){
+          Moon::Tools::Logs::contructor("SystemBase_t", this);
+        }
 
         /**
          * @brief Destructor de SystemBase_t object
          *
          */
-        virtual ~SystemBase_t(){}
+        virtual ~SystemBase_t(){
+          Moon::Tools::Logs::destructor("SystemBase_t", this);
+        }
 
         /**
          * @brief Metodo que indica si el sistema sigue alive
