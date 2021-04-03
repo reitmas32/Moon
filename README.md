@@ -9,72 +9,45 @@ Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-St
 - Linux
 - MacOS(Proximamente)
 
-### Sistema de Compilación
-- Para la comilación se usa [CMake](https://cmake.org/)
+#### Requisitos
+- Un compilador de C++, recomendado [gcc](https://gcc.gnu.org/) o [clang](https://clang.llvm.org/)
+- [Make](https://www.gnu.org/software/make/) para Linux y [Ninja](https://ninja-build.org/) para Windows
+- [CMake](https://cmake.org/)
 
 ### Instalación y Compilación
 - ##### Windows
-    - Solo se requiere tener instalado **CMake** y algun **Build System** ( Como Visual Studio o CodeBlock ) junto a algun compilador de C++ de su elección
+    - Solo se requiere tener instalado **CMake** y algun **Ninja** junto a algun compilador de C++ de su elección se recomienda g++ de **cygwin**
     - Clone el repositorio actual
     - Ejecute los comando(recomendado)
-    ```
-    mkdir build/cmake
-    cmake ../..
-    ```
-    - Esto generara un proyecto del Build System que elegio
+        - **Release**
+          - `mkdir build/Release`
+          - `cd build/Release`
+          - `cmake ../.. -G "Ninja" -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE=-O3 -DCMAKE_C_FLAGS_RELEASE=-O3 -DLOGS=OFF`
+          - `ninja`
+
+        - **Debug**
+          - `mkdir build/Debug`
+          - `cd build/Debug`
+          - `cmake ../.. -G "Ninja" -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG=-g -DCMAKE_C_FLAGS_DEBUG=-g -DLOGS=ON`
+          - `ninja`
+      - Esto generara un proyecto del Build System que elegio
 
 - ##### Linux
     - Solo se requiere tener instalado **CMake** y **Make** junto a algun compilador de C++ de su elección
     - Clone el repositorio actual
     - Ejecute los comando(recomendado)
-    ```
-    mkdir -p build/cmake
-    cmake ../..
-    make
-    ```
+        - **Release** 
+          - `mkdir build/Release`
+          - `cd build/Release`
+          - `cmake ../.. -G "Unix Makefiles" -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE=-O3 -DCMAKE_C_FLAGS_RELEASE=-O3 -DLOGS=OFF`
+          - `make`
+
+        - **Debug**
+          - `mkdir build/Debug`  
+          - `cd build/Debug`
+          - `cmake ../.. -G "Unix Makefiles" -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG=-g -DCMAKE_C_FLAGS_DEBUG=-g -DLOGS=ON`
+          - `make`
 
 ### Usando Moon Core
 - Puede en contrar ejemplos de Moon en los siguientes repositorios
     - [Examples](https://github.com/EGE-Studios/Moon/tree/master/examples)
-
-## Documentación de Moon Core
-
-#### Tipos
-- EntityId: ID para identificar a cada una de las entidades del juego
-- ##### Tipos utilizados para identificar a cada una de las clases heredadas del Game Engine
-    - EntityType
-    - SystemType
-    - ComponentType
-    - GameContextType
-#### Clases
-- ComponentBase_t
-
-![ComponentBase_t](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/ComponentBase_t.png)
-
-- Component_t
-
-![Component_t](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/Component_t.png)
-
-- EntityBase_t
-
-![EntityBase_t](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/EntittyBase_t.png)
-
-- Entity_t
-
-![Entity_t](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/Entity_t.png)
-
-- SystemBase_t
-
-![SystemBase_t](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/SystemBase_t.png)
-
-- System_t
-
-![System_t](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/System_t.png)
-
-- GameContextBase_t
-
-![GameContextBase_t](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/GameContextBase_t.png)
-
-- GameContext_t
-
-![GameContext_t](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/GameContext_t.png)
