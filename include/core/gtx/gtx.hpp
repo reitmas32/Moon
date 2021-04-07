@@ -108,7 +108,6 @@ namespace Moon::Core
         template <typename ENT_t>
         ENT_t *getEntityById(Moon::Alias::EntityId eid)
         {
-#ifdef __linux__
             auto it = std::find_if(this->entities.template getEntities<ENT_t>().begin(),
                                    this->entities.template getEntities<ENT_t>().end(),
                                    [&](ENT_t &e) { return eid == e.eid; });
@@ -117,16 +116,7 @@ namespace Moon::Core
                 return nullptr;
             }
             return it.base();
-#elif _WIN32
-            for (ENT_t &var : this->entities.template getEntities<ENT_t>())
-            {
-                if (var.eid == eid)
-                {
-                    return &var;
-                }
-            }
-            return nullptr;
-#endif
+
         }
         /**
          * @brief Añade un nuevo component a la entity señalada
@@ -176,9 +166,11 @@ namespace Moon::Core
                 auto *cmp_ptr = this->components.deleteComponentByTypeIdAndEntityId(typeID, eid);
                 if (!cmp_ptr)
                     continue;
-                auto *moveEntity{this->getEntityById<ENT_t>(cmp_ptr->eid)};
 
-                moveEntity->updateComponent(typeID, cmp_ptr);
+                auto *moveEntity{this->getEntityById<ENT_t>(cmp_ptr->eid)};
+                
+                if(moveEntity)
+                    moveEntity->updateComponent(typeID, cmp_ptr);
             }
 
             auto it = std::find_if(this->entities.template getEntities<ENT_t>().begin(), this->entities.template getEntities<ENT_t>().end(),
