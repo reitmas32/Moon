@@ -56,7 +56,7 @@ namespace Moon::Tools::Logs
     }
 
     template <typename... Args>
-    void contructor(std::string_view name, void *location, Args &&...args)
+    void contructor([[maybe_unused]] std::string_view name, [[maybe_unused]] void *location, [[maybe_unused]] Args &&...args)
     {
 #ifndef RELEASE
         printTime();
@@ -77,7 +77,7 @@ namespace Moon::Tools::Logs
     }
 
     template <typename... Args>
-    void destructor(std::string_view name, void *location, Args &&...args)
+    void destructor([[maybe_unused]] std::string_view name, [[maybe_unused]] void *location, [[maybe_unused]] Args &&...args)
     {
 #ifndef RELEASE
         printTime();
@@ -98,7 +98,7 @@ namespace Moon::Tools::Logs
     }
 
     template <typename... Args>
-    void error(std::string_view message, Args &&...args)
+    void error([[maybe_unused]] std::string_view message, [[maybe_unused]] Args &&...args)
     {
 #ifndef RELEASE
         printTime();
