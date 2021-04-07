@@ -16,7 +16,7 @@ namespace Moon::Core
   {
     //assert(cmp_ptr != nullptr, "Error Null Component_t in the func [[updateComponent]]");
     auto it = this->components.find(cid);
-    if (it != this->components.end())
+    if (it != this->components.end() && it->second)
     {
       it->second = cmp_ptr;
     }
