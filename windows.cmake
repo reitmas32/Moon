@@ -108,7 +108,7 @@ if( test AND test STREQUAL "on" )
     ########################
     #  Library of Testing  #
     ########################
-    target_link_libraries(${TEST_EXE} ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/build/Release/lib/gtestd.lib ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/build/Release/lib/gtest_maind.lib)
+    target_link_libraries(${TEST_EXE} ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/build/lib/libgtest.a ${CMAKE_CURRENT_SOURCE_DIR}/test/googletest/build/lib/libgtest_main.a)
     
     ########################
     #   Build of Testing   #
@@ -116,3 +116,9 @@ if( test AND test STREQUAL "on" )
     add_test( ${TEST_EXE} ${TEST_EXE} )
     target_compile_features(${TEST_EXE} PUBLIC cxx_std_20)
 endif()
+
+include(cmake/vendor.cmake)
+
+include_directories(
+    ${TERMCOLOR_INCLUDE_DIR}
+)
