@@ -1,5 +1,7 @@
 #pragma once
 
+#include <tools/platform_info.hpp>
+
 #ifndef RELEASE
 #include <include/termcolor.hpp>
 #endif
