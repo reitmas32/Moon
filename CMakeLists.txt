@@ -5,10 +5,6 @@
 cmake_minimum_required (VERSION 3.0.0)
 
 set(NAME_PROJECT moon)
-########################
-#     compiler C++     #
-########################
-set(CMAKE_CXX_COMPILER "clang++")
 
 #########################
 #   Name of Executable  #
@@ -33,8 +29,3 @@ elseif(${UNIX})
         include(${CMAKE_CURRENT_SOURCE_DIR}/linux.cmake)
     endif()
 endif()
-
-########################
-#     compiler C++     #
-########################
-set(CMAKE_CXX_COMPILER "clang++")
