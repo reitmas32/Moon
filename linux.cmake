@@ -16,7 +16,7 @@ include_directories(
     .
     ${INCLUDE_DIR}
     ##TODO: Eliminar de aqui o incluir las cabeceras de spdlog de otro forma
-    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/termcolor
     ${TEMPLATE_DIR}
 )
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2a")
