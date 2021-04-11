@@ -6,7 +6,7 @@
 
 /**
  * @brief Namespace de los alias del motor
- * \image html assets/stability/stability_2.png
+ * @image html assets/stability/stability_2.png
  */
 namespace Moon::Alias {
     /**

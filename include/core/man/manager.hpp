@@ -2,7 +2,7 @@
  * @file manager.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @brief 
- * @version 0.1
+ * @version 1.2.0
  * @date 2020-08-06
  * 
  * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
@@ -14,7 +14,7 @@
 #include <core/man/manager_base.hpp>
 
 /**
- * \include moon_log.hpp
+ * @include moon_log.hpp
  */
 #include <tools/moon_log.hpp>
 

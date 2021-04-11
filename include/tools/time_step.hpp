@@ -6,7 +6,7 @@
 #include <string_view>
 #include <vector>
 /**
-* \image html assets/stability/stability_1.png
+* @image html assets/stability/stability_1.png
 */
 namespace Moon::Tools
 {

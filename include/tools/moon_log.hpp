@@ -9,7 +9,7 @@
 #include <ctime>
 
 /**
-* \image html assets/stability/stability_1.png
+* @image html assets/stability/stability_1.png
 */
 
 namespace Moon::Tools::Logs

@@ -8,7 +8,7 @@
 #include <core/sys/sys_base.hpp>
 
 /**
- * \image html assets/stability/stability_2.png
+ * @image html assets/stability/stability_2.png
  */
 namespace Moon::Concepts {
     template<typename Gtx_t>

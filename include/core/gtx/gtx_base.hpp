@@ -1,7 +1,7 @@
 /**
  * @file game_context_base.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
- * @version 0.1
+ * @version 1.2.0
  * @date 2021-03-03
  *
  * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
@@ -20,7 +20,7 @@ namespace Moon::Core {
     /**
      * @brief Clase GameContext !!! Es la en cargada de alamacenar Los datos de
      * una App
-     * \image html assets/stability/stability_2.png
+     * @image html assets/stability/stability_2.png
      */
     struct GameContextBase_t
     {

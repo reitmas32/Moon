@@ -10,28 +10,28 @@
 #pragma once
 
 /**
- * \include alias.hpp
+ * @include alias.hpp
  */
 #include <core/alias.hpp>
 
 /**
- * \include core/concepts.hpp
+ * @include core/concepts.hpp
  */
 #include <core/concepts.hpp>
 
 /**
- * \include core/ent/ent_base.hpp
+ * @include core/ent/ent_base.hpp
  */
 #include <core/ent/ent_base.hpp>
 
 /**
- * \include moon_log.hpp
+ * @include moon_log.hpp
  */
 #include <tools/moon_log.hpp>
 
 /**
  * @brief Namespace of the Core the Moon
- * \namespace Moon::Core
+ * @namespace Moon::Core
  */
 namespace Moon::Core
 {
@@ -55,7 +55,7 @@ namespace Moon::Core
     /**
      * @brief Class from which all Engine Entity inherit
      * @subsubsection Stability
-     * \image html assets/stability/stability_2.png
+     * @image html assets/stability/stability_2.png
      * @tparam Type Is a new Component Following the CRTP
      */
     template <class Type>

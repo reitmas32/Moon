@@ -10,23 +10,23 @@
 #pragma once
 
 /**
- * \include alias.hpp
+ * @include alias.hpp
  */
 #include <core/alias.hpp>
 
 /**
- * \include cmp/cmp_base.hpp
+ * @include cmp/cmp_base.hpp
  */
 #include <core/cmp/cmp_base.hpp>
 
 /**
- * \include moon_log.hpp
+ * @include moon_log.hpp
  */
 #include <tools/moon_log.hpp>
 
 /**
  * @brief Namespace of the Core the Moon
- * \namespace Moon::Core
+ * @namespace Moon::Core
  */
 namespace Moon::Core
 {
@@ -36,7 +36,7 @@ namespace Moon::Core
 
   /**
      * @brief Class from which any entity of the Engine inherits
-     * \image html assets/stability/stability_2.png
+     * @image html assets/stability/stability_2.png
      */
   struct EntityBase_t
   {

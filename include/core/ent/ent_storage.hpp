@@ -9,49 +9,49 @@
 #pragma once
 
 /**
- * \include vector
+ * @include vector
  */
 #include <vector>
 
 /**
- * \include unordered_map
+ * @include unordered_map
  */
 #include <unordered_map>
 
 /**
- * \include memory
+ * @include memory
  */
 #include <memory>
 
 /**
- * \include alias.hpp
+ * @include alias.hpp
  */
 #include <core/alias.hpp>
 
 /**
- * \include concepts.hpp
+ * @include concepts.hpp
  */
 #include <core/concepts.hpp>
 
 /**
- * \include cmp_vector.hpp
+ * @include cmp_vector.hpp
  */
 #include <core/ent/ent_vect.hpp>
 
 /**
- * \include moon_log.hpp
+ * @include moon_log.hpp
  */
 #include <tools/moon_log.hpp>
 
 /**
  * @brief Namespace of the Core the Moon
- * \namespace Moon::Core
+ * @namespace Moon::Core
  */
 namespace Moon::Core
 {
     /** It is a vector warehouse of Entities 
      * @subsubsection Stability
-     * \image html assets/stability/stability_2.png
+     * @image html assets/stability/stability_2.png
     */
     struct EntityStorage_t
     {
