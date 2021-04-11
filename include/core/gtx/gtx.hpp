@@ -245,6 +245,20 @@ namespace Moon::Core
             this->entities.template getEntities<ENT_t>().erase(it);
             std::cout << "Muerte " << eid << '\n';
         }
+
+        template <Moon::Concepts::Cmp_t CMP_t>
+        CMP_t &getRequiredComponent(Moon::Alias::EntityId eid)
+        {
+            auto &vectCmps = this->template getComponents<CMP_t>();
+            auto it = std::find_if(vectCmps.begin(),
+                                   vectCmps.end(),
+                                   [&](CMP_t &cmp) { return eid == cmp.eid });
+            if (it == vectCmps.end())
+            {
+                return CMP_t();
+            }
+            return it.base();
+        }
     };
 
 } // namespace Moon::Core
