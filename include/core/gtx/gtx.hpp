@@ -247,7 +247,7 @@ namespace Moon::Core
         }
 
         template <Moon::Concepts::Cmp_t CMP_t>
-        CMP_t &getRequiredComponent(Moon::Alias::EntityId eid)
+        CMP_t *getRequiredComponent(Moon::Alias::EntityId eid)
         {
             auto &vectCmps = this->template getComponents<CMP_t>();
             auto it = std::find_if(vectCmps.begin(),
@@ -255,7 +255,7 @@ namespace Moon::Core
                                    [&](CMP_t &cmp) { return eid == cmp.eid });
             if (it == vectCmps.end())
             {
-                return CMP_t();
+                return nullptr;
             }
             return it.base();
         }
