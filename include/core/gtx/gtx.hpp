@@ -252,7 +252,7 @@ namespace Moon::Core
             auto &vectCmps = this->template getComponents<CMP_t>();
             auto it = std::find_if(vectCmps.begin(),
                                    vectCmps.end(),
-                                   [&](CMP_t &cmp) { return eid == cmp.eid });
+                                   [&](CMP_t &cmp) { return eid == cmp.eid; });
             if (it == vectCmps.end())
             {
                 return nullptr;
