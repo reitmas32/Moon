@@ -2,7 +2,7 @@
  * @file system_base.hpp
  * @author Oswaldo Rafael Zamora Ramirez (rafa.zamo.rals@comunidad.unam.mx)
  * @brief Clase de la que heredan todos los systemas del Motor
- * @version 0.1
+ * @version 1.2.0
  * @date 2021-03-03
  *
  * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
@@ -14,7 +14,7 @@
 #include <core/alias.hpp>
 
 /**
- * \include moon_log.hpp
+ * @include moon_log.hpp
  */
 #include <tools/moon_log.hpp>
 
@@ -25,7 +25,7 @@
 namespace Moon::Core {
     /**
      * @brief Clase de la que heredan todos los systemas del Motor
-     * \image html assets/stability/stability_2.png
+     * @image html assets/stability/stability_2.png
      */
     struct SystemBase_t
     {

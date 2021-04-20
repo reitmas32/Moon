@@ -2,7 +2,7 @@
  * @file system.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @brief Clase de la que heredan los Systems del Motor
- * @version 0.1
+ * @version 1.2.0
  * @date 2021-03-03
  *
  * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
@@ -19,7 +19,7 @@
 #include <core/concepts.hpp>
 
 /**
- * \include moon_log.hpp
+ * @include moon_log.hpp
  */
 #include <tools/moon_log.hpp>
 
@@ -30,8 +30,47 @@
 namespace Moon::Core
 {
      /**
+     * @subsubsection Example
+     * @code{.cpp}
+     * struct PhysicsSys_t : Moon::Core::System_t<Gtx_t>
+     * {
+     *     inline static Moon::Tools::TimeStep_t time = Moon::Tools::TimeStep_t();
+     *     void update(Gtx_t *gtx) override;
+     * 
+     *     bool alive() override;
+     * };
+     * 
+     * //Use
+     * 
+     * //Create
+     * auto physicsSys = PhysicsSys_t();
+     * 
+     * //Game Loop
+     * 
+     * while(...){
+     *      .
+     *      .
+     *      .
+     *      physicsSys.update(&gtx);
+     *      renderSys.update(&gtx);
+     *      inputSys.update();
+     *      .
+     *      .
+     *      .
+     * }
+     * 
+     * //Update Method
+     *      void update(Gtx_t *gtx) override{
+     *          for (Position2Df_t &cmp : gtx->getComponents<Position2Df_t>())
+     *           {
+     *               //Any Update cmp Physics
+     *           }
+     *      }
+     * @endcode
+     */
+     /**
      * @brief Clase de la que heredan todos los Systems del Motor
-     * \image html assets/stability/stability_2.png
+     * @image html assets/stability/stability_2.png
      * @tparam Type
      */
      template <Moon::Concepts::Ctx_t... Type>
@@ -44,7 +83,8 @@ namespace Moon::Core
          *
          */
           //TODO:LOGS
-          System_t(){
+          System_t()
+          {
                Moon::Tools::Logs::contructor("System_t", this);
           }
 
@@ -53,7 +93,8 @@ namespace Moon::Core
          *
          */
           //TODO:LOGS
-          virtual ~System_t(){
+          virtual ~System_t()
+          {
                Moon::Tools::Logs::destructor("System_t", this);
           }
 
@@ -79,19 +120,59 @@ namespace Moon::Core
          */
           virtual bool alive() = 0;
      };
-
+     /**
+     * @subsubsection Example
+     * @code{.cpp}
+     * struct InputSystem_t : Moon::Core::SystemVoid_t<InputSystem_t>
+     * {
+     *     bool alive_flag = true;
+     * 
+     *     void update() override{
+     *         if (...)
+     *                 this->alive_flag = false;
+     *     }
+     *     bool alive() override{ return this->alive_flag; }
+     * };
+     * 
+     * //Use
+     * 
+     * //Create
+     * auto inputSys = InputSystem_t();
+     * 
+     * //Game Loop
+     * 
+     * while(...){
+     *      .
+     *      .
+     *      .
+     *      physicsSys.update(&gtx);
+     *      renderSys.update(&gtx);
+     *      inputSys.update();
+     *      .
+     *      .
+     *      .
+     * }
+     * @endcode
+     */
+     /**
+     * @brief Clase de la que heredan todos los SystemVoid del Motor
+     * @image html assets/stability/stability_1.png
+     * @tparam Type
+     */
      template <typename Type>
      struct SystemVoid_t : public SystemBase_t
      {
 
      public:
           //TODO:LOGS
-          SystemVoid_t(){
+          SystemVoid_t()
+          {
                Moon::Tools::Logs::contructor("SystemVoid_t", this);
           }
 
           //TODO:LOGS
-          virtual ~SystemVoid_t(){
+          virtual ~SystemVoid_t()
+          {
                Moon::Tools::Logs::destructor("SystemVoid_t", this);
           }
 

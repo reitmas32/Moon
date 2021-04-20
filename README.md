@@ -15,7 +15,7 @@ Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-St
 - [CMake](https://cmake.org/)
 
 ### Instalación y Compilación
-- ##### Windows
+- **Windows**
     - Solo se requiere tener instalado **CMake** y algun **Ninja** junto a algun compilador de C++ de su elección se recomienda g++ de **cygwin**
     - Clone el repositorio actual
     - Ejecute los comando(recomendado)
@@ -32,7 +32,7 @@ Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-St
           - `ninja`
       - Esto generara un proyecto del Build System que elegio
 
-- ##### Linux
+- **Linux**
     - Solo se requiere tener instalado **CMake** y **Make** junto a algun compilador de C++ de su elección
     - Clone el repositorio actual
     - Ejecute los comando(recomendado)
@@ -47,6 +47,17 @@ Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-St
           - `cd build/Debug`
           - `cmake ../.. -G "Unix Makefiles" -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG=-g -DCMAKE_C_FLAGS_DEBUG=-g -DLOGS=ON`
           - `make`
+
+### Compilando UTest de Moon Core
+
+- Clonar el repositorio con `--recursive` o actualizar `git submodule update --init`
+- `cd test/googletest`
+- `mkdir build`
+- `cd build`
+- `cmake ..`
+- `make`
+- `cd ../../..`
+- Compilar el proyecto nuevamente con `-Dtest=on` en cmake
 
 ### Usando Moon Core
 - Puede en contrar ejemplos de Moon en los siguientes repositorios

@@ -39,7 +39,7 @@ TEST(Test, example)
         ~ENT_TEST_2_t(){}
     };
 
-    struct GTX_TEST_1_t : Moon::Core::GameContext_t<ENT_TEST_1_t>
+    struct GTX_TEST_1_t : Moon::Core::GameContext_t<GTX_TEST_1_t>
     {
     };
 

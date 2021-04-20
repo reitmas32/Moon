@@ -3,7 +3,7 @@
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @brief Clase GameContext !!! Es laencargada de alamacenar Los datos de las
  * Entity y los Components
- * @version 0.1
+ * @version 1.2.0
  * @date 2021-03-03
  *
  * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
@@ -31,7 +31,7 @@
 #include <core/ent/ent_storage.tpp>
 
 /**
- * \include moon_log.hpp
+ * @include moon_log.hpp
  */
 #include <tools/moon_log.hpp>
 
@@ -45,9 +45,68 @@
 namespace Moon::Core
 {
     /**
+     * @subsubsection Example
+     * @code{.cpp}
+     * struct Gtx_t : Moon::Core::GameContext_t<Gtx_t>
+     * {
+     *     Gtx_t();
+     *     ~Gtx_t();
+     * };
+     * 
+     * //Use Gtx_t
+     * 
+     * //Create
+     * auto gtx = Gtx_t();
+     * 
+     * //Add Entities
+     * auto ent_1 = gtx.addEntity<Triangle_t>();
+     * auto ent_2 = gtx.addEntity<Triangle_t>();
+     * auto ent_3 = gtx.addEntity<Triangle_t>();
+     * 
+     * //Add Cmp to ent_1
+     * gtx.addComponentById<Triangle_t, SpriteTriangle_t>(ent_1.eid, 0.2f);
+     * gtx.addComponentById<Triangle_t, Position2Df_t>(ent_1.eid, 0.0f, 0.0f);
+     * gtx.addComponentById<Triangle_t, PhysicsCmp_t>(ent_1.eid, true);
+     * 
+     * //Add Cmp to ent_2
+     * gtx.addComponentById<Triangle_t, SpriteTriangle_t>(ent_2.eid, 0.15f);
+     * gtx.addComponentById<Triangle_t, Position2Df_t>(ent_2.eid, 0.9f, -0.9f);
+     * gtx.addComponentById<Triangle_t, IACmp_t>(ent_2.eid);
+     * 
+     * //Add Cmp to ent_3
+     * gtx.addComponentById<Triangle_t, SpriteTriangle_t>(ent_3.eid, 0.1f);
+     * gtx.addComponentById<Triangle_t, Position2Df_t>(ent_3.eid, -0.5f, -0.5f);
+     * gtx.addComponentById<Triangle_t, RotateCmp_t>(ent_3.eid);
+     * 
+     * //Game Loop
+     * 
+     * while(...){
+     *      .
+     *      .
+     *      .
+     *      physicsSys.update(&gtx);
+     *      renderSys.update(&gtx);
+     *      inputSys.update();
+     *      .
+     *      .
+     *      .
+     * }
+     * 
+     * //In Updates of Systems
+     * struct PhysicsSys_t : Moon::Core::System_t<Gtx_t>{
+     *      void update(Gtx_t *gtx) override{
+     *          for (Position2Df_t &cmp : gtx->getComponents<Position2Df_t>())
+     *           {
+     *               //Any Update cmp Physics
+     *           }
+     *      }
+     * };
+     * @endcode
+     */
+    /**
      * @brief Clase GameContext !!! Es laencargada de alamacenar Los datos de
      * las ENtity y los Components
-     * \image html assets/stability/stability_2.png
+     * @image html assets/stability/stability_2.png
      * @tparam Type
      */
     template <typename Type>
@@ -177,6 +236,20 @@ namespace Moon::Core
                                    [&](const auto &e) { return e.eid == eid; });
             this->entities.template getEntities<ENT_t>().erase(it);
             std::cout << "Muerte " << eid << '\n';
+        }
+
+        template <Moon::Concepts::Cmp_t CMP_t>
+        CMP_t *getRequiredComponent(Moon::Alias::EntityId eid)
+        {
+            auto &vectCmps = this->template getComponents<CMP_t>();
+            auto it = std::find_if(vectCmps.begin(),
+                                   vectCmps.end(),
+                                   [&](CMP_t &cmp) { return eid == cmp.eid; });
+            if (it == vectCmps.end())
+            {
+                return nullptr;
+            }
+            return it.base();
         }
     };
 

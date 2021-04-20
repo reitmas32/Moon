@@ -2,7 +2,7 @@
  * @file manager_base.hpp
  * @author Oswaldo Rafael Zamora Ramírez (rafa.zamo.rals@comunidad.unam.mx)
  * @brief 
- * @version 0.1
+ * @version 1.2.0
  * @date 2020-08-06
  * 
  * @copyright Copyright (c) Moon 2020-2021 Oswaldo Rafael Zamora Ramírez
