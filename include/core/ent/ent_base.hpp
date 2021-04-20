@@ -24,6 +24,9 @@
  */
 #include <tools/moon_log.hpp>
 
+//TODO:Documentation
+#include <core/concept_cmp.hpp>
+
 /**
  * @brief Namespace of the Core the Moon
  * @namespace Moon::Core
@@ -67,8 +70,8 @@ namespace Moon::Core
          * @pre CMP_t is base of Moon::Core::ComponentBase_t
          * @param cmp pointer of Component_t
          */
-    template <class CMP_t>
-    requires std::is_base_of<Moon::Core::ComponentBase_t, CMP_t>::value void
+    template <MOON_IS_CMP_T CMP_t>
+    void
     addComponent(CMP_t *cmp);
 
     /**
@@ -78,8 +81,7 @@ namespace Moon::Core
          * @pre CMP_t is base of Moon::Core::ComponentBase_t
          * @return CMP_t*
          */
-    template <class CMP_t>
-    requires std::is_base_of<Moon::Core::ComponentBase_t, CMP_t>::value
+    template <MOON_IS_CMP_T CMP_t>
         CMP_t *
         getComponent();
   };

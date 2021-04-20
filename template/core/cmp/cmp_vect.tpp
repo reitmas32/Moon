@@ -4,7 +4,7 @@
 
 namespace Moon::Core
 {
-  template <Moon::Concepts::Cmp_t CMP_t>
+  template <MOON_IS_CMP_T CMP_t>
   constexpr auto
   ComponentVect_t<CMP_t>::findComponentIteratorById(Moon::Alias::EntityId eid) noexcept
   {
@@ -17,7 +17,7 @@ namespace Moon::Core
     return itopt;
   }
 
-  template <Moon::Concepts::Cmp_t CMP_t>
+  template <MOON_IS_CMP_T CMP_t>
   ComponentBase_t *
   ComponentVect_t<CMP_t>::deleteComponentByEntityId(Moon::Alias::EntityId eid)
   {

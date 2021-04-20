@@ -195,7 +195,7 @@ namespace Moon::Core
          * @return Cmp_t&
          */
 
-        template <typename ENT_t, Moon::Concepts::Cmp_t CMP_t, typename... Ts>
+        template <typename ENT_t, MOON_IS_CMP_T CMP_t, typename... Ts>
         CMP_t &addComponentById(Moon::Alias::EntityId eid, Ts &&...args)
         {
             ENT_t *e = this->getEntityById<ENT_t>(eid);
@@ -211,7 +211,7 @@ namespace Moon::Core
          * @return std::vector<CMP_t>&
          */
 
-        template <Moon::Concepts::Cmp_t CMP_t>
+        template <MOON_IS_CMP_T CMP_t>
         std::vector<CMP_t> &getComponents()
         {
             return this->components.template getComponents<CMP_t>();
@@ -246,7 +246,7 @@ namespace Moon::Core
             std::cout << "Muerte " << eid << '\n';
         }
 
-        template <Moon::Concepts::Cmp_t CMP_t>
+        template <MOON_IS_CMP_T CMP_t>
         CMP_t *getRequiredComponent(Moon::Alias::EntityId eid)
         {
             auto &vectCmps = this->template getComponents<CMP_t>();

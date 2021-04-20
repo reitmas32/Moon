@@ -76,7 +76,7 @@ namespace Moon::Core
      * @image html assets/stability/stability_2.png
      * @tparam CMP_t Type of the Component_t
      */
-    template <Moon::Concepts::Cmp_t CMP_t>
+    template <MOON_IS_CMP_T CMP_t>
     struct ComponentVect_t : ComponentBaseVect_t
     {
         /**
