@@ -59,6 +59,7 @@ clone_moon_rep(){
     cd $HOME/MoonStudio
     sudo rm -r Moon
     git clone git@github.com:reitmas32/Moon.git
+    git checkout experimental
 }
 
 build_moon(){
