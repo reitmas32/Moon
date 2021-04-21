@@ -62,3 +62,10 @@ Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-St
 ### Usando Moon Core
 - Puede en contrar ejemplos de Moon en los siguientes repositorios
     - [Examples](https://github.com/EGE-Studios/Moon/tree/master/examples)
+
+### Formato para la contribucion de Commits
+
+- feat(feature-name): mensage del commit
+- fix(feature-name): mensage del commit
+- docs(feature-name): mensage del commit
+- breaking(feature-name): mensage del commit
