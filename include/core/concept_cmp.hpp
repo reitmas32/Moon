@@ -11,13 +11,10 @@
 #endif
 #endif
 
-#include "concept_cmp.hpp"
-
 #include <core/cmp/cmp_base.hpp>
-#include <core/ent/ent_base.hpp>
+//#include <core/ent/ent_base.hpp>
 #include <core/gtx/gtx_base.hpp>
 #include <core/sys/sys_base.hpp>
-
 #if HAS_CONCEPTS
 
 /**
@@ -25,6 +22,7 @@
  */
 namespace Moon::Concepts
 {
+    /*
     template <typename Gtx_t>
     concept Ctx_t =
         std::is_base_of<Moon::Core::GameContextBase_t, Gtx_t>::value ||
@@ -32,17 +30,14 @@ namespace Moon::Concepts
 
     template <typename Entity_t>
     concept Ent_t = std::is_base_of<Moon::Core::EntityBase_t, Entity_t>::value;
-/*
+*/
     template <typename Component_t>
     concept Cmp_t =
         std::is_base_of<Moon::Core::ComponentBase_t, Component_t>::value;
-        */
 } // namespace Moon::Concepts
 
 //#if HAS_CONCEPTS
-#define MOON_IS_CTX_T Moon::Concepts::Ctx_t
-#define MOON_IS_ENT_T Moon::Concepts::Ent_t
+#define MOON_IS_CMP_T Moon::Concepts::Cmp_t
 #else
-#define MOON_IS_CTX_T typename
-#define MOON_IS_ENT_T typename
+#define MOON_IS_CMP_T typename
 #endif

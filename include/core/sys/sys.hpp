@@ -73,7 +73,7 @@ namespace Moon::Core
      * @image html assets/stability/stability_2.png
      * @tparam Type
      */
-     template <Moon::Concepts::Ctx_t... Type>
+     template <MOON_IS_CTX_T... Type>
      struct System_t : public SystemBase_t
      {
 

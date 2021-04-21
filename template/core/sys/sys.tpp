@@ -4,7 +4,7 @@
 
 namespace Moon::Core
 {
-    template <Moon::Concepts::Ctx_t... Type>
+    template <MOON_IS_CTX_T... Type>
     Moon::Alias::SystemType System_t<Type...>::getSystemType() noexcept
     {
         static Moon::Alias::SystemType type = ++nextType;

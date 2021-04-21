@@ -79,7 +79,7 @@ namespace Moon::Core
          * @pre The Component_t to create must have a constructor with the specified parameters
          * @return CMP_t& This is a reference to new Component_t
          */
-        template <Moon::Concepts::Cmp_t CMP_t, typename... Ts>
+        template <MOON_IS_CMP_T CMP_t, typename... Ts>
         CMP_t &createComponent(Moon::Alias::EntityId eid, Ts &&...args);
 
         /**
@@ -88,7 +88,7 @@ namespace Moon::Core
          * @tparam CMP_t Type of the Component_t
          * @return std::vector<CMP_t>& Reference to vector of Component_t's
          */
-        template <Moon::Concepts::Cmp_t CMP_t>
+        template <MOON_IS_CMP_T CMP_t>
         std::vector<CMP_t> &getComponents();
 
         /**
@@ -97,7 +97,7 @@ namespace Moon::Core
          * @tparam CMP_t Type of the Component_t
          * @return const std::vector<CMP_t>& Const Reference to vector of Component_t's
          */
-        template <Moon::Concepts::Cmp_t CMP_t>
+        template <MOON_IS_CMP_T CMP_t>
         const std::vector<CMP_t> &getComponents() const;
 
         /*
@@ -117,7 +117,7 @@ namespace Moon::Core
          * @tparam CMP_t Type of the Component_t
          * @return std::vector<CMP_t>& 
          */
-        template <Moon::Concepts::Cmp_t CMP_t>
+        template <MOON_IS_CMP_T CMP_t>
         std::vector<CMP_t> &createComponentVector();
 
         /**Map of the types and Vector<Component_t's>*/
