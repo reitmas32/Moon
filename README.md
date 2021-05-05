@@ -15,38 +15,26 @@ Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-St
 - [CMake](https://cmake.org/)
 
 ### Instalación y Compilación
-- **Windows**
-    - Solo se requiere tener instalado **CMake** y algun **Ninja** junto a algun compilador de C++ de su elección se recomienda g++ de **cygwin**
-    - Clone el repositorio actual
-    - Ejecute los comando(recomendado)
-        - **Release**
-          - `mkdir build/Release`
-          - `cd build/Release`
-          - `cmake ../.. -G "Ninja" -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE=-O3 -DCMAKE_C_FLAGS_RELEASE=-O3 -DLOGS=OFF`
-          - `ninja`
+Para compilar este proyecto necesitas
+- requerimentos basicos de Moon
+- Crear una varible de entorno MOON_STUDIO_DIR que tendra el valor del directorio en el que se encuentra MoonStudio
+- Compilar Moon
+    - Ejemplo Linux 
 
-        - **Debug**
-          - `mkdir build/Debug`
-          - `cd build/Debug`
-          - `cmake ../.. -G "Ninja" -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG=-g -DCMAKE_C_FLAGS_DEBUG=-g -DLOGS=ON`
-          - `ninja`
-      - Esto generara un proyecto del Build System que elegio
+        ```bash
+        cd Moon
+        mkdir build
+        cmake .. -DCMAKE_CXX_COMPILER=g++-10
+        make
+        ```
+    - Ejemplo Windows 
 
-- **Linux**
-    - Solo se requiere tener instalado **CMake** y **Make** junto a algun compilador de C++ de su elección
-    - Clone el repositorio actual
-    - Ejecute los comando(recomendado)
-        - **Release** 
-          - `mkdir build/Release`
-          - `cd build/Release`
-          - `cmake ../.. -G "Unix Makefiles" -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE=-O3 -DCMAKE_C_FLAGS_RELEASE=-O3 -DLOGS=OFF`
-          - `make`
-
-        - **Debug**
-          - `mkdir build/Debug`  
-          - `cd build/Debug`
-          - `cmake ../.. -G "Unix Makefiles" -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG=-g -DCMAKE_C_FLAGS_DEBUG=-g -DLOGS=ON`
-          - `make`
+        ```bash
+        cd Moon
+        mkdir build
+        cmake -G "Ninja" .. -DCMAKE_CXX_COMPILER=clang++
+        ninja
+        ```
 
 ### Compilando UTest de Moon Core
 
