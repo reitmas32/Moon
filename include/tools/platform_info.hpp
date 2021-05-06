@@ -8,6 +8,13 @@
     /* Windows x64  */
     #define MOON_PLATFORM_WINDOWS
 
+#elif __clang__
+
+    #pragma message( "Compiling with CLANG LLMV" )
+
+    /* Windows x64  */
+    #define MOON_PLATFORM_WINDOWS
+
 #elif _WIN32 || _WIN64
 
 #error "compiler not supported. Please, use CYGWIN"
