@@ -10,8 +10,8 @@ Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-St
 - MacOS(Proximamente)
 
 #### Requisitos
-- Un compilador de C++, recomendado [gcc](https://gcc.gnu.org/) o [clang](https://clang.llvm.org/)
-- [Make](https://www.gnu.org/software/make/) para Linux y [Ninja](https://ninja-build.org/) para Windows
+- Un compilador de C++, recomendado [gcc](https://gcc.gnu.org/) usar la version 10 preferentemente, [clang](https://clang.llvm.org/) y [cygwin](https://www.cygwin.com/)
+- Un build system para compilar el proyecto [Make](https://www.gnu.org/software/make/) para Linux y [Ninja](https://ninja-build.org/) para Windows y Linux
 - [CMake](https://cmake.org/)
 
 ### Instalación y Compilación
