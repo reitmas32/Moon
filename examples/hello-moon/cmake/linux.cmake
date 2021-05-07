@@ -42,3 +42,5 @@ add_executable(
 target_link_libraries(${APP}
     ${MOON_LIBRARIES}
     )
+
+    target_compile_features(${APP} PUBLIC cxx_std_20)
