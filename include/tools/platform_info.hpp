@@ -8,12 +8,16 @@
     /* Windows x64  */
     #define MOON_PLATFORM_WINDOWS
 
+	#define MOON_WINDOWS_CYGWIN
+
 #elif __clang__
 
     #pragma message( "Compiling with CLANG LLMV" )
 
     /* Windows x64  */
     #define MOON_PLATFORM_WINDOWS
+
+	#define MOON_WINDOWS_CLANG
 
 #elif _WIN32 || _WIN64
 
