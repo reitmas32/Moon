@@ -19,6 +19,15 @@ namespace Moon::Core
   template <typename ENT_t>
   EntityBase_t *EntityVect_t<ENT_t>::deleteByEntityId(Moon::Alias::EntityId eid)
   {
+#ifdef MOON_WINDOWS_CLANG
+    for (ENT_t &var : this->entities)
+    {
+      if (var.eid == eid)
+      {
+        return &var;
+      }
+    }
+#elif defined(MOON_WINDOWS_CYGWIN) || defined(MOON_PLATFORM_LINUX)
     auto itopt = this->findEntityIteratorById(eid);
 
     if (!itopt)
@@ -30,5 +39,7 @@ namespace Moon::Core
       *it = entities.back();
     entities.pop_back();
     return it.base();
+#endif
+    return nullptr;
   }
 } // namespace Moon::Core

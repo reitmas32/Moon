@@ -21,6 +21,15 @@ namespace Moon::Core
   ComponentBase_t *
   ComponentVect_t<CMP_t>::deleteComponentByEntityId(Moon::Alias::EntityId eid)
   {
+#ifdef MOON_WINDOWS_CLANG
+    for (CMP_t &var : this->components)
+    {
+      if (var.eid == eid)
+      {
+        return &var;
+      }
+    }
+#elif defined(MOON_WINDOWS_CYGWIN) || defined(MOON_PLATFORM_LINUX)
     auto itopt = this->findComponentIteratorById(eid);
 
     if (!itopt)
@@ -32,5 +41,9 @@ namespace Moon::Core
       *it = components.back();
     components.pop_back();
     return it.base();
+#else 
+    return nullptr;
+#endif
+    return nullptr;
   }
 } // namespace Moon::Core

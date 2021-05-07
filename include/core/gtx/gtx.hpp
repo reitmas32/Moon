@@ -174,8 +174,11 @@ namespace Moon::Core
             {
                 return nullptr;
             }
+#ifdef MOON_WINDOWS_CLANG
+            return &(*it);
+#else
             return it.base();
-
+#endif
         }
         /**
          * @brief Añade un nuevo component a la entity señalada
@@ -227,11 +230,12 @@ namespace Moon::Core
                     continue;
 
                 auto *moveEntity{this->getEntityById<ENT_t>(cmp_ptr->eid)};
-                
-                if(moveEntity)
-                    moveEntity->updateComponent(typeID, cmp_ptr);
-            }
 
+                if (moveEntity)
+                {
+                    moveEntity->updateComponent(typeID, cmp_ptr);
+                }
+            }
             auto it = std::find_if(this->entities.template getEntities<ENT_t>().begin(), this->entities.template getEntities<ENT_t>().end(),
                                    [&](const auto &e) { return e.eid == eid; });
             this->entities.template getEntities<ENT_t>().erase(it);
@@ -249,7 +253,13 @@ namespace Moon::Core
             {
                 return nullptr;
             }
+#ifdef MOON_WINDOWS_CLANG
+            return &(*it);
+#elif defined(MOON_WINDOWS_CYGWIN) || defined(MOON_PLATFORM_LINUX)
             return it.base();
+#else
+            return nullptr;
+#endif
         }
     };
 
