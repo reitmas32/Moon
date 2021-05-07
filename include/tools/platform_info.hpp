@@ -10,7 +10,7 @@
 
 	#define MOON_WINDOWS_CYGWIN
 
-#elif __clang__
+#elif __clang__ && (defined(_WIN32) || defined(_WIN64))
 
     #pragma message( "Compiling with CLANG LLMV" )
 
@@ -45,6 +45,12 @@
 	#error "Android is not supported!"
 #elif defined(__linux__)
 	#define MOON_PLATFORM_LINUX
+
+	#if defined(GCC)
+		#define MOON_LINUX_GCC
+	#elif defined(__clang__)
+		#define MOON_LINUX_CLANG
+	#endif
 #else
 	/* Unknown compiler/platform */
 	#error "Unknown platform!"
