@@ -1,0 +1,10 @@
+name_project: __name_project__
+description: Hello World in Moon
+build_dir: __build_dir__
+name_build: __name_build__
+build_system_exe: __build_system_exe__
+c_compiler: __c_compiler__
+cxx_compiler: __cxx_compiler__
+build_system: __build_system__
+cmake_flags: []
+build_system_flags: []
