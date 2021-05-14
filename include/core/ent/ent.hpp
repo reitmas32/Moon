@@ -1,5 +1,5 @@
 /**
- * @file entity.hpp
+ * @file ent.hpp
  * @author Oswaldo Rafael Zamora Ramirez (rafa.zamo.rals@comunidad.unam.mx)
  * @version 0.0.1
  * @date 2021-03-03
