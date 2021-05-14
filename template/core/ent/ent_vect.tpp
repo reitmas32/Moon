@@ -4,7 +4,7 @@
 
 namespace Moon::Core
 {
-  template <typename ENT_t>
+  template <MOON_IS_ENT_T ENT_t>
   constexpr auto EntityVect_t<ENT_t>::findEntityIteratorById(Moon::Alias::EntityId eid) noexcept
   {
     std::optional itopt =
@@ -16,7 +16,7 @@ namespace Moon::Core
     return itopt;
   }
 
-  template <typename ENT_t>
+  template <MOON_IS_ENT_T ENT_t>
   EntityBase_t *EntityVect_t<ENT_t>::deleteByEntityId(Moon::Alias::EntityId eid)
   {
 #ifdef MOON_WINDOWS_CLANG
