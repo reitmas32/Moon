@@ -1,11 +1,11 @@
 #### Core
 
-- [Component_t](moon-docs/cmp.md)
-- [ComponentBase_t](moon-docs/)
-- [ComponentBaseVect_t](moon-docs/)
-- [ComponentSingleton_t](moon-docs/)
-- [ComponentStorage_t](moon-docs/)	
-- [ComponentVect_t](moon-docs/)
+- [Component_t](cmp/cmp.md)
+- [ComponentBase_t](cmp/cmp_base.md)
+- [ComponentBaseVect_t](cmp/cmp_base_vect.md)
+- [ComponentSingleton_t](cmp/cmp_singleton.md)
+- [ComponentStorage_t](cmp/cmp_storage)	
+- [ComponentVect_t](cmp/cmp_vect.md)
 - [Entity_t](moon-docs/)
 - [EntityBase_t](moon-docs/)
 - [EntityBaseVect_t](moon-docs/)
