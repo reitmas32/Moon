@@ -198,7 +198,7 @@ namespace Moon::Core
             return cmp;
         }
         /**
-         * @brief Get the Components object
+         * @brief Get the Components
          *
          * @tparam CMP_t
          * @return std::vector<CMP_t>&
@@ -210,12 +210,24 @@ namespace Moon::Core
             return this->components.template getComponents<CMP_t>();
         }
 
+        /**
+         * @brief Get the Entities
+         *
+         * @tparam ENT_t 
+         * @return std::vector<ENT_t>&
+         */
         template <typename ENT_t>
         std::vector<ENT_t> &getEntities()
         {
             return this->entities.template getEntities<ENT_t>();
         }
 
+        /**
+         * @brief Delete the Entitie
+         *
+         * @tparam ENT_t 
+         * @param eid if of Entity
+         */
         template <typename ENT_t>
         void destroyEntityById(Moon::Alias::EntityId eid)
         {
@@ -242,6 +254,12 @@ namespace Moon::Core
             std::cout << "Muerte " << eid << '\n';
         }
 
+        /**
+         * @brief Get the Component
+         *
+         * @tparam CMP_t 
+         * @param eid if of Entity
+         */
         template <MOON_IS_CMP_T CMP_t>
         CMP_t *getRequiredComponent(Moon::Alias::EntityId eid)
         {
