@@ -76,7 +76,7 @@ namespace Moon::Core
      * @image html assets/stability/stability_2.png
      * @tparam ENT_t Type of the Entity_t
      */
-    template <typename ENT_t>
+    template <MOON_IS_ENT_T ENT_t>
     struct EntityVect_t : EntityBaseVect_t
     {
 
