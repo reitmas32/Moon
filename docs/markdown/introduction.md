@@ -12,3 +12,12 @@ Moon es un Game Engine desarrollado por KEGE Studios escrito en C/C++, fue dise�
 - Ejemplos para todos los plugins oficiales
 - Solo incluyes lo que necesitas
 - Independencia de plugins
+
+### Caracteristicas de la versión
+- GameContext
+- System
+- Component
+- Entity
+- Herramienta de Instalacion y creacion de proyectos
+- Uso de la STL para los contenedores
+- Predicción de tipos en tiempo de compilación
