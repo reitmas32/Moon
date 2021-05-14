@@ -27,6 +27,7 @@ Para compilar este proyecto necesitas
         cmake .. -DCMAKE_CXX_COMPILER=g++-10
         make
         ```
+        - Añade a la variable PATH Moon/tools/moon-cli/dist-linux/bin
     - Ejemplo Windows 
 
         ```bash
@@ -35,6 +36,7 @@ Para compilar este proyecto necesitas
         cmake -G "Ninja" .. -DCMAKE_CXX_COMPILER=clang++
         ninja
         ```
+        - Añade a la variable PATH Moon/tools/moon-cli/dist-windows/bin
 
 ### Compilando UTest de Moon Core
 

@@ -24,7 +24,6 @@ build1
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -37,6 +36,4 @@ build1
 *.lib
 
 # Executables
-*.exe
-*.out
 *.app
