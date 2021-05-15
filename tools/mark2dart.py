@@ -11,9 +11,10 @@ def main():
         file_md = open(filename, "r")
         data = file_md.read()
         file_md.close()
-        name_var = filename.replace(".md", "").replace("markdown/", "").replace("/", "_").replace("-", "_")
-        file = filename.replace(".md", "").replace("markdown", "dart")
+        name_var = filename.replace(".md", "").replace("markdown/", "").replace("/", "_").replace("-", "_").replace("..","")
+        file = filename.replace(".md", "").replace("markdown", "moon_docs/lib/markdown")
         data_dart = "final String " + name_var + " = '''\n" + data + "\n''';"
+        data_dart = data_dart.replace("$", "\$")
         if not os.path.exists(os.path.dirname(file)):
             try:
                 os.makedirs(os.path.dirname(file))
