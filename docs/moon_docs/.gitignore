@@ -1,6 +1,7 @@
 ios
 android
 web
+lib/markdown
 
 # Miscellaneous
 *.class
