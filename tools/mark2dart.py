@@ -11,7 +11,8 @@ def main():
         file_md = open(filename, "r")
         data = file_md.read()
         file_md.close()
-        name_var = filename.replace(".md", "").replace("markdown/", "").replace("/", "_").replace("-", "_").replace("..","")
+        name_var = filename.replace(".md", "").replace(dir_markdown, "").replace("/", "_").replace("-", "_").replace("..","")
+        name_var += "_md"
         file = filename.replace(".md", "").replace("markdown", "moon_docs/lib/markdown")
         data_dart = "final String " + name_var + " = '''\n" + data + "\n''';"
         data_dart = data_dart.replace("$", "\$")
