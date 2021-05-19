@@ -1,8 +1,6 @@
 #pragma once
 
-#include <concepts>
-#include <iostream>
-#include <unordered_map>
+#include <cstdint>
 
 /**
  * @brief Namespace de los alias del motor

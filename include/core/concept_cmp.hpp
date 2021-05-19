@@ -7,7 +7,7 @@
 #ifndef MESSAGE_NOT_CONCEPTS
 #define MESSAGE_NOT_CONCEPTS
 //TODO:Create More Info of Concepts
-#pragma message("Not Concepts '<concepts>' Vulnerable Security Please Use C++20")
+#warning "Not Concepts '<concepts>' Vulnerable Security Please Use C++20"
 #endif
 #endif
 
