@@ -30,14 +30,14 @@ struct GameContextBase_t
 
 #### Contructores y Destructores
 
-- **Component_t() **<br>
+- **GameContextBase_t()**<br>
   Constructor por defecto<br>
   Definicion
   ``` C++
     Moon::Core::GameContextBase_t()
   ```
 
-- **~Component_t()**<br>
+- **~GameContextBase_t()**<br>
   Destructor por defecto<br>
   Definicion
   ``` C++
