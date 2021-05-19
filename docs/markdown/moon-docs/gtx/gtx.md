@@ -1,7 +1,5 @@
 ## **GameContext_t**
 
-Clase de la que heredan todas la entidades
-
 Las Enidades son una parte esencial de la arquitectura ECS, en estas se almacenan un conjunto de Componentes de distintos tipos estos tiene relacion directa entre si los cuales dotan de caracteristicas a las entidades
 
 ### Herencia
