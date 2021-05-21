@@ -63,4 +63,4 @@ Para compilar este proyecto necesitas
 - breaking(feature-name): mensage del commit
 
 ### Plugins
-- [Moon Terminal](git@github.com:reitmas32/Moon_Terminal.git)
+- [Moon Terminal](https://github.com/reitmas32/Moon_Terminal)
