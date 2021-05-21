@@ -1,4 +1,6 @@
-# Moon Core
+# Moon
+
+<center><img src="https://raw.githubusercontent.com/reitmas32/Moon/master/assets/logo-moon.png"></center>
 
 Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-Studios) escrito en C/C++,  fue diseñado basado en la Arquitectura [ECS](http://entity-systems.wikidot.com/) y usando algunas funcionalidades del nuevo estandar de [C++20](https://en.cppreference.com/w/cpp/20)
 
@@ -59,3 +61,6 @@ Para compilar este proyecto necesitas
 - fix(feature-name): mensage del commit
 - docs(feature-name): mensage del commit
 - breaking(feature-name): mensage del commit
+
+### Plugins
+- [Moon Terminal](git@github.com:reitmas32/Moon_Terminal.git)
