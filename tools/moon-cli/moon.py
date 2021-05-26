@@ -49,8 +49,8 @@ except:
 
 official_plugins = ["Moon", "Moon_Terminal"]
 
-official_plugins_repo = {"Moon": "git@github.com:reitmas32/Moon.git",
-                         "Moon_Terminal": "git@github.com:reitmas32/Moon_Terminal.git"}
+official_plugins_repo = {"Moon": "https://github.com/reitmas32/Moon.git",
+                         "Moon_Terminal": "https://github.com/reitmas32/Moon_Terminal.git"}
 
 glob_name_project = "jj"
 glob_description = ""
