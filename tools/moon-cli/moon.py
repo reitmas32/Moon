@@ -136,6 +136,29 @@ def main():
 def info():
     print(moon_info)
 
+@main.command()
+@click.argument('snippets', nargs=-1)
+def install_snippets(snippets):
+    if not snippets:
+        print("Snippets supported: vscode, subl, atom")
+    for snippet in snippets:
+        if snippet == 'vscode':
+            print(snippet)
+            try:
+                os.mkdir('.vscode')
+                
+                read_config()
+
+                # Get MoonEmptyProjectDir
+                moon_empty_project_dir = moon_studio_dir + \
+                    "/Moon/tools/moon-cli/assets/vscode-snippets/"
+
+                # Copy the MoonEmptyProjectDir in new project {name}
+                shutil.copytree(moon_empty_project_dir, '.vscode', dirs_exist_ok=True)
+            except:
+                print("ERROR not install snippets for vscode")
+            
+    
 
 @main.command()
 @click.argument('plugins', nargs=-1)
