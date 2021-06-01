@@ -38,5 +38,39 @@
 		  	"};"
 		],
 		"description": "Entity_t"
+	},
+	"GameContext_t": {
+		"prefix": "gtx-moon",
+		"body": [
+		  	"struct ${1:NewGameContext} : Moon::Core::GameContext_t<${1:NewGameContext}>",
+		  	"{",
+		  	"\t${1:NewGameContext}()",
+		  	"\t{",
+		  	"\t\t${2://TODO}",
+		  	"\t}",
+		  	"",
+			"\t~${1:NewGameContext}(){}",
+		  	"};"
+		],
+		"description": "GameContext_t"
+	},
+		"System_t": {
+		"prefix": "sys-moon",
+		"body": [
+		  	"struct ${1:NewSystem} : Moon::Core::System_t<${2:GameCtx}>",
+		  	"{",
+		  	"\t${1:NewSystem}()",
+		  	"\t{",
+		  	"\t\t${3://TODO}",
+		  	"\t}",
+		  	"",
+			"\t~${1:NewSystem}(){}",
+			"",
+			"\tbool alive() override{}",
+			"",
+			"\tvoid update(${2:GameCtx} *gtx) override{}",
+		  	"};"
+		],
+		"description": "System_t"
 	}
 }
