@@ -27,6 +27,8 @@
 //TODO:Documentation
 #include <core/concept_cmp.hpp>
 
+#include <unordered_map>
+
 /**
  * @brief Namespace of the Core the Moon
  * @namespace Moon::Core
