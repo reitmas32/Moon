@@ -1,0 +1,10 @@
+name_project: moon
+description: Moon Core
+build_dir: build
+name_build: moon
+build_system_exe: make
+c_compiler: gcc-10
+cxx_compiler: g++-10
+build_system: Unix Makefiles
+cmake_flags: []
+build_system_flags: []
