@@ -1,0 +1,10 @@
+name_project: hello-moon
+description: Moon Core Example
+build_dir: build
+name_build: hello-moon
+build_system_exe: make
+c_compiler: gcc-11
+cxx_compiler: g++-11
+build_system: Unix Makefiles
+cmake_flags: []
+build_system_flags: []

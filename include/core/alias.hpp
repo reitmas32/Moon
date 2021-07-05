@@ -11,7 +11,7 @@ namespace Moon::Alias {
      * @brief Tipo definido para dar un ID a cada entidad
      *
      */
-    using EntityId = std::size_t;
+    using EntityId = size_t;
 
     /**
      * @brief Tipos definidos para identificar cada tipo distinto de Objeto en
