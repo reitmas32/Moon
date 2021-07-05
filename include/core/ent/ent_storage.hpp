@@ -116,6 +116,12 @@ namespace Moon::Core
             return it->second->deleteByEntityId(eid);
         }
 
+        //TODO
+        auto begin() { return this->storage.begin(); }
+
+        //TODO
+        auto end() { return this->storage.end(); }
+
     private:
         /**
          * @brief Create a Entity Vector object
