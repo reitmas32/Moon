@@ -4,56 +4,79 @@
 
 Moon es un Game Engine desarrollado por [KEGE Studios](https://github.com/EGE-Studios) escrito en C/C++,  fue diseñado basado en la Arquitectura [ECS](http://entity-systems.wikidot.com/) y usando algunas funcionalidades del nuevo estandar de [C++20](https://en.cppreference.com/w/cpp/20)
 
-![KEGE Studios](https://raw.githubusercontent.com/EGE-Studios/Moon/master/assets/KegeStudios.png)
+### **Características principales**
+
+- Eficiente en el uso de Recursos
+- Arquitectura Kernel para el escalamiento e interacción entre los plugins
+- Uso de la STL para los contenedores
+- Concepts implementados para una mayor seguridad en templates
+- Predicción de tipos en tiempo de compilación
+- Un Core simple, liviano y libre
+- Plugins pequeños y específicos
+- Ejemplos para todos los plugins oficiales
+- Solo incluyes lo que necesitas
+- Independencia de plugins
+
+### **Características de la versión**
+
+- GameContext
+- System
+- Component
+- Entity
+- Herramienta de Instalacion y creacion de proyectos
+- Uso de la STL para los contenedores
+- Predicción de tipos en tiempo de compilación
+
+## **Configuración del entorno**
+
+Añade la variable de entorno
+
+```bash
+MOON_STUDIO_PATH=$HOME/MoonStudio
+```
+
+Esto servirá para la creación de los proyectos de Moon
+
+## **Instalación**
 
 ### Plataformas 
 - Windows
 - Linux
 - MacOS(Proximamente)
 
-#### Requisitos
-- Un compilador de C++, recomendado [gcc](https://gcc.gnu.org/) usar la version 10 preferentemente, [clang](https://clang.llvm.org/) y [cygwin](https://www.cygwin.com/)
-- Un build system para compilar el proyecto [Make](https://www.gnu.org/software/make/) para Linux y [Ninja](https://ninja-build.org/) para Windows y Linux
-- [CMake](https://cmake.org/)
+Windows y Linux
 
-### Instalación y Compilación
-Para compilar este proyecto necesitas
-- requerimentos basicos de Moon
-- Crear una varible de entorno MOON_STUDIO_DIR que tendra el valor del directorio en el que se encuentra MoonStudio
-- Compilar Moon
-    - Ejemplo Linux 
+Solo se requiere tener instalado CMake y algún BuildSystem como Ninja para WIndows y Unix Makefile para Linux junto a un compilador de C++ de su elección se recomienda g++ de cygwin para Windows y GNU GCC o Clang para Linux.
 
-        ```bash
-        cd Moon
-        mkdir build
-        cmake .. -DCMAKE_CXX_COMPILER=g++-10
-        make
-        ```
-        - Añade a la variable PATH Moon/tools/moon-cli/dist-linux/bin
-    - Ejemplo Windows 
+```bash
+# Creamos la carpeta donde se instalaran tanto el core como los plugins
+mkdir MoonStudio
+cd MoonStudio
 
-        ```bash
-        cd Moon
-        mkdir build
-        cmake -G "Ninja" .. -DCMAKE_CXX_COMPILER=clang++
-        ninja
-        ```
-        - Añade a la variable PATH Moon/tools/moon-cli/dist-windows/bin
+# Clonamos el repositorio de Moon
+git clone git@github.com:reitmas32/Moon.git
+cd Moon
 
-### Compilando UTest de Moon Core
+# Creamos una carpeta para los .lib .a y ejecutables
+mkdir build
+cd build
 
-- Clonar el repositorio con `--recursive` o actualizar `git submodule update --init`
-- `cd test/googletest`
-- `mkdir build`
-- `cd build`
-- `cmake ..`
-- `make`
-- `cd ../../..`
-- Compilar el proyecto nuevamente con `-Dtest=on` en cmake
+# Creamos la configuracion de Cmake para la compilacion de Moon
+cmake .. -G <BuildSystem>-DCMAKE_CXX_COMPILER=<CXX_COMPILER> -DCMAKE_C_COMPILER=<C_COMPILER> -DCMAKE_CXX_FLAGS=”stdlib=libc++”
+
+# Por ultimo dependiendo del BuildSystem que usemos compilaremos el proyecto 
+```
+
 
 ### Usando Moon Core
 - Puede en contrar ejemplos de Moon en los siguientes repositorios
     - [Examples](https://github.com/EGE-Studios/Moon/tree/master/examples)
+
+## **Contribución en Moon**
+
+¡Gracias por invertir su tiempo en contribuir a nuestro proyecto! Cualquier contribución que haga se reflejará en https://github.com/reitmas32/Moon.
+
+Lea nuestro [Código de conducta](https://github.com/reitmas32/Moon/blob/master/CODE_OF_CONDUCT.md) para mantener nuestra comunidad accesible y respetable.
 
 ### Formato para la contribucion de Commits
 
@@ -64,3 +87,7 @@ Para compilar este proyecto necesitas
 
 ### Plugins
 - [Moon Terminal](https://github.com/reitmas32/Moon_Terminal)
+
+## **Docuemntación**
+
+Para obtener mayor informacin sobre **Moon** puede consultar nuestra [Documentación](https://ambiguous-sweater-c99.notion.site/Moon-Engine-dd64f15918ca4c63b8c129dae2991d79)
